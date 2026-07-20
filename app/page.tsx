@@ -37,8 +37,8 @@ export default function Home() {
   return (
     <div className="site-shell">
       <header className="site-header">
-        <a className="brand" href="#home" aria-label="KW Portfolio home">
-          KW <span>/ Portfolio</span>
+        <a className="brand" href="#home" aria-label="Kui Wu Portfolio home">
+          Kui Wu <span>/ Portfolio</span>
         </a>
         <nav aria-label="Primary navigation">
           <a href="#about">About</a>
