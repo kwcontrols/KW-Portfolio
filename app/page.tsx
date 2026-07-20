@@ -55,14 +55,13 @@ export default function Home() {
             <p className="eyebrow">Process automation · System integration · Applied AI</p>
             <h1>Building smarter systems. Learning what comes next.</h1>
             <p className="hero-lede">
-              I&apos;m Kui Wu, a Process Automation and System Integration Specialist
+              I&apos;m Kui Wu, a process automation and system integration specialist
               with over a decade of experience delivering industrial automation
-              solutions across pharmaceutical, biotech, water treatment and
-              manufacturing. Today, I&apos;m exploring how AI can enhance engineering
-              workflows.
+              solutions across pharmaceutical, water treatment, manufacturing, and
+              other industrial sectors.
             </p>
             <p className="eyebrow hero-tools">
-              Rockwell Automation · PLC · HMI · SCADA · PlantPAx · FactoryTalk
+              PLC · VFD · HMI · SCADA · System Integration · Electrical Design
             </p>
             <div className="hero-actions">
               <a className="button button-primary" href="#projects">View Projects</a>
