@@ -52,7 +52,7 @@ export default function Home() {
       <main>
         <section className="hero" id="home">
           <div className="hero-copy">
-            <p className="eyebrow">Process automation · System integration · Applied AI</p>
+            <p className="eyebrow">Process automation · System integration · Electrical design</p>
             <h1>Building smarter systems. Learning what comes next.</h1>
             <p className="hero-lede">
               I&apos;m Kui Wu, a process automation and system integration specialist
@@ -61,7 +61,7 @@ export default function Home() {
               other industrial sectors.
             </p>
             <p className="eyebrow hero-tools">
-              PLC · VFD · HMI · SCADA · System Integration · Electrical Design
+              Rockwell Automation · Siemens · AutoCAD® Electrical
             </p>
             <div className="hero-actions">
               <a className="button button-primary" href="#projects">View Projects</a>
