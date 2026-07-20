@@ -57,6 +57,7 @@ h2 { max-width: 17ch; font-size: clamp(2.5rem, 4.7vw, 5rem); line-height: 1.02; 
 h3 { font-size: clamp(1.6rem, 2.3vw, 2.45rem); line-height: 1.1; }
 p { color: var(--ink-soft); font-size: 1rem; line-height: 1.75; }
 .hero-lede { max-width: 62ch; margin: 2rem 0 0; font-size: clamp(1.05rem, 1.5vw, 1.3rem); }
+.hero-tools { margin: 1.6rem 0 0; line-height: 1.7; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2.2rem; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 48px; padding: .85rem 1.25rem; border: 1px solid var(--line); font-size: .82rem; font-weight: 700; text-decoration: none; transition: transform 200ms ease, background 200ms ease, border-color 200ms ease; }
 .button:hover, .button:focus-visible { transform: translateY(-3px); }

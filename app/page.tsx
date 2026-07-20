@@ -55,20 +55,26 @@ export default function Home() {
             <p className="eyebrow">Process automation · System integration · Applied AI</p>
             <h1>Building smarter systems. Learning what comes next.</h1>
             <p className="hero-lede">
-              I’m KW—an experienced process automation and system integration
-              specialist who is continuously learning, embracing AI, and sharing
-              that journey.
+              I&apos;m Kui Wu, a Process Automation and System Integration Specialist
+              with over a decade of experience delivering industrial automation
+              solutions across pharmaceutical, biotech, water treatment and
+              manufacturing. Today, I&apos;m exploring how AI can enhance engineering
+              workflows.
+            </p>
+            <p className="eyebrow hero-tools">
+              Rockwell Automation · PLC · HMI · SCADA · PlantPAx · FactoryTalk
             </p>
             <div className="hero-actions">
-              <a className="button button-primary" href="#projects">Explore featured projects</a>
-              <a className="button button-secondary" href="#contact">Start a conversation</a>
+              <a className="button button-primary" href="#projects">View Projects</a>
+              <a className="button button-secondary" href="#contact">Contact Me</a>
             </div>
           </div>
           <aside className="hero-aside">
-            <p className="eyebrow">My focus</p>
+            <p className="eyebrow">My Mission</p>
             <p>
-              Turning complex, disconnected processes into reliable systems that
-              help people work with greater clarity and confidence.
+              Build reliable, scalable automation systems that solve real operational
+              challenges—while continuously learning and applying better ways to
+              engineer what comes next.
             </p>
             <div className="availability"><span aria-hidden="true" /> Always learning. Always improving.</div>
           </aside>
