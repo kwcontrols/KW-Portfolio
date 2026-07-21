@@ -83,23 +83,26 @@ export default function Home() {
           <div className="section-heading">
             <p className="section-index">01 / About me</p>
             <div>
-              <h2>Practical systems thinking, grounded in how work really happens.</h2>
+              <h2>Always driven by curiosity to understand how things work.</h2>
               <p>
-                I work at the intersection of people, process, and technology. My
-                approach begins with understanding the real workflow—its friction,
-                decisions, dependencies, and exceptions—before shaping an automation
-                or integration that can last.
+                Programming is more than my profession—it&apos;s my passion. I find great
+                satisfaction in solving complex problems, turning ideas into working
+                systems, and seeing them perform exactly as I envisioned.
               </p>
             </div>
           </div>
           <div className="two-column">
             <p>
-              I value solutions that are clear enough to explain, dependable enough
-              to trust, and flexible enough to evolve with the business.
+              I grew up in China, where I earned degrees in electronics. Before moving
+              to Canada, I spent several years developing embedded systems in C and
+              assembly language on real-time operating systems (RTOS). That experience
+              continues to shape my approach to industrial automation today.
             </p>
             <p>
-              Today, I’m expanding that foundation with AI: learning openly,
-              experimenting responsibly, and sharing what proves useful along the way.
+              Outside of engineering, I have a wide range of interests. I enjoy
+              reading history, hiking, and playing all kinds of sports—especially ice
+              hockey. There&apos;s nothing quite like the feeling after a good game or
+              practice: physically exhausted and mentally refreshed.
             </p>
           </div>
         </section>
