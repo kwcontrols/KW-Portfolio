@@ -80,23 +80,21 @@ export default function Home() {
         </section>
 
         <section className="section" id="about">
-          <div className="section-heading">
-            <p className="section-index">01 / About me</p>
-            <div className="about-intro">
-              <div>
-                <h2>Always driven by curiosity to understand how things work.</h2>
-                <p>
-                  Programming is more than my profession—it&apos;s my passion. I find great
-                  satisfaction in solving complex problems, turning ideas into working
-                  systems, and seeing them perform exactly as I envisioned.
-                </p>
-              </div>
-              <div className="about-portrait">
-                <img src="/kui-wu-headshot.png" alt="Portrait of Kui Wu" />
-              </div>
+          <div className="about-feature">
+            <div className="about-copy">
+              <p className="section-index">01 / About me</p>
+              <h2>Always driven by curiosity to understand how things work.</h2>
+              <p>
+                Programming is more than my profession—it&apos;s my passion. I find great
+                satisfaction in solving complex problems, turning ideas into working
+                systems, and seeing them perform exactly as I envisioned.
+              </p>
+            </div>
+            <div className="about-portrait">
+              <img src="/kui-wu-headshot.png" alt="Portrait of Kui Wu" />
             </div>
           </div>
-          <div className="two-column">
+          <div className="two-column about-columns">
             <p>
               I grew up in China, where I earned degrees in electronics. Before moving
               to Canada, I spent several years developing embedded systems in C and
