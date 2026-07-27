@@ -52,30 +52,38 @@ export default function Home() {
       <main>
         <section className="hero" id="home">
           <div className="hero-copy">
-            <p className="eyebrow">Process automation · System integration · Electrical design</p>
+            <p className="eyebrow">
+              Process automation · System integration · Electrical design
+            </p>
             <h1>Building smarter systems. Learning what comes next.</h1>
             <p className="hero-lede">
-              I&apos;m Kui Wu, a process automation and system integration specialist
-              with over a decade of experience delivering industrial automation
-              solutions across pharmaceutical, water treatment, manufacturing, and
-              other industrial sectors.
+              I&apos;m Kui Wu, a process automation and system integration
+              specialist with over a decade of experience delivering industrial
+              automation solutions across pharmaceutical, water treatment,
+              manufacturing, and other industrial sectors.
             </p>
             <p className="eyebrow hero-tools">
               Rockwell Automation · Siemens · AutoCAD® Electrical
             </p>
             <div className="hero-actions">
-              <a className="button button-primary" href="#projects">View Projects</a>
-              <a className="button button-secondary" href="#contact">Contact Me</a>
+              <a className="button button-primary" href="#projects">
+                View Projects
+              </a>
+              <a className="button button-secondary" href="#contact">
+                Contact Me
+              </a>
             </div>
           </div>
           <aside className="hero-aside">
             <p className="eyebrow">My Mission</p>
             <p>
-              Build reliable, scalable automation systems that solve real operational
-              challenges—while continuously learning and applying better ways to
-              engineer what comes next.
+              Build reliable, scalable automation systems that solve real
+              operational challenges—while continuously learning and applying
+              better ways to engineer what comes next.
             </p>
-            <div className="availability"><span aria-hidden="true" /> Always learning. Always improving.</div>
+            <div className="availability">
+              <span aria-hidden="true" /> Always learning. Always improving.
+            </div>
           </aside>
         </section>
 
@@ -85,9 +93,10 @@ export default function Home() {
               <p className="section-index">01 / About me</p>
               <h2>Always driven by curiosity to understand how things work.</h2>
               <p>
-                Programming is more than my profession—it&apos;s my passion. I find great
-                satisfaction in solving complex problems, turning ideas into working
-                systems, and seeing them perform exactly as I envisioned.
+                Programming is more than my profession—it&apos;s my passion. I
+                find great satisfaction in solving complex problems, turning
+                ideas into working systems, and seeing them perform exactly as I
+                envisioned.
               </p>
             </div>
             <div className="about-portrait">
@@ -96,16 +105,16 @@ export default function Home() {
           </div>
           <div className="two-column about-columns">
             <p>
-              I grew up in China, where I earned degrees in electronics. Before moving
-              to Canada, I spent several years developing embedded systems in C and
-              assembly language on real-time operating systems (RTOS). That experience
-              continues to shape my approach to industrial automation today.
+              I grew up in China, where I earned degrees in electronics. Before
+              moving to Canada, I spent several years developing embedded
+              systems in C and assembly language. That experience continues to
+              shape my approach to industrial automation today.
             </p>
             <p>
               Outside of engineering, I have a wide range of interests. I enjoy
-              reading history, hiking, and playing all kinds of sports—especially ice
-              hockey. There&apos;s nothing quite like the feeling after a good game or
-              practice: physically exhausted and mentally refreshed.
+              reading history, hiking, and playing hockey, etc. There&apos;s
+              nothing quite like the feeling after a good game or practice:
+              physically exhausted and mentally refreshed.
             </p>
           </div>
         </section>
@@ -116,21 +125,63 @@ export default function Home() {
             <div>
               <h2>From repetitive work to resilient, connected operations.</h2>
               <p>
-                My experience spans the full automation lifecycle—from discovery and
-                process mapping through integration, implementation, and continuous
-                improvement.
+                My experience spans the full automation lifecycle—from discovery
+                and process mapping through integration, implementation, and
+                continuous improvement.
               </p>
             </div>
           </div>
           <div className="experience-grid">
-            <article><span>01</span><h3>Discover</h3><p>Map the current process, uncover friction, and identify the right opportunities to automate.</p></article>
-            <article><span>02</span><h3>Connect</h3><p>Design integrations that move information cleanly across tools, teams, and systems.</p></article>
-            <article><span>03</span><h3>Improve</h3><p>Build for reliability, monitor what matters, and refine the solution as needs evolve.</p></article>
+            <article>
+              <span>01</span>
+              <h3>Discover</h3>
+              <p>
+                Map the current process, uncover friction, and identify the
+                right opportunities to automate.
+              </p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Connect</h3>
+              <p>
+                Design integrations that move information cleanly across tools,
+                teams, and systems.
+              </p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Improve</h3>
+              <p>
+                Build for reliability, monitor what matters, and refine the
+                solution as needs evolve.
+              </p>
+            </article>
           </div>
-          <div className="timeline" aria-label="Automation experience progression">
-            <div><strong>Understand</strong><p>Start with the people, business rules, and exceptions behind the workflow.</p></div>
-            <div><strong>Architect</strong><p>Translate requirements into a maintainable automation and integration approach.</p></div>
-            <div><strong>Deliver</strong><p>Implement thoughtfully, document clearly, and support adoption across the team.</p></div>
+          <div
+            className="timeline"
+            aria-label="Automation experience progression"
+          >
+            <div>
+              <strong>Understand</strong>
+              <p>
+                Start with the people, business rules, and exceptions behind the
+                workflow.
+              </p>
+            </div>
+            <div>
+              <strong>Architect</strong>
+              <p>
+                Translate requirements into a maintainable automation and
+                integration approach.
+              </p>
+            </div>
+            <div>
+              <strong>Deliver</strong>
+              <p>
+                Implement thoughtfully, document clearly, and support adoption
+                across the team.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -138,24 +189,32 @@ export default function Home() {
           <div className="section-heading">
             <p className="section-index">03 / Featured projects</p>
             <div>
-              <h2>Representative work across automation, integration, and AI.</h2>
+              <h2>
+                Representative work across automation, integration, and AI.
+              </h2>
               <p>
-                A view into the kinds of problems I solve and the principles I bring
-                to each engagement. Detailed case studies can be added as project
-                material becomes available.
+                A view into the kinds of problems I solve and the principles I
+                bring to each engagement. Detailed case studies can be added as
+                project material becomes available.
               </p>
             </div>
           </div>
           <div className="project-list">
             {projects.map((project) => (
               <article className="project" key={project.title}>
-                <div className="project-visual" aria-hidden="true"><span>{project.number}</span></div>
+                <div className="project-visual" aria-hidden="true">
+                  <span>{project.number}</span>
+                </div>
                 <div className="project-copy">
-                  <p className="eyebrow">Selected capability / {project.number}</p>
+                  <p className="eyebrow">
+                    Selected capability / {project.number}
+                  </p>
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
                   <ul aria-label={`${project.title} skills`}>
-                    {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
+                    {project.tags.map((tag) => (
+                      <li key={tag}>{tag}</li>
+                    ))}
                   </ul>
                 </div>
               </article>
@@ -167,18 +226,43 @@ export default function Home() {
           <div className="section-heading">
             <p className="section-index">04 / AI journey</p>
             <div>
-              <h2>Exploring AI with curiosity, discipline, and a builder’s mindset.</h2>
+              <h2>
+                Exploring AI with curiosity, discipline, and a builder’s
+                mindset.
+              </h2>
               <p>
                 I’m learning how AI changes the way we design workflows, connect
-                knowledge, and solve operational problems. The goal is not novelty—it
-                is finding responsible, genuinely useful applications.
+                knowledge, and solve operational problems. The goal is not
+                novelty—it is finding responsible, genuinely useful
+                applications.
               </p>
             </div>
           </div>
           <div className="journey-path">
-            <article><span>Learning</span><h3>Build the foundation</h3><p>Study the tools, concepts, risks, and patterns shaping practical AI systems.</p></article>
-            <article><span>Experimenting</span><h3>Test real workflows</h3><p>Prototype focused use cases and evaluate where AI adds meaningful value.</p></article>
-            <article><span>Sharing</span><h3>Make the journey useful</h3><p>Document lessons, exchange ideas, and help others learn from the process.</p></article>
+            <article>
+              <span>Learning</span>
+              <h3>Build the foundation</h3>
+              <p>
+                Study the tools, concepts, risks, and patterns shaping practical
+                AI systems.
+              </p>
+            </article>
+            <article>
+              <span>Experimenting</span>
+              <h3>Test real workflows</h3>
+              <p>
+                Prototype focused use cases and evaluate where AI adds
+                meaningful value.
+              </p>
+            </article>
+            <article>
+              <span>Sharing</span>
+              <h3>Make the journey useful</h3>
+              <p>
+                Document lessons, exchange ideas, and help others learn from the
+                process.
+              </p>
+            </article>
           </div>
         </section>
 
@@ -189,15 +273,37 @@ export default function Home() {
               <h2>Curiosity doesn’t stop when the workday does.</h2>
               <p>
                 Beyond delivery, I make space for learning, reflection, and the
-                interests that keep my perspective fresh. This is where future notes,
-                experiments, and personal stories can live as the portfolio grows.
+                interests that keep my perspective fresh. This is where future
+                notes, experiments, and personal stories can live as the
+                portfolio grows.
               </p>
             </div>
           </div>
           <div className="beyond-grid">
-            <article><span>01</span><h3>Continuous learning</h3><p>Following new ideas in automation, integration, and responsible AI.</p></article>
-            <article><span>02</span><h3>Building &amp; experimenting</h3><p>Turning curiosity into small prototypes, useful systems, and better questions.</p></article>
-            <article><span>03</span><h3>Sharing the journey</h3><p>Making complex topics more approachable through honest, practical reflection.</p></article>
+            <article>
+              <span>01</span>
+              <h3>Continuous learning</h3>
+              <p>
+                Following new ideas in automation, integration, and responsible
+                AI.
+              </p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Building &amp; experimenting</h3>
+              <p>
+                Turning curiosity into small prototypes, useful systems, and
+                better questions.
+              </p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Sharing the journey</h3>
+              <p>
+                Making complex topics more approachable through honest,
+                practical reflection.
+              </p>
+            </article>
           </div>
         </section>
 
@@ -206,11 +312,14 @@ export default function Home() {
           <div>
             <h2>Let’s make a complex process feel simpler.</h2>
             <p>
-              If you’re exploring automation, system integration, or practical AI,
-              I’d be glad to connect and compare notes.
+              If you’re exploring automation, system integration, or practical
+              AI, I’d be glad to connect and compare notes.
             </p>
           </div>
-          <a className="button button-light" href="mailto:?subject=Let%27s%20connect%20about%20automation%20and%20AI">
+          <a
+            className="button button-light"
+            href="mailto:?subject=Let%27s%20connect%20about%20automation%20and%20AI"
+          >
             Start a conversation <span aria-hidden="true">↗</span>
           </a>
         </section>
