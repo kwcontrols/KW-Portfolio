@@ -190,7 +190,8 @@ export default function Home() {
             <p className="section-index">03 / Featured projects</p>
             <div>
               <h2>
-                Representative work across automation, integration, and AI.
+                Representative work across automation, integration, and
+                electrical design.
               </h2>
               <p>
                 A view into the kinds of problems I solve and the principles I
