@@ -37,56 +37,17 @@ export default function Home() {
   return (
     <div className="site-shell">
       <header className="site-header">
-        <a className="brand" href="#home" aria-label="Kui Wu Portfolio home">
-          Kui Wu <span>/ Portfolio</span>
+        <a className="brand" href="#about" aria-label="Kui Wu home">
+          Kui Wu
         </a>
         <nav aria-label="Primary navigation">
           <a href="#about">About</a>
           <a href="#automation">Experience</a>
-          <a href="#projects">Projects</a>
-          <a href="#ai-journey">AI journey</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
 
       <main>
-        <section className="hero" id="home">
-          <div className="hero-copy">
-            <p className="eyebrow">
-              Process automation · System integration · Electrical design
-            </p>
-            <h1>Building smarter systems. Learning what comes next.</h1>
-            <p className="hero-lede">
-              I&apos;m Kui Wu, a process automation and system integration
-              specialist with over a decade of experience delivering industrial
-              automation solutions across pharmaceutical, water treatment,
-              manufacturing, and other industrial sectors.
-            </p>
-            <p className="eyebrow hero-tools">
-              Rockwell Automation · Siemens · AutoCAD® Electrical
-            </p>
-            <div className="hero-actions">
-              <a className="button button-primary" href="#projects">
-                View Projects
-              </a>
-              <a className="button button-secondary" href="#contact">
-                Contact Me
-              </a>
-            </div>
-          </div>
-          <aside className="hero-aside">
-            <p className="eyebrow">My Mission</p>
-            <p>
-              Build reliable, scalable automation systems that solve real
-              operational challenges—while continuously learning and applying
-              better ways to engineer what comes next.
-            </p>
-            <div className="availability">
-              <span aria-hidden="true" /> Always learning. Always improving.
-            </div>
-          </aside>
-        </section>
-
         <section className="section" id="about">
           <div className="about-feature">
             <div className="about-copy">
@@ -328,7 +289,7 @@ export default function Home() {
 
       <footer>
         <span>© 2026 KW Portfolio</span>
-        <a href="#home">Back to top ↑</a>
+        <a href="#about">Back to top ↑</a>
       </footer>
     </div>
   );
