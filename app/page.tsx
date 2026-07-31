@@ -1,5 +1,6 @@
 import { SiteFooter } from "./SiteFooter";
 import { SiteHeader } from "./SiteHeader";
+import { PhotoSlideshow } from "./PhotoSlideshow";
 
 export default function Home() {
   return (
@@ -32,20 +33,14 @@ export default function Home() {
                 embedded systems in C and assembly language. That experience
                 continues to shape my approach to industrial automation today.
               </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="section outside-section" id="outside-engineering">
-          <div className="outside-copy">
-            <h2>Outside engineering</h2>
-            <p>
+              <p>
               Outside of engineering, I have a wide range of interests. I enjoy
               reading history, hiking, and playing hockey. There&apos;s nothing
               quite like the feeling after a good game or practice: physically
               exhausted and mentally refreshed.
-            </p>
-            <div className="outside-media-space" aria-hidden="true" />
+              </p>
+            </div>
+            <PhotoSlideshow />
           </div>
         </section>
       </main>
