@@ -36,7 +36,7 @@ a { color: inherit; }
   background: color-mix(in srgb, var(--paper) 92%, transparent);
   backdrop-filter: blur(14px);
 }
-.brand { font-size: .95rem; font-weight: 700; letter-spacing: .16em; text-decoration: none; text-transform: uppercase; }
+.brand { font-size: 1.14rem; font-weight: 700; letter-spacing: .16em; text-decoration: none; text-transform: uppercase; }
 .brand span { color: var(--ink-soft); font-weight: 500; }
 nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: clamp(.8rem, 2vw, 1.8rem); }
 nav a { color: var(--ink-soft); font-size: .82rem; text-decoration: none; transition: color 180ms ease; }
@@ -69,12 +69,13 @@ p { color: var(--ink-soft); font-size: 1rem; line-height: 1.75; }
 .availability span { width: 8px; height: 8px; border-radius: 50%; background: #21a366; box-shadow: 0 0 0 5px rgba(33, 163, 102, .12); }
 .section { padding: clamp(5rem, 9vw, 9rem) 0; border-top: 1px solid var(--line); }
 #about { padding-top: clamp(3rem, 5vw, 5rem); }
+#automation { border-top: 0; }
 .section-heading { display: grid; grid-template-columns: minmax(180px, .45fr) minmax(0, 1.55fr); gap: clamp(2rem, 6vw, 6rem); margin-bottom: clamp(3rem, 6vw, 6rem); }
 .section-heading p:not(.section-index) { max-width: 66ch; margin: 1.8rem 0 0; }
 .about-feature { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(240px, .9fr); align-items: center; gap: clamp(3rem, 9vw, 9rem); margin-bottom: clamp(4rem, 7vw, 7rem); }
 .about-copy { max-width: 700px; }
 .about-copy > p:not(.section-index) { max-width: 66ch; margin: 1.8rem 0 0; }
-.about-portrait { width: clamp(240px, 25vw, 360px); aspect-ratio: 1 / 1; overflow: hidden; border-radius: 50%; justify-self: center; transform: translateX(clamp(-40px, -2.75vw, -20px)); }
+.about-portrait { width: clamp(240px, 25vw, 360px); aspect-ratio: 1 / 1; overflow: hidden; border-radius: 50%; align-self: center; justify-self: center; transform: translateX(clamp(-40px, -2.75vw, -20px)); }
 .about-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .two-column { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(2rem, 7vw, 7rem); padding-left: calc(22.5% + 3rem); }
 .about-columns { padding-left: 0; }

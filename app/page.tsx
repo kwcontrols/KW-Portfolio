@@ -35,13 +35,13 @@ const skills = [
 
 export default function Home() {
   return (
-    <div className="site-shell">
+    <div className="site-shell" id="page-start">
       <header className="site-header">
-        <a className="brand" href="#about" aria-label="Kui Wu home">
+        <a className="brand" href="#page-start" aria-label="Kui Wu home">
           Kui Wu
         </a>
         <nav aria-label="Primary navigation">
-          <a href="#about">About</a>
+          <a href="#page-start">About</a>
           <a href="#automation">Experience</a>
           <a href="#contact">Contact</a>
         </nav>
