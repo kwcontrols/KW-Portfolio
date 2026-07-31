@@ -71,12 +71,10 @@ export default function Home() {
               systems in C and assembly language. That experience continues to
               shape my approach to industrial automation today.
             </p>
-            <p>
-              Outside of engineering, I have a wide range of interests. I enjoy
-              reading history, hiking, and playing hockey, etc. There&apos;s
-              nothing quite like the feeling after a good game or practice:
-              physically exhausted and mentally refreshed.
-            </p>
+            {/* Reserved for a future section: Outside of engineering, I have a
+                wide range of interests. I enjoy reading history, hiking, and
+                playing hockey, etc. There's nothing quite like the feeling after
+                a good game or practice: physically exhausted and mentally refreshed. */}
           </div>
         </section>
 
