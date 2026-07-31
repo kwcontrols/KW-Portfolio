@@ -50,14 +50,16 @@ export default function Home() {
       <main>
         <section className="section" id="about">
           <div className="about-feature">
+            <div className="about-portrait">
+              <img src="/kui-wu-headshot.png" alt="Portrait of Kui Wu" />
+            </div>
             <div className="about-copy">
-              <p className="section-index">01 / About me</p>
-              <h2>Always driven by curiosity to understand how things work.</h2>
               <p>
-                I&apos;m Kui Wu, a process automation and system integration
-                specialist with over a decade of experience delivering
-                industrial automation solutions across pharmaceutical, water
-                treatment, manufacturing, and other industrial sectors.
+                <strong>Kui Wu</strong> is a process automation and system
+                integration specialist with over a decade of experience
+                delivering industrial automation solutions across
+                pharmaceutical, water treatment, manufacturing, and other
+                industrial sectors.
               </p>
               <p>
                 Programming is more than my profession—it&apos;s my passion. I
@@ -71,9 +73,6 @@ export default function Home() {
                 embedded systems in C and assembly language. That experience
                 continues to shape my approach to industrial automation today.
               </p>
-            </div>
-            <div className="about-portrait">
-              <img src="/kui-wu-headshot.png" alt="Portrait of Kui Wu" />
             </div>
           </div>
           {/* Reserved for a future section: Outside of engineering, I have a
