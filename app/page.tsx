@@ -54,28 +54,32 @@ export default function Home() {
               <p className="section-index">01 / About me</p>
               <h2>Always driven by curiosity to understand how things work.</h2>
               <p>
+                I&apos;m Kui Wu, a process automation and system integration
+                specialist with over a decade of experience delivering
+                industrial automation solutions across pharmaceutical, water
+                treatment, manufacturing, and other industrial sectors.
+              </p>
+              <p>
                 Programming is more than my profession—it&apos;s my passion. I
                 find great satisfaction in solving complex problems, turning
                 ideas into working systems, and seeing them perform exactly as I
                 envisioned.
+              </p>
+              <p>
+                I grew up in China, where I earned degrees in electronics.
+                Before moving to Canada, I spent several years developing
+                embedded systems in C and assembly language. That experience
+                continues to shape my approach to industrial automation today.
               </p>
             </div>
             <div className="about-portrait">
               <img src="/kui-wu-headshot.png" alt="Portrait of Kui Wu" />
             </div>
           </div>
-          <div className="two-column about-columns">
-            <p>
-              I grew up in China, where I earned degrees in electronics. Before
-              moving to Canada, I spent several years developing embedded
-              systems in C and assembly language. That experience continues to
-              shape my approach to industrial automation today.
-            </p>
-            {/* Reserved for a future section: Outside of engineering, I have a
-                wide range of interests. I enjoy reading history, hiking, and
-                playing hockey, etc. There's nothing quite like the feeling after
-                a good game or practice: physically exhausted and mentally refreshed. */}
-          </div>
+          {/* Reserved for a future section: Outside of engineering, I have a
+              wide range of interests. I enjoy reading history, hiking, and
+              playing hockey, etc. There's nothing quite like the feeling after
+              a good game or practice: physically exhausted and mentally refreshed. */}
         </section>
 
         <section className="section" id="automation">
