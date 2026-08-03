@@ -6,7 +6,8 @@ export function SiteHeader() {
       </a>
       <nav aria-label="Primary navigation">
         <a href="/">About</a>
-        <a href="/experience">Experience</a>
+        <a href="/resume">Resume</a>
+        <a href="/experience#projects">Projects</a>
         <a href="/contact">Contact</a>
       </nav>
     </header>

@@ -119,6 +119,18 @@ p { color: var(--ink-soft); font-size: 1rem; line-height: 1.75; }
 .contact-section p { max-width: 55ch; }
 .button-light { border-color: var(--white); background: var(--white); color: var(--blue-dark); white-space: nowrap; }
 .standalone-page { padding: clamp(4rem, 8vw, 8rem) 0; }
+.resume-page { width: 100%; max-width: 780px; margin: 0 auto; padding: clamp(4rem, 8vw, 8rem) 0; text-align: left; }
+.resume-section + .resume-section { margin-top: clamp(5rem, 9vw, 8rem); }
+.resume-section > h1 { max-width: none; padding-bottom: 1rem; border-bottom: 1px solid var(--line); font-size: clamp(1.8rem, 3vw, 2.6rem); }
+.resume-entry { margin-top: clamp(2.5rem, 5vw, 4rem); }
+.resume-entry header { display: flex; justify-content: space-between; align-items: start; gap: 2rem; }
+.resume-entry h2 { max-width: none; font-family: Arial, Helvetica, sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: 0; }
+.resume-entry p { margin: .4rem 0 0; }
+.resume-entry header > p { flex: 0 0 auto; margin-top: 0; }
+.resume-entry ul { margin: 1.25rem 0 0; padding-left: 1.2rem; color: var(--ink-soft); }
+.resume-entry li { padding-left: .35rem; line-height: 1.75; }
+.resume-entry li + li { margin-top: .6rem; }
+.resume-entry-compact { margin-top: 2rem; }
 footer { display: flex; justify-content: space-between; gap: 2rem; padding: 1.8rem 0 3rem; color: var(--ink-soft); font-size: .75rem; }
 footer a { text-decoration: none; }
 
@@ -141,7 +153,16 @@ footer a { text-decoration: none; }
   .timeline > div { grid-template-columns: 1fr; gap: .3rem; }
   .project-visual { min-height: 260px; }
   .about-portrait { transform: none; }
+  .resume-entry header { display: block; }
+  .resume-entry header > p { margin-top: .6rem; }
   footer { flex-direction: column; }
+}
+
+@media print {
+  .site-header, footer { display: none; }
+  .site-shell { width: 100%; }
+  .resume-page { max-width: none; padding: 0; }
+  .resume-section + .resume-section { margin-top: 3rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
