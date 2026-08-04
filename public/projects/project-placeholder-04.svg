@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title">
+  <title id="title">Project image placeholder 04</title>
+  <rect width="1200" height="900" fill="#edf5ff"/>
+  <path d="M180 180h840v540H180zM180 360h840M420 180v540M780 180v540" fill="none" stroke="#c8d8ea" stroke-width="3"/>
+  <text x="600" y="470" text-anchor="middle" fill="#175dcc" font-family="Arial, sans-serif" font-size="92">04</text>
+  <text x="600" y="550" text-anchor="middle" fill="#52647a" font-family="Arial, sans-serif" font-size="28" letter-spacing="6">PROJECT IMAGE</text>
+</svg>

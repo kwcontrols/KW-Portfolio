@@ -1,97 +1,113 @@
 import { SiteFooter } from "../SiteFooter";
 import { SiteHeader } from "../SiteHeader";
 
-const projects = [
+// Replace project titles, categories, descriptions, detail text, and local image paths here.
+const PROJECTS = [
   {
     number: "01",
-    title: "Workflow orchestration",
-    description:
-      "Designing dependable automated workflows that reduce manual handoffs, surface exceptions, and keep teams focused on higher-value work.",
-    tags: ["Process mapping", "Automation", "Governance"],
+    title: "Process Control System Modernization",
+    category: "Pharmaceutical / Control System Upgrade",
+    image: "/projects/project-placeholder-01.svg",
+    imageAlt: "Placeholder for a pharmaceutical process control project",
+    overview:
+      "A representative modernization project focused on improving reliability, operator visibility, and long-term system supportability.",
+    challenge:
+      "An aging control platform required careful replacement without disrupting critical production activities.",
+    approach:
+      "The work was phased around operations, with clear design reviews, structured testing, and coordinated commissioning.",
+    result:
+      "The upgraded system provided a maintainable foundation with clearer diagnostics and more consistent operation.",
   },
   {
     number: "02",
-    title: "Connected business systems",
-    description:
-      "Bringing applications and data together through thoughtful integrations that make information more consistent, timely, and useful.",
-    tags: ["System integration", "APIs", "Data flow"],
+    title: "Water Treatment Automation Expansion",
+    category: "Water Treatment / System Integration",
+    image: "/projects/project-placeholder-02.svg",
+    imageAlt: "Placeholder for a water treatment automation project",
+    overview:
+      "A representative expansion project connecting new treatment equipment with an existing plant-wide automation system.",
+    challenge:
+      "New process equipment needed to integrate cleanly with established controls, standards, and operating procedures.",
+    approach:
+      "Interfaces, control narratives, alarms, and commissioning activities were coordinated across multiple project teams.",
+    result:
+      "The new equipment was incorporated into daily operations with consistent controls and centralized visibility.",
   },
   {
     number: "03",
-    title: "AI-assisted operations",
-    description:
-      "Exploring practical ways to pair automation with AI for knowledge work, decision support, and more adaptive operational experiences.",
-    tags: ["Applied AI", "Prototyping", "Continuous learning"],
+    title: "Manufacturing Line Integration",
+    category: "Manufacturing / PLC, HMI, and Data Integration",
+    image: "/projects/project-placeholder-03.svg",
+    imageAlt: "Placeholder for a manufacturing line integration project",
+    overview:
+      "A representative production-line project combining machine controls, operator interfaces, and production data exchange.",
+    challenge:
+      "Independent equipment packages needed to operate as one coordinated line while maintaining clear fault isolation.",
+    approach:
+      "Common interface standards and sequenced handshakes were developed, tested, and documented with the equipment teams.",
+    result:
+      "The integrated line delivered more predictable operation and faster troubleshooting during production support.",
+  },
+  {
+    number: "04",
+    title: "Utility Monitoring and Reporting",
+    category: "Industrial Utilities / SCADA and Reporting",
+    image: "/projects/project-placeholder-04.svg",
+    imageAlt: "Placeholder for an industrial utility monitoring project",
+    overview:
+      "A representative monitoring project designed to make utility performance and operating conditions easier to understand.",
+    challenge:
+      "Important utility information was distributed across systems and difficult for operators and engineering teams to review.",
+    approach:
+      "Key signals were standardized, integrated into SCADA, and organized into focused displays and practical reports.",
+    result:
+      "Teams gained a clearer operational view and a more consistent basis for analysis and continuous improvement.",
   },
 ];
 
-export default function ExperiencePage() {
+export default function ProjectsPage() {
   return (
     <div className="site-shell" id="page-start">
       <SiteHeader />
-      <main>
-        <section className="section" id="automation">
-          <div className="section-heading">
-            <p className="section-index">Automation experience</p>
-            <div>
-              <h2>From repetitive work to resilient, connected operations.</h2>
-              <p>
-                My experience spans the full automation lifecycle—from discovery
-                and process mapping through integration, implementation, and
-                continuous improvement.
-              </p>
-            </div>
-          </div>
-          <div className="experience-grid">
-            <article><span>01</span><h3>Discover</h3><p>Map the current process, uncover friction, and identify the right opportunities to automate.</p></article>
-            <article><span>02</span><h3>Connect</h3><p>Design integrations that move information cleanly across tools, teams, and systems.</p></article>
-            <article><span>03</span><h3>Improve</h3><p>Build for reliability, monitor what matters, and refine the solution as needs evolve.</p></article>
-          </div>
-          <div className="timeline" aria-label="Automation experience progression">
-            <div><strong>Understand</strong><p>Start with the people, business rules, and exceptions behind the workflow.</p></div>
-            <div><strong>Architect</strong><p>Translate requirements into a maintainable automation and integration approach.</p></div>
-            <div><strong>Deliver</strong><p>Implement thoughtfully, document clearly, and support adoption across the team.</p></div>
-          </div>
+      <main className="projects-page" id="projects">
+        <section className="projects-intro" aria-label="Projects introduction">
+          <p>
+            Every automation project presents a unique set of challenges. Over
+            the past 20+ years, I have worked on projects ranging from small
+            system upgrades to large-scale systems, collaborating closely with
+            PMs, engineering, operations, and customers across multiple
+            industries.
+          </p>
         </section>
 
-        <section className="section" id="projects">
-          <div className="section-heading">
-            <p className="section-index">Featured projects</p>
-            <div>
-              <h2>Representative work across automation, integration, and electrical design.</h2>
-              <p>A view into the kinds of problems I solve and the principles I bring to each engagement.</p>
-            </div>
-          </div>
-          <div className="project-list">
-            {projects.map((project) => (
-              <article className="project" key={project.title}>
-                <div className="project-visual" aria-hidden="true"><span>{project.number}</span></div>
-                <div className="project-copy">
-                  <p className="eyebrow">Selected capability / {project.number}</p>
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                  <ul aria-label={`${project.title} skills`}>
-                    {project.tags.map((tag) => <li key={tag}>{tag}</li>)}
-                  </ul>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="section ai-section" id="ai-journey">
-          <div className="section-heading">
-            <p className="section-index">AI journey</p>
-            <div>
-              <h2>Exploring AI with curiosity, discipline, and a builder’s mindset.</h2>
-              <p>I’m learning how AI changes the way we design workflows, connect knowledge, and solve operational problems.</p>
-            </div>
-          </div>
-          <div className="journey-path">
-            <article><span>Learning</span><h3>Build the foundation</h3><p>Study the tools, concepts, risks, and patterns shaping practical AI systems.</p></article>
-            <article><span>Experimenting</span><h3>Test real workflows</h3><p>Prototype focused use cases and evaluate where AI adds meaningful value.</p></article>
-            <article><span>Sharing</span><h3>Make the journey useful</h3><p>Document lessons, exchange ideas, and help others learn from the process.</p></article>
-          </div>
+        <section className="projects-list" aria-label="Selected project placeholders">
+          {PROJECTS.map((project) => (
+            <article className="project-entry" key={project.number}>
+              <div className="project-media">
+                <img src={project.image} alt={project.imageAlt} />
+              </div>
+              <div className="project-details">
+                <p className="project-number">{project.number}</p>
+                <h2>{project.title}</h2>
+                <p className="project-category">{project.category}</p>
+                <p className="project-overview">{project.overview}</p>
+                <dl>
+                  <div>
+                    <dt>Challenge</dt>
+                    <dd>{project.challenge}</dd>
+                  </div>
+                  <div>
+                    <dt>Approach</dt>
+                    <dd>{project.approach}</dd>
+                  </div>
+                  <div>
+                    <dt>Result</dt>
+                    <dd>{project.result}</dd>
+                  </div>
+                </dl>
+              </div>
+            </article>
+          ))}
         </section>
       </main>
       <SiteFooter />
