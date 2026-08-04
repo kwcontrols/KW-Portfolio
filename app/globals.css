@@ -119,11 +119,11 @@ p { color: var(--ink-soft); font-size: 1rem; line-height: 1.75; }
 .contact-section p { max-width: 55ch; }
 .button-light { border-color: var(--white); background: var(--white); color: var(--blue-dark); white-space: nowrap; }
 .standalone-page { padding: clamp(4rem, 8vw, 8rem) 0; }
-.resume-page { width: 100%; max-width: 780px; margin: 0 auto; padding: clamp(4rem, 8vw, 8rem) 0; text-align: left; }
-.resume-section + .resume-section { margin-top: clamp(5rem, 9vw, 8rem); padding-top: clamp(4rem, 7vw, 6rem); border-top: 1px solid var(--line); }
+.resume-page { width: 100%; max-width: 780px; margin: 0 auto; padding: clamp(2.5rem, 5vw, 5rem) 0; text-align: left; }
+.resume-section + .resume-section { margin-top: clamp(2rem, 4vw, 3rem); padding-top: clamp(2.5rem, 4vw, 3.5rem); border-top: 1px solid var(--line); }
 .resume-section > h1 { max-width: none; color: var(--ink); font-family: Arial, Helvetica, sans-serif; font-size: .78rem; font-weight: 700; letter-spacing: .16em; line-height: 1.4; }
-.resume-timeline { margin-top: clamp(2.5rem, 5vw, 4rem); }
-.timeline-row { --timeline-row-padding: clamp(1.35rem, 3vw, 2rem); --timeline-row-gap: clamp(.75rem, 2vw, 1.25rem); display: grid; grid-template-columns: 28px minmax(110px, .32fr) minmax(0, 1fr); gap: clamp(1rem, 3vw, 2rem); position: relative; padding: var(--timeline-row-padding) clamp(1rem, 2vw, 1.5rem); border-radius: 2px; cursor: pointer; outline: none; transition: background-color 280ms ease; }
+.resume-timeline { margin-top: clamp(1.75rem, 3vw, 2.5rem); }
+.timeline-row { --timeline-row-padding: clamp(1rem, 2vw, 1.35rem); --timeline-row-gap: clamp(.35rem, 1vw, .65rem); display: grid; grid-template-columns: 28px minmax(110px, .32fr) minmax(0, 1fr); gap: clamp(1rem, 3vw, 2rem); position: relative; padding: var(--timeline-row-padding) clamp(1rem, 2vw, 1.5rem); border-radius: 2px; cursor: pointer; outline: none; transition: background-color 280ms ease; }
 .timeline-row + .timeline-row { margin-top: var(--timeline-row-gap); }
 .timeline-marker { position: relative; display: flex; justify-content: center; align-self: stretch; min-height: 100%; }
 .timeline-marker::after { content: ""; position: absolute; z-index: 0; top: calc(.35rem + 6.5px); bottom: calc(-1 * var(--timeline-row-padding) - var(--timeline-row-gap) - var(--timeline-row-padding) - .35rem - 6.5px); left: 50%; width: 1px; background: rgba(11, 56, 125, .42); transform: translateX(-50%); }
@@ -131,10 +131,10 @@ p { color: var(--ink-soft); font-size: 1rem; line-height: 1.75; }
 .timeline-marker span { position: relative; z-index: 1; width: 13px; height: 13px; margin-top: .35rem; border: 2px solid var(--blue-dark); border-radius: 50%; background: var(--paper); transition: background-color 280ms ease, border-color 280ms ease, transform 280ms ease; }
 .timeline-year { margin: 0; color: var(--ink); font-size: .92rem; font-weight: 700; line-height: 1.5; transition: color 280ms ease, transform 280ms ease; transform-origin: left center; }
 .timeline-content h2 { max-width: none; color: var(--ink); font-family: Arial, Helvetica, sans-serif; font-size: 1.08rem; font-weight: 700; letter-spacing: 0; line-height: 1.45; transition: color 280ms ease, transform 280ms ease; transform-origin: left center; }
-.timeline-content p { margin: .35rem 0 0; }
-.timeline-content ul { margin: 1rem 0 0; padding-left: 1.2rem; color: var(--ink-soft); }
+.timeline-content p { margin: .2rem 0 0; }
+.timeline-content ul { margin: .7rem 0 0; padding-left: 1.2rem; color: var(--ink-soft); }
 .timeline-content li { padding-left: .25rem; line-height: 1.7; }
-.timeline-content li + li { margin-top: .35rem; }
+.timeline-content li + li { margin-top: .2rem; }
 .timeline-row:hover, .timeline-row:focus-visible, .timeline-row.is-active { background: rgba(237, 245, 255, .72); }
 .timeline-row:hover .timeline-marker span, .timeline-row:focus-visible .timeline-marker span, .timeline-row.is-active .timeline-marker span { border-color: var(--blue); background: var(--blue); transform: scale(1.08); }
 .timeline-row:hover .timeline-year, .timeline-row:hover .timeline-content h2, .timeline-row:focus-visible .timeline-year, .timeline-row:focus-visible .timeline-content h2, .timeline-row.is-active .timeline-year, .timeline-row.is-active .timeline-content h2 { color: var(--blue); transform: scale(1.018); }
@@ -160,7 +160,7 @@ footer a { text-decoration: none; }
   .timeline > div { grid-template-columns: 1fr; gap: .3rem; }
   .project-visual { min-height: 260px; }
   .about-portrait { transform: none; }
-  .timeline-row { grid-template-columns: 24px minmax(0, 1fr); gap: .9rem; padding-inline: .35rem; }
+  .timeline-row { grid-template-columns: 24px minmax(0, 1fr); column-gap: .9rem; row-gap: .35rem; padding-inline: .35rem; }
   .timeline-year { grid-column: 2; }
   .timeline-content { grid-column: 2; }
   .timeline-marker { grid-row: 1 / span 2; }
