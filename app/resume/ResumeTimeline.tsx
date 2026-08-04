@@ -32,8 +32,11 @@ const CAREER_JOURNEY: TimelineEntry[] = [
   },
   {
     marker: "2009",
-    title: "Certified Engineering Technologist",
-    details: ["CET, OACETT", "2009 – 2025"],
+    title: "Certified Engineering Technologist, OACETT",
+    details: [
+      "Ontario Association of Certified Engineering Technicians and Technologists",
+      "2009 – 2025",
+    ],
   },
   {
     marker: "2002",
@@ -50,18 +53,18 @@ const CAREER_JOURNEY: TimelineEntry[] = [
 const EDUCATION: TimelineEntry[] = [
   {
     marker: "2004 – 2006",
-    title: "Electrical Engineering Technology – Control",
-    details: ["Mohawk College of Applied Arts & Technology", "Honours Graduate"],
+    title: "Electrical Engineering Technology – Control (Honours Graduate)",
+    details: ["Mohawk College of Applied Arts & Technology, Hamilton, Ontario"],
   },
   {
     marker: "2000 – 2002",
     title: "Master of Engineering (M.Eng.)",
-    details: ["Electronic Engineering", "Dalian University of Technology"],
+    details: ["Electronic Engineering", "Dalian University of Technology, Dalian, China"],
   },
   {
     marker: "1986 – 1990",
     title: "Bachelor of Engineering (B.Eng.)",
-    details: ["Electronic Engineering", "Tianjin University"],
+    details: ["Electronic Engineering", "Tianjin University, Tianjin, China"],
   },
 ];
 
