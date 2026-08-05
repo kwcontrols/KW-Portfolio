@@ -44,6 +44,18 @@ const SIEMENS_PROJECT_IMAGES: SlideshowImage[] = [
   },
 ];
 
+// Add future GE iFIX / Honeywell HC900 photos here; no slideshow code changes are needed.
+const GEFIX_HC900_PROJECT_IMAGES: SlideshowImage[] = [
+  {
+    src: "/projects/iFix-1.JPG",
+    alt: "GE iFIX and Honeywell HC900 project image 1",
+  },
+  {
+    src: "/projects/iFix-2.jpg",
+    alt: "GE iFIX and Honeywell HC900 project image 2",
+  },
+];
+
 // Replace project titles, categories, descriptions, detail text, and local image paths here.
 const PROJECTS: Project[] = [
   {
@@ -66,18 +78,12 @@ const PROJECTS: Project[] = [
   },
   {
     number: "03",
-    title: "Manufacturing Line Integration",
-    category: "Manufacturing / PLC, HMI, and Data Integration",
-    image: "/projects/project-03.jpg",
-    imageAlt: "Placeholder for a manufacturing line integration project",
+    title: "GE iFIX + Honeywell HC900",
+    category: "SCADA / Process Control",
+    images: GEFIX_HC900_PROJECT_IMAGES,
+    link: "https://www.gevernova.com/software/products/hmi-scada/ifix",
     overview:
-      "A representative production-line project combining machine controls, operator interfaces, and production data exchange.",
-    challenge:
-      "Independent equipment packages needed to operate as one coordinated line while maintaining clear fault isolation.",
-    approach:
-      "Common interface standards and sequenced handshakes were developed, tested, and documented with the equipment teams.",
-    result:
-      "The integrated line delivered more predictable operation and faster troubleshooting during production support.",
+      "Delivered GE iFIX SCADA and Honeywell HC900 process-control solutions for industrial applications. The work included control-strategy development, HMI and SCADA configuration, communication integration, testing, troubleshooting, and on-site commissioning, with a focus on reliable operation, clear process visibility, and maintainable system design.",
   },
   {
     number: "04",
