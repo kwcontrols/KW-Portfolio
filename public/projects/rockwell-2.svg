@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" role="img" aria-labelledby="title">
+  <title id="title">Rockwell Automation project placeholder two</title>
+  <rect width="900" height="1200" fill="#edf5ff"/>
+  <rect x="90" y="110" width="720" height="980" fill="none" stroke="#c8d8ea" stroke-width="3"/>
+  <circle cx="450" cy="530" r="235" fill="none" stroke="#c8d8ea" stroke-width="3"/>
+  <text x="450" y="525" text-anchor="middle" fill="#175dcc" font-family="Arial, sans-serif" font-size="58">ROCKWELL 02</text>
+  <text x="450" y="600" text-anchor="middle" fill="#52647a" font-family="Arial, sans-serif" font-size="20" letter-spacing="4">REPLACE WITH PROJECT PHOTO</text>
+</svg>

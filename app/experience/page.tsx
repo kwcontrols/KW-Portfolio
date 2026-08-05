@@ -1,28 +1,57 @@
 import { SiteFooter } from "../SiteFooter";
 import { SiteHeader } from "../SiteHeader";
+import { ImageSlideshow, type SlideshowImage } from "../ImageSlideshow";
+
+type Project = {
+  number: string;
+  title: string;
+  category: string;
+  image?: string;
+  images?: SlideshowImage[];
+  imageAlt?: string;
+  link?: string;
+  overview: string;
+  challenge?: string;
+  approach?: string;
+  result?: string;
+};
+
+// Replace these four local paths and alt descriptions with final Rockwell project photos.
+const ROCKWELL_PROJECT_IMAGES: SlideshowImage[] = [
+  {
+    src: "/projects/rockwell-1.svg",
+    alt: "Placeholder for a Rockwell Automation control-system design",
+  },
+  {
+    src: "/projects/rockwell-2.svg",
+    alt: "Placeholder for PlantPAx configuration and development",
+  },
+  {
+    src: "/projects/rockwell-3.svg",
+    alt: "Placeholder for PLC and HMI integration testing",
+  },
+  {
+    src: "/projects/rockwell-4.svg",
+    alt: "Placeholder for on-site automation commissioning",
+  },
+];
 
 // Replace project titles, categories, descriptions, detail text, and local image paths here.
-const PROJECTS = [
+const PROJECTS: Project[] = [
   {
     number: "01",
-    title: "Process Control System Modernization",
-    category: "Pharmaceutical / Control System Upgrade",
-    image: "/projects/project-placeholder-01.svg",
-    imageAlt: "Placeholder for a pharmaceutical process control project",
+    title: "Rockwell Automation",
+    category: "PlantPAx / Pharma / Water / Conveyor",
+    images: ROCKWELL_PROJECT_IMAGES,
+    link: "https://www.rockwellautomation.com/en-us.html",
     overview:
-      "A representative modernization project focused on improving reliability, operator visibility, and long-term system supportability.",
-    challenge:
-      "An aging control platform required careful replacement without disrupting critical production activities.",
-    approach:
-      "The work was phased around operations, with clear design reviews, structured testing, and coordinated commissioning.",
-    result:
-      "The upgraded system provided a maintainable foundation with clearer diagnostics and more consistent operation.",
+      "Delivered Rockwell Automation control-system solutions for pharmaceutical, water-treatment, and conveyor applications. The work included system design, PlantPAx configuration, PLC and HMI development, testing, integration, and on-site commissioning, with an emphasis on reliability, maintainability, and clear operator interaction.",
   },
   {
     number: "02",
     title: "Water Treatment Automation Expansion",
     category: "Water Treatment / System Integration",
-    image: "/projects/project-placeholder-02.svg",
+    image: "/projects/project-02.jpg",
     imageAlt: "Placeholder for a water treatment automation project",
     overview:
       "A representative expansion project connecting new treatment equipment with an existing plant-wide automation system.",
@@ -37,7 +66,7 @@ const PROJECTS = [
     number: "03",
     title: "Manufacturing Line Integration",
     category: "Manufacturing / PLC, HMI, and Data Integration",
-    image: "/projects/project-placeholder-03.svg",
+    image: "/projects/project-03.jpg",
     imageAlt: "Placeholder for a manufacturing line integration project",
     overview:
       "A representative production-line project combining machine controls, operator interfaces, and production data exchange.",
@@ -52,7 +81,7 @@ const PROJECTS = [
     number: "04",
     title: "Utility Monitoring and Reporting",
     category: "Industrial Utilities / SCADA and Reporting",
-    image: "/projects/project-placeholder-04.svg",
+    image: "/projects/project-04.jpg",
     imageAlt: "Placeholder for an industrial utility monitoring project",
     overview:
       "A representative monitoring project designed to make utility performance and operating conditions easier to understand.",
@@ -73,38 +102,65 @@ export default function ProjectsPage() {
         <section className="projects-intro" aria-label="Projects introduction">
           <p>
             Every automation project presents a unique set of challenges. Over
-            the past 20+ years, I have worked on projects ranging from small
-            system upgrades to large-scale systems, collaborating closely with
-            PMs, engineering, operations, and customers across multiple
-            industries.
+            the past 20+ years, I have delivered projects ranging from small
+            system upgrades to large-scale distributed control systems across
+            multiple industries. Along the way, I have worked closely with
+            project teams and customers, and traveled throughout North America,
+            Asia, and Europe to commission systems on site.
           </p>
         </section>
 
-        <section className="projects-list" aria-label="Selected project placeholders">
+        <section
+          className="projects-list"
+          aria-label="Selected project placeholders"
+        >
           {PROJECTS.map((project) => (
             <article className="project-entry" key={project.number}>
               <div className="project-media">
-                <img src={project.image} alt={project.imageAlt} />
+                {project.images ? (
+                  <ImageSlideshow
+                    images={project.images}
+                    label={`${project.title} project photos`}
+                  />
+                ) : (
+                  <img src={project.image} alt={project.imageAlt} />
+                )}
               </div>
               <div className="project-details">
                 <p className="project-number">{project.number}</p>
-                <h2>{project.title}</h2>
+                <h2>
+                  {project.link ? (
+                    <a
+                      className="project-title-link"
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {project.title}
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                  ) : (
+                    project.title
+                  )}
+                </h2>
                 <p className="project-category">{project.category}</p>
                 <p className="project-overview">{project.overview}</p>
-                <dl>
-                  <div>
-                    <dt>Challenge</dt>
-                    <dd>{project.challenge}</dd>
-                  </div>
-                  <div>
-                    <dt>Approach</dt>
-                    <dd>{project.approach}</dd>
-                  </div>
-                  <div>
-                    <dt>Result</dt>
-                    <dd>{project.result}</dd>
-                  </div>
-                </dl>
+                {project.challenge && project.approach && project.result && (
+                  <dl>
+                    <div>
+                      <dt>Challenge</dt>
+                      <dd>{project.challenge}</dd>
+                    </div>
+                    <div>
+                      <dt>Approach</dt>
+                      <dd>{project.approach}</dd>
+                    </div>
+                    <div>
+                      <dt>Result</dt>
+                      <dd>{project.result}</dd>
+                    </div>
+                  </dl>
+                )}
               </div>
             </article>
           ))}
