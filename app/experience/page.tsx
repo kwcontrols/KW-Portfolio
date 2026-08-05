@@ -56,6 +56,26 @@ const GEFIX_HC900_PROJECT_IMAGES: SlideshowImage[] = [
   },
 ];
 
+// Add or replace Project 04 electrical images here; no slideshow code changes are needed.
+const ELECTRICAL_ENGINEERING_PROJECT_IMAGES: SlideshowImage[] = [
+  {
+    src: "/projects/Electrical-1.JPG",
+    alt: "Electrical engineering project image 1 showing industrial design work",
+  },
+  {
+    src: "/projects/Electrical-2.png",
+    alt: "Electrical engineering project image 2 showing a CADD design",
+  },
+  {
+    src: "/projects/electrical-3.jpg",
+    alt: "Electrical engineering project image 3 showing project documentation",
+  },
+  {
+    src: "/projects/electrical-4.jpg",
+    alt: "Electrical engineering project image 4 showing coordinated electrical design",
+  },
+];
+
 // Replace project titles, categories, descriptions, detail text, and local image paths here.
 const PROJECTS: Project[] = [
   {
@@ -87,18 +107,11 @@ const PROJECTS: Project[] = [
   },
   {
     number: "04",
-    title: "Utility Monitoring and Reporting",
-    category: "Industrial Utilities / SCADA and Reporting",
-    image: "/projects/project-04.jpg",
-    imageAlt: "Placeholder for an industrial utility monitoring project",
+    title: "Electrical Engineering",
+    category: "Low Voltage Design / 2D & 3D CADD",
+    images: ELECTRICAL_ENGINEERING_PROJECT_IMAGES,
     overview:
-      "A representative monitoring project designed to make utility performance and operating conditions easier to understand.",
-    challenge:
-      "Important utility information was distributed across systems and difficult for operators and engineering teams to review.",
-    approach:
-      "Key signals were standardized, integrated into SCADA, and organized into focused displays and practical reports.",
-    result:
-      "Teams gained a clearer operational view and a more consistent basis for analysis and continuous improvement.",
+      "Provided low-voltage electrical design and 2D/3D CADD support for industrial projects. The work included control-panel layouts, electrical schematics, equipment and cable coordination, drawing updates, and multidisciplinary design reviews, with a focus on accuracy, constructability, and clear project documentation.",
   },
 ];
 
