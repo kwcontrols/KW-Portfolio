@@ -16,14 +16,17 @@ export function ImageSlideshow({
 }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [interactionVersion, setInteractionVersion] = useState(0);
+  const hasMultipleSlides = images.length > 1;
 
   useEffect(() => {
+    if (!hasMultipleSlides) return;
+
     const timer = window.setTimeout(() => {
       setCurrentSlide((slide) => (slide + 1) % images.length);
     }, 4500);
 
     return () => window.clearTimeout(timer);
-  }, [currentSlide, images.length, interactionVersion]);
+  }, [currentSlide, hasMultipleSlides, images.length, interactionVersion]);
 
   const showPrevious = () => {
     setCurrentSlide((slide) => (slide === 0 ? images.length - 1 : slide - 1));
@@ -49,35 +52,41 @@ export function ImageSlideshow({
           src={images[currentSlide].src}
           alt={images[currentSlide].alt}
         />
-        <button
-          className="image-slideshow-control image-slideshow-previous"
-          type="button"
-          onClick={showPrevious}
-          aria-label="Show previous project photo"
-        >
-          ‹
-        </button>
-        <button
-          className="image-slideshow-control image-slideshow-next"
-          type="button"
-          onClick={showNext}
-          aria-label="Show next project photo"
-        >
-          ›
-        </button>
+        {hasMultipleSlides && (
+          <>
+            <button
+              className="image-slideshow-control image-slideshow-previous"
+              type="button"
+              onClick={showPrevious}
+              aria-label="Show previous project photo"
+            >
+              ‹
+            </button>
+            <button
+              className="image-slideshow-control image-slideshow-next"
+              type="button"
+              onClick={showNext}
+              aria-label="Show next project photo"
+            >
+              ›
+            </button>
+          </>
+        )}
       </div>
-      <div className="image-slideshow-dots" aria-label="Choose a project photo">
-        {images.map((image, index) => (
-          <button
-            key={image.src}
-            className={index === currentSlide ? "is-active" : ""}
-            type="button"
-            onClick={() => showSlide(index)}
-            aria-label={`Show project photo ${index + 1}`}
-            aria-current={index === currentSlide ? "true" : undefined}
-          />
-        ))}
-      </div>
+      {hasMultipleSlides && (
+        <div className="image-slideshow-dots" aria-label="Choose a project photo">
+          {images.map((image, index) => (
+            <button
+              key={image.src}
+              className={index === currentSlide ? "is-active" : ""}
+              type="button"
+              onClick={() => showSlide(index)}
+              aria-label={`Show project photo ${index + 1}`}
+              aria-current={index === currentSlide ? "true" : undefined}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

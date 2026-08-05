@@ -36,6 +36,14 @@ const ROCKWELL_PROJECT_IMAGES: SlideshowImage[] = [
   },
 ];
 
+// Add future Siemens photos here; controls and autoplay enable automatically at two images.
+const SIEMENS_PROJECT_IMAGES: SlideshowImage[] = [
+  {
+    src: "/projects/project-placeholder-02.svg",
+    alt: "Siemens HVAC-R automation project",
+  },
+];
+
 // Replace project titles, categories, descriptions, detail text, and local image paths here.
 const PROJECTS: Project[] = [
   {
@@ -49,18 +57,12 @@ const PROJECTS: Project[] = [
   },
   {
     number: "02",
-    title: "Water Treatment Automation Expansion",
-    category: "Water Treatment / System Integration",
-    image: "/projects/project-02.jpg",
-    imageAlt: "Placeholder for a water treatment automation project",
+    title: "Siemens",
+    category: "HVAC-R / System Integration",
+    images: SIEMENS_PROJECT_IMAGES,
+    link: "https://www.siemens.com/en-us/products/simatic/",
     overview:
-      "A representative expansion project connecting new treatment equipment with an existing plant-wide automation system.",
-    challenge:
-      "New process equipment needed to integrate cleanly with established controls, standards, and operating procedures.",
-    approach:
-      "Interfaces, control narratives, alarms, and commissioning activities were coordinated across multiple project teams.",
-    result:
-      "The new equipment was incorporated into daily operations with consistent controls and centralized visibility.",
+      "Delivered Siemens automation solutions for HVAC-R and building-system applications. The work included control-strategy development, PLC and HMI programming, network and field-device integration, functional testing, and on-site commissioning, with a focus on energy efficiency, reliability, and ease of operation.",
   },
   {
     number: "03",
