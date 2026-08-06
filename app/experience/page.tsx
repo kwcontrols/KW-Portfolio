@@ -31,7 +31,7 @@ const ROCKWELL_PROJECT_IMAGES: SlideshowImage[] = [
     alt: "Placeholder for PLC and HMI integration testing",
   },
   {
-    src: "/projects/rockwell-4.svg",
+    src: "/projects/rockwell/rockwell-4.jpg",
     alt: "Placeholder for on-site automation commissioning",
   },
 ];
@@ -81,7 +81,7 @@ const PROJECTS: Project[] = [
   {
     number: "01",
     title: "Rockwell Automation",
-    category: "PlantPAx / Pharma / Water / Conveyor",
+    category: "PlantPAx / Pharma / Water / Conveyor / Bander",
     images: ROCKWELL_PROJECT_IMAGES,
     link: "https://www.rockwellautomation.com/en-us.html",
     overview:
