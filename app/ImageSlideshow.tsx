@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 export type SlideshowImage = {
   src: string;
   alt: string;
+  displayMode?: "cover" | "contain";
 };
 
 export function ImageSlideshow({
@@ -17,6 +18,8 @@ export function ImageSlideshow({
   const [currentSlide, setCurrentSlide] = useState(0);
   const [interactionVersion, setInteractionVersion] = useState(0);
   const hasMultipleSlides = images.length > 1;
+  const currentImage = images[currentSlide];
+  const displayMode = currentImage.displayMode ?? "cover";
 
   useEffect(() => {
     if (!hasMultipleSlides) return;
@@ -45,12 +48,12 @@ export function ImageSlideshow({
 
   return (
     <div className="image-slideshow" aria-label={label}>
-      <div className="image-slideshow-frame">
+      <div className={`image-slideshow-frame is-${displayMode}`}>
         <img
-          key={images[currentSlide].src}
-          className="image-slideshow-image"
-          src={images[currentSlide].src}
-          alt={images[currentSlide].alt}
+          key={currentImage.src}
+          className={`image-slideshow-image is-${displayMode}`}
+          src={currentImage.src}
+          alt={currentImage.alt}
         />
         {hasMultipleSlides && (
           <>

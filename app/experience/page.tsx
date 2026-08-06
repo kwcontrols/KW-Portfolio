@@ -19,28 +19,35 @@ type Project = {
 // Replace these four local paths and alt descriptions with final Rockwell project photos.
 const ROCKWELL_PROJECT_IMAGES: SlideshowImage[] = [
   {
-    src: "/projects/rockwell-1.svg",
+    src: "/projects/rockwell-1.jpg",
     alt: "Placeholder for a Rockwell Automation control-system design",
   },
   {
-    src: "/projects/rockwell-2.svg",
+    src: "/projects/rockwell-2.jpg",
     alt: "Placeholder for PlantPAx configuration and development",
   },
   {
-    src: "/projects/rockwell-3.svg",
+    src: "/projects/rockwell-3.jpg",
     alt: "Placeholder for PLC and HMI integration testing",
+    displayMode: "contain",
   },
   {
     src: "/projects/rockwell/rockwell-4.jpg",
     alt: "Placeholder for on-site automation commissioning",
+  },
+  {
+    src: "/projects/rockwell-5.jpg",
+    alt: "Rockwell Bander",
+    displayMode: "contain",
   },
 ];
 
 // Add future Siemens photos here; controls and autoplay enable automatically at two images.
 const SIEMENS_PROJECT_IMAGES: SlideshowImage[] = [
   {
-    src: "/projects/project-placeholder-02.svg",
+    src: "/projects/siemens-1.jpg",
     alt: "Siemens HVAC-R automation project",
+    displayMode: "contain",
   },
 ];
 
@@ -53,6 +60,7 @@ const GEFIX_HC900_PROJECT_IMAGES: SlideshowImage[] = [
   {
     src: "/projects/iFix-2.jpg",
     alt: "GE iFIX and Honeywell HC900 project image 2",
+    displayMode: "contain",
   },
 ];
 
@@ -65,14 +73,17 @@ const ELECTRICAL_ENGINEERING_PROJECT_IMAGES: SlideshowImage[] = [
   {
     src: "/projects/Electrical-2.png",
     alt: "Electrical engineering project image 2 showing a CADD design",
+    displayMode: "contain",
   },
   {
     src: "/projects/electrical-3.jpg",
     alt: "Electrical engineering project image 3 showing project documentation",
+    displayMode: "contain",
   },
   {
     src: "/projects/electrical-4.jpg",
     alt: "Electrical engineering project image 4 showing coordinated electrical design",
+    displayMode: "contain",
   },
 ];
 

@@ -115,9 +115,11 @@ p { color: var(--ink-soft); font-size: 1rem; line-height: 1.75; }
 .project-details dt { color: var(--ink); font-size: .82rem; font-weight: 700; }
 .project-details dd { margin: var(--space-2xs) 0 0; color: var(--ink-soft); font-size: 1rem; line-height: 1.75; }
 .image-slideshow { width: 100%; }
-.image-slideshow-frame { position: relative; display: flex; justify-content: center; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background: var(--blue-wash); }
-/* Change object-fit to contain later if the full uncropped image should be visible. */
-.project-media .image-slideshow-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; animation: slideshow-fade 500ms ease; }
+.image-slideshow-frame { position: relative; display: flex; align-items: center; justify-content: center; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background: var(--blue-wash); }
+.image-slideshow-frame.is-contain { background: var(--white); }
+.project-media .image-slideshow-image { display: block; width: 100%; height: 100%; object-position: center; animation: slideshow-fade 500ms ease; }
+.project-media .image-slideshow-image.is-cover { object-fit: cover; }
+.project-media .image-slideshow-image.is-contain { object-fit: contain; }
 .image-slideshow-control { position: absolute; top: 50%; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; padding: 0; border: 1px solid rgba(255, 255, 255, .72); border-radius: 50%; background: rgba(16, 35, 63, .35); color: var(--white); font-size: 1.5rem; line-height: 1; cursor: pointer; transform: translateY(-50%); transition: background 180ms ease; }
 .image-slideshow-control:hover, .image-slideshow-control:focus-visible { background: rgba(16, 35, 63, .62); }
 .image-slideshow-previous { left: var(--space-sm); }
