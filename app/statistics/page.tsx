@@ -1,6 +1,6 @@
 import { SiteFooter } from "../SiteFooter";
 import { SiteHeader } from "../SiteHeader";
-import { StatisticsDashboard } from "./StatisticsDashboard";
+import StatisticsDashboard from "./StatisticsDashboard";
 
 export default function StatisticsPage() {
   return (
