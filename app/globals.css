@@ -162,7 +162,7 @@ p { color: var(--ink-soft); font-size: 1rem; line-height: 1.75; }
 .timeline-row:hover, .timeline-row:focus-visible, .timeline-row.is-active { background: rgba(237, 245, 255, .72); }
 .timeline-row:hover .timeline-marker span, .timeline-row:focus-visible .timeline-marker span, .timeline-row.is-active .timeline-marker span { border-color: var(--blue); background: var(--blue); transform: scale(1.08); }
 .timeline-row:hover .timeline-year, .timeline-row:hover .timeline-content h2, .timeline-row:focus-visible .timeline-year, .timeline-row:focus-visible .timeline-content h2, .timeline-row.is-active .timeline-year, .timeline-row.is-active .timeline-content h2 { color: var(--blue); transform: scale(1.018); }
-footer { position: relative; z-index: 0; display: flex; justify-content: space-between; gap: var(--space-lg); margin-top: auto; padding: 1.8rem 0 var(--space-xl); background: var(--footer-background); color: var(--footer-text); font-size: .75rem; }
+footer { position: relative; z-index: 0; display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); margin-top: auto; padding: 1.2rem 0; background: var(--footer-background); color: var(--footer-text); font-size: .75rem; }
 footer::before { content: ""; position: absolute; z-index: -1; inset-block: 0; left: 50%; width: 100dvw; background: var(--footer-background); transform: translateX(-50%); }
 footer a { color: var(--footer-text); text-decoration: none; transition: color 180ms ease; }
 footer a:hover, footer a:focus-visible { color: var(--blue-soft); text-decoration: underline; text-underline-offset: .25rem; }
