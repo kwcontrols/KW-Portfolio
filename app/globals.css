@@ -146,6 +146,15 @@ p { color: var(--ink-soft); font-size: 1rem; line-height: 1.75; }
 .contact-link:hover, .contact-link:focus-visible { color: var(--blue-dark); }
 .project-title-link.contact-link span { font-size: .8125rem; vertical-align: .12em; }
 .resume-page { width: 100%; max-width: 780px; margin: 0 auto; padding: var(--space-lg) 0 var(--space-xl); text-align: left; }
+.statistics-page { width: 100%; max-width: 1120px; margin: 0 auto; padding: var(--space-2xl) 0; }
+.statistics-page h1, .chart-placeholder h2 { max-width: none; font-size: clamp(1rem, 1.5vw, 1.25rem); line-height: 1.25; }
+.statistics-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-md); margin-top: var(--space-xl); }
+.statistic-card { min-width: 0; padding: var(--space-lg); border: 1px solid var(--line); background: var(--white); }
+.statistic-card p { margin: 0; color: var(--ink-soft); font-size: .82rem; font-weight: 700; line-height: 1.5; }
+.statistic-card strong { display: block; margin-top: var(--space-md); color: var(--ink); font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 400; line-height: 1; }
+.statistics-charts { display: grid; gap: var(--space-xl); margin-top: var(--space-2xl); }
+.chart-placeholder { padding-top: var(--space-lg); border-top: 1px solid var(--line); }
+.chart-placeholder > div { min-height: 240px; margin-top: var(--space-md); border: 1px dashed var(--line); background: rgba(255, 255, 255, .45); }
 .resume-section + .resume-section { margin-top: var(--space-lg); padding-top: var(--space-lg); border-top: 1px solid var(--line); }
 .resume-section > h1 { color: var(--ink); }
 .resume-timeline { margin-top: var(--space-sm); }
@@ -178,6 +187,7 @@ footer a:hover, footer a:focus-visible { color: var(--blue-soft); text-decoratio
   .project-entry { grid-template-columns: 1fr; gap: var(--space-lg); }
   .project-entry .project-media, .project-entry:nth-child(even) .project-media { grid-column: 1; grid-row: 1; }
   .project-entry .project-details, .project-entry:nth-child(even) .project-details { grid-column: 1; grid-row: 2; }
+  .statistics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 680px) {
@@ -190,6 +200,10 @@ footer a:hover, footer a:focus-visible { color: var(--blue-soft); text-decoratio
   .timeline-content { grid-column: 2; }
   .timeline-marker { grid-row: 1 / span 2; }
   footer { flex-direction: column; }
+  .statistics-page { padding: var(--space-xl) 0; }
+  .statistics-grid { grid-template-columns: 1fr; }
+  .statistic-card { padding: var(--space-md); }
+  .chart-placeholder > div { min-height: 180px; }
 }
 
 @media (max-width: 440px) {
