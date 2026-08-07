@@ -38,19 +38,18 @@ a { color: inherit; }
 .site-shell > main::before { content: ""; position: absolute; z-index: -1; inset-block: 0; left: 50%; width: 100dvw; background: var(--content-background); transform: translateX(-50%); }
 .site-header {
   position: static;
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
+  display: flex;
   align-items: center;
-  gap: var(--space-md);
-  padding: clamp(2rem, 4vw, 3.75rem) 0 2rem;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  padding: 1.2rem 0;
   border-bottom: 0;
   background: var(--header-background);
 }
-.brand { font-size: clamp(1.8rem, 3.5vw, 3.25rem); font-weight: 700; letter-spacing: .18em; text-decoration: none; text-transform: uppercase; }
+.brand { flex: 0 0 auto; font-size: clamp(1.5rem, 2vw, 1.8rem); font-weight: 700; letter-spacing: .18em; text-decoration: none; text-transform: uppercase; }
 .brand span { color: var(--ink-soft); font-weight: 500; }
-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(1.2rem, 3vw, 2.5rem); }
-nav a { color: var(--ink-soft); font-size: .9rem; text-decoration: none; transition: color 180ms ease; }
+nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: clamp(1.5rem, 2.5vw, 2rem); }
+nav a { color: var(--ink-soft); font-size: clamp(.75rem, 1vw, .82rem); letter-spacing: .08em; text-decoration: none; text-transform: uppercase; transition: color 180ms ease; }
 nav a:hover, nav a:focus-visible { color: var(--blue); }
 nav a[aria-current="page"] { color: var(--blue-dark); font-weight: 700; text-decoration: underline; text-decoration-color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: .45rem; }
 .hero {
@@ -169,8 +168,8 @@ footer a:hover, footer a:focus-visible { color: var(--blue-soft); text-decoratio
 
 @media (max-width: 900px) {
   .site-shell { width: min(100% - 36px, 1460px); }
-  .site-header { gap: 1.1rem; padding: 2rem 0 1.75rem; }
-  nav { justify-content: center; }
+  .site-header { gap: var(--space-md); padding: 1.1rem 0; }
+  nav { gap: clamp(1.1rem, 3vw, 1.5rem); }
   .hero { grid-template-columns: 1fr; min-height: auto; }
   .hero-aside { max-width: 560px; }
   .project-entry { grid-template-columns: 1fr; gap: var(--space-lg); }
@@ -179,6 +178,9 @@ footer a:hover, footer a:focus-visible { color: var(--blue-soft); text-decoratio
 }
 
 @media (max-width: 680px) {
+  .site-header { flex-wrap: wrap; justify-content: center; row-gap: var(--space-sm); padding: 1rem 0; }
+  .site-header .brand { margin-inline: auto; }
+  .site-header nav { width: 100%; justify-content: center; }
   h1 { font-size: clamp(2.4rem, 10vw, 3.5rem); }
   .about-portrait { transform: none; }
   .timeline-row { grid-template-columns: 24px minmax(0, 1fr); column-gap: .9rem; row-gap: var(--space-2xs); padding-inline: .35rem; }
