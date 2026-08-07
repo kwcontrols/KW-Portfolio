@@ -1,0 +1,52 @@
+name: Update GA4 Analytics
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 8 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update-analytics:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Create Google credentials
+        shell: bash
+        env:
+          GCP_SERVICE_ACCOUNT_JSON: ${{ secrets.GCP_SERVICE_ACCOUNT_JSON }}
+        run: |
+          printf '%s' "$GCP_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/google-credentials.json"
+
+      - name: Generate GA4 analytics
+        env:
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/google-credentials.json
+        run: npx tsx script/generate-analytics.ts
+
+      - name: Commit updated analytics
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/analytics.json
+
+          if git diff --cached --quiet; then
+            echo "No analytics changes to commit."
+          else
+            git commit -m "Update GA4 analytics"
+            git push
+          fi
