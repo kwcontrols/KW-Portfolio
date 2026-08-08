@@ -7,6 +7,7 @@ import {
   AreaChart,
   Bar,
   BarChart,
+  Cell,
   CartesianGrid,
   ResponsiveContainer,
   Tooltip,
@@ -14,96 +15,58 @@ import {
   YAxis,
 } from "recharts";
 
-// Page Views is supplied by public/analytics.json; remaining metrics stay as samples for now.
+export type AnalyticsData = {
+  updatedAt: string;
+  period: string;
+  pageViews: number | null;
+  totalVisitors: number | null;
+  countriesReached: number | null;
+  averageEngagementTime: number | null;
+  countries: Array<{ name: string; users: number; percentage: number }>;
+  visitorTrends: Array<{ date: string; users: number; pageViews: number }>;
+  topPages: Array<{ title: string; path: string; views: number }>;
+  trafficSources: Array<{ source: string; users: number; percentage: number }>;
+};
+
+type SummaryKey =
+  | "totalVisitors"
+  | "pageViews"
+  | "countriesReached"
+  | "averageEngagementTime";
+
 const SUMMARY_METRICS = [
   {
+    key: "totalVisitors" as SummaryKey,
     label: "Total Visitors",
-    value: 2847,
     display: (value: number) => Math.round(value).toLocaleString(),
-    detail: "+12.4% this month",
     icon: "◎",
     tone: "blue",
   },
   {
+    key: "pageViews" as SummaryKey,
     label: "Page Views",
-    value: 6219,
     display: (value: number) => Math.round(value).toLocaleString(),
-    detail: "+8.7% this month",
     icon: "↗",
     tone: "navy",
   },
   {
+    key: "countriesReached" as SummaryKey,
     label: "Countries Reached",
-    value: 24,
     display: (value: number) => Math.round(value).toString(),
-    detail: "Across five regions",
     icon: "◉",
     tone: "teal",
   },
   {
+    key: "averageEngagementTime" as SummaryKey,
     label: "Avg. Engagement Time",
-    value: 138,
     display: (value: number) =>
       `${Math.floor(value / 60)}m ${Math.round(value % 60)}s`,
-    detail: "+14 seconds",
     icon: "◷",
     tone: "gold",
   },
 ];
 
-const VISITOR_TRENDS = [
-  { day: "Mon", visitors: 58, views: 116 },
-  { day: "Tue", visitors: 72, views: 148 },
-  { day: "Wed", visitors: 66, views: 139 },
-  { day: "Thu", visitors: 84, views: 176 },
-  { day: "Fri", visitors: 76, views: 162 },
-  { day: "Sat", visitors: 48, views: 96 },
-  { day: "Sun", visitors: 62, views: 128 },
-];
-
-const TOP_PAGES = [
-  { page: "About", path: "/", views: "2,184", change: "+14%" },
-  { page: "Projects", path: "/experience", views: "1,742", change: "+11%" },
-  { page: "Resume", path: "/resume", views: "1,396", change: "+7%" },
-  { page: "Contact", path: "/contact", views: "897", change: "+5%" },
-];
-
-const TRAFFIC_SOURCES = [
-  { source: "Direct", percentage: 42, fill: "#175dcc" },
-  { source: "Search", percentage: 31, fill: "#0b387d" },
-  { source: "LinkedIn", percentage: 18, fill: "#2c8c91" },
-  { source: "Referrals", percentage: 9, fill: "#c58a31" },
-];
-
-const AUDIENCE = [
-  { label: "Canada", value: "46%", tone: "blue" },
-  { label: "United States", value: "28%", tone: "navy" },
-  { label: "Europe", value: "16%", tone: "teal" },
-  { label: "Other regions", value: "10%", tone: "gold" },
-];
-
-const RECENT_ACTIVITY = [
-  {
-    event: "Project page viewed",
-    context: "Vancouver, Canada",
-    time: "4 min ago",
-  },
-  {
-    event: "Resume downloaded",
-    context: "Toronto, Canada",
-    time: "18 min ago",
-  },
-  {
-    event: "Contact page visited",
-    context: "Seattle, United States",
-    time: "42 min ago",
-  },
-  {
-    event: "Returning visitor",
-    context: "London, United Kingdom",
-    time: "1 hr ago",
-  },
-];
+const CHART_COLORS = ["#175dcc", "#0b387d", "#2c8c91", "#a66f20", "#6f7f92", "#87a6c8"];
 
 const PROFESSIONAL_HIGHLIGHTS = [
   {
@@ -211,25 +174,72 @@ const tooltipStyle = {
 };
 
 export default function StatisticsDashboard({
-  pageViews,
-  totalVisitors,
-  analyticsUpdatedAt,
+  analytics,
 }: {
-  pageViews: number | null;
-  analyticsUpdatedAt: string | null;
-  totalVisitors: number | null;
+  analytics: AnalyticsData | null;
 }) {
   const reducedMotion = useReducedMotion();
   const chartDuration = reducedMotion ? 0 : 700;
-  const updatedDate = analyticsUpdatedAt ? new Date(analyticsUpdatedAt) : null;
+  const updatedDate = analytics?.updatedAt ? new Date(analytics.updatedAt) : null;
   const updatedLabel =
     updatedDate && !Number.isNaN(updatedDate.getTime())
       ? new Intl.DateTimeFormat("en-CA", {
           month: "short",
           day: "numeric",
           year: "numeric",
-        }).format(updatedDate)
-      : null;
+      }).format(updatedDate)
+    : null;
+  const visitorTrends = (analytics?.visitorTrends ?? []).map((item) => ({
+    day: new Intl.DateTimeFormat("en-CA", {
+      weekday: "short",
+      timeZone: "UTC",
+    }).format(new Date(`${item.date}T00:00:00Z`)),
+    visitors: item.users,
+    views: item.pageViews,
+  }));
+  const trafficSources = (analytics?.trafficSources ?? []).map(
+    (source, index) => ({
+      ...source,
+      fill: CHART_COLORS[index % CHART_COLORS.length],
+    }),
+  );
+  const pageViewsLast7Days = (analytics?.visitorTrends ?? []).reduce(
+    (sum, item) => sum + item.pageViews,
+    0,
+  );
+  const recentAnalytics = [
+    analytics?.topPages[0]
+      ? {
+          label: "Most viewed page",
+          context: analytics.topPages[0].path,
+          value: analytics.topPages[0].views.toLocaleString(),
+        }
+      : null,
+    analytics?.trafficSources[0]
+      ? {
+          label: "Leading traffic source",
+          context: `${analytics.trafficSources[0].percentage}% of reported users`,
+          value: analytics.trafficSources[0].source,
+        }
+      : null,
+    analytics?.countries[0]
+      ? {
+          label: "Top visitor country",
+          context: `${analytics.countries[0].percentage}% of reported users`,
+          value: analytics.countries[0].name,
+        }
+      : null,
+    analytics?.visitorTrends.length
+      ? {
+          label: "Page views",
+          context: "Most recent seven days",
+          value: pageViewsLast7Days.toLocaleString(),
+        }
+      : null,
+  ].filter(
+    (item): item is { label: string; context: string; value: string } =>
+      item !== null,
+  );
 
   return (
     <>
@@ -242,12 +252,11 @@ export default function StatisticsDashboard({
         <p className="section-index">Portfolio Analytics</p>
         <h1>Portfolio Analytics</h1>
         <p>
-          A concise view of portfolio reach, engagement, and professional
-          growth—combining live GA4 visitor and page-view data with sample
-          metrics for the remaining dashboard.
+          A concise view of portfolio reach and engagement powered by live
+          Google Analytics data, alongside selected professional highlights.
         </p>
         <span>
-          Live GA4 data: Total Visitors & Page Views
+          Live GA4 analytics
           {updatedLabel ? ` · Updated ${updatedLabel}` : ""}
         </span>
       </motion.header>
@@ -265,29 +274,16 @@ export default function StatisticsDashboard({
               <span aria-hidden="true">{metric.icon}</span>
             </div>
             <strong>
-              {(metric.label === "Page Views" && pageViews === null) ||
-              (metric.label === "Total Visitors" && totalVisitors === null) ? (
+              {analytics?.[metric.key] === null || analytics?.[metric.key] === undefined ? (
                 <span>—</span>
               ) : (
                 <AnimatedValue
-                  value={
-                    metric.label === "Page Views"
-                      ? (pageViews ?? 0)
-                      : metric.label === "Total Visitors"
-                        ? (totalVisitors ?? 0)
-                        : metric.value
-                  }
+                  value={analytics[metric.key] ?? 0}
                   display={metric.display}
                 />
               )}
             </strong>
-
-            <small>
-              {metric.label === "Page Views" ||
-              metric.label === "Total Visitors"
-                ? "Last 30 days"
-                : metric.detail}
-            </small>
+            <small>Last 30 days</small>
           </motion.article>
         ))}
       </FadeSection>
@@ -299,68 +295,36 @@ export default function StatisticsDashboard({
               <p className="analytics-label">Last seven days</p>
               <h2>Visitor Trends</h2>
             </div>
-            <span>Sample data</span>
+            <span>Live data</span>
           </div>
-          <div
-            className="recharts-frame"
-            aria-label="Daily visitors and page views over the last seven days"
-          >
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart
-                data={VISITOR_TRENDS}
-                margin={{ top: 12, right: 8, left: -22, bottom: 0 }}
-              >
-                <defs>
-                  <linearGradient id="visitorFill" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#175dcc" stopOpacity={0.28} />
-                    <stop
-                      offset="100%"
-                      stopColor="#175dcc"
-                      stopOpacity={0.02}
-                    />
-                  </linearGradient>
-                </defs>
-                <CartesianGrid
-                  stroke="#dce6f1"
-                  strokeDasharray="3 5"
-                  vertical={false}
-                />
-                <XAxis
-                  dataKey="day"
-                  axisLine={false}
-                  tickLine={false}
-                  tick={{ fill: "#52647a", fontSize: 11 }}
-                />
-                <YAxis
-                  axisLine={false}
-                  tickLine={false}
-                  tick={{ fill: "#52647a", fontSize: 11 }}
-                />
-                <Tooltip
-                  contentStyle={tooltipStyle}
-                  cursor={{ stroke: "#c8d8ea" }}
-                />
-                <Area
-                  type="monotone"
-                  dataKey="views"
-                  name="Page views"
-                  stroke="#8ba7c7"
-                  fill="transparent"
-                  strokeWidth={1.5}
-                  animationDuration={chartDuration}
-                />
-                <Area
-                  type="monotone"
-                  dataKey="visitors"
-                  name="Visitors"
-                  stroke="#175dcc"
-                  fill="url(#visitorFill)"
-                  strokeWidth={2}
-                  animationDuration={chartDuration}
-                />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
+          {visitorTrends.length ? (
+            <div
+              className="recharts-frame"
+              aria-label="Daily visitors and page views over the last seven days"
+            >
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart
+                  data={visitorTrends}
+                  margin={{ top: 12, right: 8, left: -22, bottom: 0 }}
+                >
+                  <defs>
+                    <linearGradient id="visitorFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stopColor="#175dcc" stopOpacity={0.28} />
+                      <stop offset="100%" stopColor="#175dcc" stopOpacity={0.02} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid stroke="#dce6f1" strokeDasharray="3 5" vertical={false} />
+                  <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fill: "#52647a", fontSize: 11 }} />
+                  <YAxis axisLine={false} tickLine={false} allowDecimals={false} tick={{ fill: "#52647a", fontSize: 11 }} />
+                  <Tooltip contentStyle={tooltipStyle} cursor={{ stroke: "#c8d8ea" }} />
+                  <Area type="monotone" dataKey="views" name="Page views" stroke="#8ba7c7" fill="transparent" strokeWidth={1.5} animationDuration={chartDuration} />
+                  <Area type="monotone" dataKey="visitors" name="Visitors" stroke="#175dcc" fill="url(#visitorFill)" strokeWidth={2} animationDuration={chartDuration} />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+          ) : (
+            <p className="analytics-empty">No data yet</p>
+          )}
         </FadeSection>
 
         <FadeSection className="analytics-card">
@@ -370,20 +334,24 @@ export default function StatisticsDashboard({
               <h2>Top Pages</h2>
             </div>
           </div>
-          <ol className="top-pages-list">
-            {TOP_PAGES.map((item) => (
-              <li key={item.path}>
-                <div>
-                  <strong>{item.page}</strong>
-                  <span>{item.path}</span>
-                </div>
-                <div className="page-result">
-                  <strong>{item.views}</strong>
-                  <small>{item.change}</small>
-                </div>
-              </li>
-            ))}
-          </ol>
+          {analytics?.topPages.length ? (
+            <ol className="top-pages-list">
+              {analytics.topPages.map((item) => (
+                <li key={`${item.path}-${item.title}`}>
+                  <div>
+                    <strong>{item.title}</strong>
+                    <span>{item.path}</span>
+                  </div>
+                  <div className="page-result">
+                    <strong>{item.views.toLocaleString()}</strong>
+                    <small>views</small>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <p className="analytics-empty">No data yet</p>
+          )}
         </FadeSection>
 
         <FadeSection className="analytics-card">
@@ -393,48 +361,30 @@ export default function StatisticsDashboard({
               <h2>Traffic Sources</h2>
             </div>
           </div>
-          <div
-            className="recharts-frame recharts-frame-compact"
-            aria-label="Traffic source percentages"
-          >
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart
-                data={TRAFFIC_SOURCES}
-                layout="vertical"
-                margin={{ top: 4, right: 18, left: 10, bottom: 0 }}
-              >
-                <CartesianGrid stroke="#edf2f7" horizontal={false} />
-                <XAxis type="number" domain={[0, 50]} hide />
-                <YAxis
-                  type="category"
-                  dataKey="source"
-                  width={70}
-                  axisLine={false}
-                  tickLine={false}
-                  tick={{ fill: "#52647a", fontSize: 11 }}
-                />
-                <Tooltip
-                  contentStyle={tooltipStyle}
-                  cursor={{ fill: "#f6f7f9" }}
-                  formatter={(value) => [`${value}%`, "Share"]}
-                />
-                <Bar
-                  dataKey="percentage"
-                  fill="#175dcc"
-                  radius={[0, 2, 2, 0]}
-                  animationDuration={chartDuration}
-                />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-          <div className="source-legend">
-            {TRAFFIC_SOURCES.map((item) => (
-              <span key={item.source}>
-                <i style={{ background: item.fill }} />
-                {item.source}
-              </span>
-            ))}
-          </div>
+          {trafficSources.length ? (
+            <>
+              <div className="recharts-frame recharts-frame-compact" aria-label="Traffic source percentages">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart data={trafficSources} layout="vertical" margin={{ top: 4, right: 18, left: 10, bottom: 0 }}>
+                    <CartesianGrid stroke="#edf2f7" horizontal={false} />
+                    <XAxis type="number" domain={[0, 100]} hide />
+                    <YAxis type="category" dataKey="source" width={76} axisLine={false} tickLine={false} tick={{ fill: "#52647a", fontSize: 11 }} />
+                    <Tooltip contentStyle={tooltipStyle} cursor={{ fill: "#f6f7f9" }} formatter={(value) => [`${value}%`, "Share"]} />
+                    <Bar dataKey="percentage" radius={[0, 2, 2, 0]} animationDuration={chartDuration}>
+                      {trafficSources.map((item) => <Cell key={item.source} fill={item.fill} />)}
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+              <div className="source-legend">
+                {trafficSources.map((item) => (
+                  <span key={item.source}><i style={{ background: item.fill }} />{item.source}</span>
+                ))}
+              </div>
+            </>
+          ) : (
+            <p className="analytics-empty">No data yet</p>
+          )}
         </FadeSection>
 
         <FadeSection className="analytics-card">
@@ -444,38 +394,43 @@ export default function StatisticsDashboard({
               <h2>Audience Overview</h2>
             </div>
           </div>
-          <dl className="audience-list">
-            {AUDIENCE.map((item) => (
-              <div key={item.label}>
-                <dt>
-                  <i className={`tone-dot tone-${item.tone}`} />
-                  {item.label}
-                </dt>
-                <dd>{item.value}</dd>
-              </div>
-            ))}
-          </dl>
+          {analytics?.countries.length ? (
+            <dl className="audience-list">
+              {analytics.countries.map((item, index) => (
+                <div key={item.name}>
+                  <dt>
+                    <i className="tone-dot" style={{ background: CHART_COLORS[index % CHART_COLORS.length] }} />
+                    {item.name}
+                  </dt>
+                  <dd>{item.percentage}%</dd>
+                </div>
+              ))}
+            </dl>
+          ) : (
+            <p className="analytics-empty">No data yet</p>
+          )}
         </FadeSection>
 
         <FadeSection className="analytics-card">
           <div className="analytics-card-heading">
             <div>
-              <p className="analytics-label">Latest interactions</p>
-              <h2>Recent Activity</h2>
+              <p className="analytics-label">Aggregate insights</p>
+              <h2>Recent Analytics</h2>
             </div>
           </div>
-          <ol className="activity-list">
-            {RECENT_ACTIVITY.map((item) => (
-              <li key={`${item.event}-${item.time}`}>
-                <span aria-hidden="true" />
-                <div>
-                  <strong>{item.event}</strong>
-                  <small>{item.context}</small>
-                </div>
-                <time>{item.time}</time>
-              </li>
-            ))}
-          </ol>
+          {recentAnalytics.length ? (
+            <ol className="activity-list">
+              {recentAnalytics.map((item) => (
+                <li key={item.label}>
+                  <span aria-hidden="true" />
+                  <div><strong>{item.label}</strong><small>{item.context}</small></div>
+                  <strong className="activity-value">{item.value}</strong>
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <p className="analytics-empty">No data yet</p>
+          )}
         </FadeSection>
       </div>
 
@@ -484,8 +439,8 @@ export default function StatisticsDashboard({
           <p className="analytics-label">Geographic reach</p>
           <h2>Global Audience</h2>
           <p>
-            Reserved for an interactive world map when live GA4 geographic data
-            is connected.
+            Live geographic reach for the last 30 days, with space reserved for
+            a future interactive world map.
           </p>
         </div>
         <div
@@ -494,15 +449,17 @@ export default function StatisticsDashboard({
           aria-label="Placeholder for a future interactive world audience map"
         >
           <div className="map-grid" aria-hidden="true" />
-          <span className="map-point map-point-canada">
-            Canada<strong>46%</strong>
-          </span>
-          <span className="map-point map-point-us">
-            United States<strong>28%</strong>
-          </span>
-          <span className="map-point map-point-europe">
-            Europe<strong>16%</strong>
-          </span>
+          {analytics?.countries.length ? (
+            <div className="map-country-summary">
+              {analytics.countries.slice(0, 4).map((country) => (
+                <span key={country.name}>
+                  {country.name}<strong>{country.percentage}%</strong>
+                </span>
+              ))}
+            </div>
+          ) : (
+            <div className="analytics-empty map-empty">No geographic data yet</div>
+          )}
           <p>Interactive map coming with GA4 integration</p>
         </div>
       </FadeSection>
