@@ -212,10 +212,12 @@ const tooltipStyle = {
 
 export default function StatisticsDashboard({
   pageViews,
+  totalVisitors,
   analyticsUpdatedAt,
 }: {
   pageViews: number | null;
   analyticsUpdatedAt: string | null;
+  totalVisitors: number | null;
 }) {
   const reducedMotion = useReducedMotion();
   const chartDuration = reducedMotion ? 0 : 700;
@@ -241,11 +243,11 @@ export default function StatisticsDashboard({
         <h1>Portfolio Analytics</h1>
         <p>
           A concise view of portfolio reach, engagement, and professional
-          growth—combining live GA4 page-view data with sample metrics for the
-          remaining dashboard.
+          growth—combining live GA4 visitor and page-view data with sample
+          metrics for the remaining dashboard.
         </p>
         <span>
-          Sample data except Page Views
+          Live GA4 data: Total Visitors & Page Views
           {updatedLabel ? ` · Updated ${updatedLabel}` : ""}
         </span>
       </motion.header>
@@ -263,21 +265,28 @@ export default function StatisticsDashboard({
               <span aria-hidden="true">{metric.icon}</span>
             </div>
             <strong>
-              {metric.label === "Page Views" && pageViews === null ? (
+              {(metric.label === "Page Views" && pageViews === null) ||
+              (metric.label === "Total Visitors" && totalVisitors === null) ? (
                 <span>—</span>
               ) : (
                 <AnimatedValue
                   value={
                     metric.label === "Page Views"
                       ? (pageViews ?? 0)
-                      : metric.value
+                      : metric.label === "Total Visitors"
+                        ? (totalVisitors ?? 0)
+                        : metric.value
                   }
                   display={metric.display}
                 />
               )}
             </strong>
+
             <small>
-              {metric.label === "Page Views" ? "Last 30 days" : metric.detail}
+              {metric.label === "Page Views" ||
+              metric.label === "Total Visitors"
+                ? "Last 30 days"
+                : metric.detail}
             </small>
           </motion.article>
         ))}

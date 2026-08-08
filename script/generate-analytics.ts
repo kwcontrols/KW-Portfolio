@@ -23,15 +23,22 @@ async function main() {
       {
         name: "screenPageViews",
       },
+      {
+        name: "totalUsers",
+      },
     ],
   });
 
   const pageViews = Number(response.rows?.[0]?.metricValues?.[0]?.value ?? 0);
+  const totalVisitors = Number(
+    response.rows?.[0]?.metricValues?.[1]?.value ?? 0,
+  );
 
   const analytics = {
     updatedAt: new Date().toISOString(),
     period: "last30days",
     pageViews,
+    totalVisitors,
   };
 
   const outputPath = path.join(process.cwd(), "public", "analytics.json");
