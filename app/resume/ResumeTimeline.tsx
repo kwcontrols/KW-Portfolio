@@ -11,56 +11,59 @@ type TimelineEntry = {
 
 const CAREER_JOURNEY: TimelineEntry[] = [
   {
-    marker: "Present",
+    marker: "2026 – Present",
     title: "Process Automation Consultant",
-    details: ["Self-Employed", "2026 – Present"],
+    details: ["KW Controls"],
     bullets: [
-      "Provide process automation and system integration services, including PLC/HMI/SCADA solutions, control-system development, troubleshooting, and technical support.",
+      "Providing process automation and system integration solutions, with a focus on PLC/HMI/SCADA development, troubleshooting, and technical support.",
     ],
   },
   {
-    marker: "2025",
-    title: "System Integration & Industrial Automation",
-    details: ["2022 – 2026"],
+    marker: "2022 – 2026",
+    title: "System Integration & Process Automation",
+    details: [],
     bullets: [
-      "Upgraded PLC and SCADA applications for BC Hydro tank-farm operations and developed recipe-based lubricant slurry and automated pigging sequences.",
-      "Delivered port-terminal material-handling automation using ControlLogix and FactoryTalk View SE.",
-      "Designed naval HVAC-R controls with Siemens TIA Portal, S7-1200/S7-1500 PLCs, and SINAMICS drives.",
-      "Delivered industrial water-treatment automation including E&I design, control philosophy, complex sequence programming, and testing.",
+      "Delivered PLC/SCADA modernization, material-handling automation, naval HVAC-R controls, and industrial water-treatment systems across Rockwell and Siemens platforms.",
     ],
   },
   {
-    marker: "2018",
-    title: "Process & Machinery Automation",
-    details: ["2018 – 2022"],
+    marker: "2018 – 2022",
+    title: "Process & Industrial Automation",
+    details: [],
     bullets: [
-      "Developed pharmaceutical clean-utility PLC/SCADA applications using Rockwell Automation platforms.",
-      "Delivered conveyor modernization and PlantPAx migration work from site survey and electrical design through commissioning.",
-      "Designed industrial strapping-machine automation using Rockwell and Siemens PLC/HMI platforms, motion, drives, pneumatics, hydraulics, and machine safety.",
+      "Developed automation solutions for pharmaceutical clean utilities and industrial machinery using Rockwell and Siemens PLC/HMI platforms.",
     ],
   },
   {
-    marker: "2014",
+    marker: "2014 – 2017",
     title: "Control System Integration",
-    details: ["2014 – 2017"],
+    details: [],
     bullets: [
       "Delivered pilot-plant process-control systems using Rockwell PlantPAx, Honeywell HC900, GE iFIX, and Emerson DeltaV.",
     ],
   },
   {
-    marker: "2007",
+    marker: "2007 – 2013",
     title: "Electrical & Control Systems Engineering",
-    details: ["2007 – 2013"],
+    details: [],
     bullets: [
-      "Supported CANDU nuclear electrical-system design, pharmaceutical control-system documentation and validation, and industrial automation technical support.",
+      "Worked across nuclear electrical design, pharmaceutical control-system validation, and industrial automation technical support.",
     ],
   },
   {
-    marker: "1990",
-    title: "Embedded Systems Engineering",
-    details: ["Dalian Electronics Research Institute", "1990 – 2002"],
+    marker: "2003 – 2006",
+    title: "Transition to Canada & Engineering Technology",
+    details: [],
     bullets: [
-      "Developed embedded systems using C and assembly language, microcontrollers, real-time kernels/operating systems, PLDs, serial communications, ADCs/DACs, DSP, and PCB design.",
+      "Moved to Canada and studied Electrical Engineering Technology – Control at Mohawk College of Applied Arts & Technology.",
+    ],
+  },
+  {
+    marker: "1990 – 2002",
+    title: "Embedded Systems Engineering",
+    details: ["Dalian Electronics Research Institute, China"],
+    bullets: [
+      "Developed embedded systems using C and assembly language, microcontrollers, real-time operating systems, digital/analog interfaces, and PCB design.",
     ],
   },
 ];
