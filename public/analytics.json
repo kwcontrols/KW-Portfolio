@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-08-10T09:48:34.988Z",
+  "updatedAt": "2026-08-11T09:14:30.693Z",
   "period": "last30days",
-  "pageViews": 82,
+  "pageViews": 84,
   "totalVisitors": 1,
   "averageEngagementTime": 2103,
   "countriesReached": 1,
@@ -13,11 +13,6 @@
     }
   ],
   "visitorTrends": [
-    {
-      "date": "2026-08-04",
-      "users": 0,
-      "pageViews": 0
-    },
     {
       "date": "2026-08-05",
       "users": 0,
@@ -45,6 +40,11 @@
     },
     {
       "date": "2026-08-10",
+      "users": 1,
+      "pageViews": 2
+    },
+    {
+      "date": "2026-08-11",
       "users": 0,
       "pageViews": 0
     }
@@ -57,13 +57,13 @@
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
-      "path": "/",
-      "views": 16
+      "path": "/resume",
+      "views": 17
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
-      "path": "/resume",
-      "views": 15
+      "path": "/",
+      "views": 16
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
