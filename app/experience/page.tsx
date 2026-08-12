@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { SiteFooter } from "../SiteFooter";
 import { SiteHeader } from "../SiteHeader";
 import { ImageSlideshow, type SlideshowImage } from "../ImageSlideshow";
@@ -7,12 +8,10 @@ type Project = {
   title: string;
   category: string;
   images?: SlideshowImage[];
-  overview: string;
+  overview: ReactNode;
 };
 
 const ROCKWELL_PROJECT_IMAGES: SlideshowImage[] = [
-  { src: "/projects/rockwell-1.jpg", alt: "Rockwell Automation control-system design" },
-  { src: "/projects/rockwell-2.jpg", alt: "PlantPAx configuration and development" },
   { src: "/projects/rockwell/rockwell-4.jpg", alt: "On-site automation commissioning" },
 ];
 
@@ -38,8 +37,21 @@ const PROJECTS: Project[] = [
     title: "Process Automation & Rockwell Systems",
     category: "PlantPAx / Pharma / Water / Material Handling / Machinery",
     images: ROCKWELL_PROJECT_IMAGES,
-    overview:
-      "Delivered Rockwell-based automation solutions across pharmaceutical clean utilities, industrial water treatment, material handling, and automated machinery. Experience includes control strategy and sequence development, ControlLogix PLC programming, FactoryTalk HMI/SCADA, PlantPAx, recipe and batch control, system migration, testing, troubleshooting, and commissioning.",
+    overview: (
+      <div className="project-overview">
+        <p><strong>Rockwell Automation Platforms & Technologies</strong></p>
+        <ul>
+          <li><strong>PlantPAx</strong> — process and pilot-plant automation, pharmaceutical systems, and system modernization</li>
+          <li><strong>FactoryTalk View SE</strong> — Network Station and Network Distributed architectures</li>
+          <li><strong>FactoryTalk View ME</strong> — PanelView Plus and PanelView 5000/5510 applications</li>
+          <li><strong>PLC/PAC Platforms</strong> — PLC-5, SLC 500, MicroLogix, CompactLogix, and ControlLogix; RSLogix 5/500/5000 and Studio 5000</li>
+          <li><strong>Drives & Motion</strong> — PowerFlex variable-frequency drives and encoders</li>
+          <li><strong>Industrial Networks</strong> — Stratix managed switches, EtherNet/IP, Modbus TCP/RTU, and TCP/IP socket communications</li>
+          <li><strong>Data & Reporting</strong> — FactoryTalk Historian, SQL databases, and XLReporter</li>
+          <li><strong>Virtualization & Thin Clients</strong> — virtualized automation infrastructure and ThinManager</li>
+        </ul>
+      </div>
+    ),
   },
   {
     number: "02",
@@ -78,30 +90,45 @@ export default function ProjectsPage() {
           style={{ maxWidth: "840px" }}
         >
           <p style={{ maxWidth: "none" }}>
-            Every automation project presents a unique set of challenges. In
-            real-world systems, engineering and technical documentation may be
-            incomplete or out of sync with the actual control programs. Program
-            architecture, tag structure, naming conventions, and module
-            organization may also be poorly defined, especially after years of
-            modifications by multiple people without consistent standards or
-            revision control. Over time, this can lead to tangled “spaghetti
-            code,” duplicated logic, inconsistencies, and systems that become
-            increasingly difficult to understand, troubleshoot, expand, and
-            maintain.
+            My project experience spans process and industrial automation, system
+            integration, electrical and instrumentation design, PLC/HMI/SCADA and
+            industrial network development, system migration, troubleshooting,
+            and commissioning. Beyond hands-on engineering, I have supported
+            project planning, scheduling, estimating, and procurement; contributed
+            technical input to proposals, scopes of work, and functional
+            specifications; and participated in design reviews and engineering
+            changes with consideration for project requirements, company standards,
+            industry practices, and applicable regulations.
           </p>
           <p style={{ maxWidth: "none", marginTop: "20px" }}>
-            Over the past 20+ years, I have developed not only technical skills
-            and experience, but also a practical engineering approach to solving
-            these challenges. By listening, questioning, analyzing, and
-            assessing the system as a whole, I work collaboratively with project
-            teams and clients to clearly define functional requirements,
-            establish sound engineering documentation, develop a consistent
-            program and tag architecture, and implement practical, maintainable
-            solutions.
+            I have also had opportunities to contribute beyond individual
+            projects—working closely with engineering teams, sharing knowledge and
+            lessons learned, and helping develop reusable programming standards,
+            templates, libraries, implementation guidelines, and engineering tools.
+            These experiences have taught me that successful automation projects
+            depend as much on communication, collaboration, planning, and sound
+            engineering practices as they do on technical knowledge.
           </p>
           <p style={{ maxWidth: "none", marginTop: "20px" }}>
-            The selected work below highlights some of the systems and
-            engineering challenges I have encountered along the way.
+            Every automation project brings its own challenges at different stages
+            of execution. Documentation may be incomplete or no longer match the
+            installed system. Programs may have evolved through years of
+            modification and become difficult to understand or maintain. Project
+            teams may also face changing requirements, tight schedules, budget
+            constraints, and unexpected technical issues.
+          </p>
+          <p style={{ maxWidth: "none", marginTop: "20px" }}>
+            Over the years, I have encountered many of these situations. Some were
+            difficult at the time, but working through them with project teams and
+            clients has been an important part of my professional development. Each
+            challenge has added to my experience and reinforced a practical
+            approach: understand the problem, ask the right questions, work
+            collaboratively, and find a solution that can be implemented and
+            maintained.
+          </p>
+          <p style={{ maxWidth: "none", marginTop: "20px" }}>
+            The selected work below highlights some of the technologies, systems,
+            and engineering challenges I have encountered along the way.
           </p>
         </section>
 
@@ -117,7 +144,11 @@ export default function ProjectsPage() {
                 <p className="project-number">{project.number}</p>
                 <h2>{project.title}</h2>
                 <p className="project-category">{project.category}</p>
-                <p className="project-overview">{project.overview}</p>
+                {typeof project.overview === "string" ? (
+                  <p className="project-overview">{project.overview}</p>
+                ) : (
+                  project.overview
+                )}
               </div>
             </article>
           ))}
