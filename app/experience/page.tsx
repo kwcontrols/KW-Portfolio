@@ -13,9 +13,7 @@ type Project = {
 const ROCKWELL_PROJECT_IMAGES: SlideshowImage[] = [
   { src: "/projects/rockwell-1.jpg", alt: "Rockwell Automation control-system design" },
   { src: "/projects/rockwell-2.jpg", alt: "PlantPAx configuration and development" },
-  { src: "/projects/rockwell-3.jpg", alt: "PLC and HMI integration testing", displayMode: "contain" },
   { src: "/projects/rockwell/rockwell-4.jpg", alt: "On-site automation commissioning" },
-  { src: "/projects/rockwell-5.jpg", alt: "Industrial machinery automation", displayMode: "contain" },
 ];
 
 const SIEMENS_PROJECT_IMAGES: SlideshowImage[] = [
@@ -41,7 +39,7 @@ const PROJECTS: Project[] = [
     category: "PlantPAx / Pharma / Water / Material Handling / Machinery",
     images: ROCKWELL_PROJECT_IMAGES,
     overview:
-      "Delivered Rockwell-based automation across pharmaceutical clean utilities, industrial water treatment, conveyor and material-handling systems, tank-farm operations, and automated machinery. Work has included control philosophy and sequence development, ControlLogix PLC programming, FactoryTalk HMI/SCADA, PlantPAx, recipe and batch-oriented control, system migration, testing, troubleshooting, and commissioning.",
+      "Delivered Rockwell-based automation solutions across pharmaceutical clean utilities, industrial water treatment, material handling, and automated machinery. Experience includes control strategy and sequence development, ControlLogix PLC programming, FactoryTalk HMI/SCADA, PlantPAx, recipe and batch control, system migration, testing, troubleshooting, and commissioning.",
   },
   {
     number: "02",
