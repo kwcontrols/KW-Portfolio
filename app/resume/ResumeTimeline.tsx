@@ -1,19 +1,27 @@
 "use client";
 
-import { KeyboardEvent, useState } from "react";
+import { KeyboardEvent, MouseEvent, useState } from "react";
 
 type TimelineEntry = {
   marker: string;
   title: string;
   details: string[];
   bullets?: string[];
+  link?: {
+    label: string;
+    href: string;
+  };
 };
 
 const CAREER_JOURNEY: TimelineEntry[] = [
   {
     marker: "2026 – Present",
     title: "Process Automation Consultant",
-    details: ["KW Controls"],
+    details: [],
+    link: {
+      label: "KW Controls",
+      href: "https://kwcontrols.github.io/index.html",
+    },
     bullets: [
       "Providing process automation and system integration solutions, with a focus on PLC/HMI/SCADA development, troubleshooting, and technical support.",
     ],
@@ -88,11 +96,24 @@ const EDUCATION: TimelineEntry[] = [
 
 function TimelineSection({ title, entries, sectionId }: { title: string; entries: TimelineEntry[]; sectionId: string }) {
   const [activeEntry, setActiveEntry] = useState<number | null>(null);
-  const toggleEntry = (index: number) => setActiveEntry((current) => (current === index ? null : index));
-  const handleKeyDown = (event: KeyboardEvent<HTMLElement>, index: number) => {
+
+  const activateEntry = (index: number, entry: TimelineEntry) => {
+    if (entry.link) {
+      window.open(entry.link.href, "_blank", "noopener,noreferrer");
+      return;
+    }
+    setActiveEntry((current) => (current === index ? null : index));
+  };
+
+  const handleClick = (event: MouseEvent<HTMLElement>, index: number, entry: TimelineEntry) => {
+    if ((event.target as HTMLElement).closest("a")) return;
+    activateEntry(index, entry);
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLElement>, index: number, entry: TimelineEntry) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      toggleEntry(index);
+      activateEntry(index, entry);
     }
   };
 
@@ -101,11 +122,33 @@ function TimelineSection({ title, entries, sectionId }: { title: string; entries
       <h1 id={sectionId}>{title}</h1>
       <div className="resume-timeline">
         {entries.map((entry, index) => (
-          <article className={`timeline-row${activeEntry === index ? " is-active" : ""}`} key={`${entry.marker}-${entry.title}`} role="button" tabIndex={0} aria-pressed={activeEntry === index} onClick={() => toggleEntry(index)} onKeyDown={(event) => handleKeyDown(event, index)}>
+          <article
+            className={`timeline-row${activeEntry === index ? " is-active" : ""}`}
+            key={`${entry.marker}-${entry.title}`}
+            role={entry.link ? "link" : "button"}
+            tabIndex={0}
+            aria-pressed={entry.link ? undefined : activeEntry === index}
+            aria-label={entry.link ? `${entry.title}, ${entry.marker}. Open ${entry.link.label} website` : undefined}
+            onClick={(event) => handleClick(event, index, entry)}
+            onKeyDown={(event) => handleKeyDown(event, index, entry)}
+          >
             <div className="timeline-marker" aria-hidden="true"><span /></div>
             <p className="timeline-year">{entry.marker}</p>
             <div className="timeline-content">
               <h2>{entry.title}</h2>
+              {entry.link && (
+                <p>
+                  <a
+                    href={entry.link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "var(--blue)", fontWeight: 600, textDecoration: "none" }}
+                    aria-label={`${entry.link.label} website (opens in a new tab)`}
+                  >
+                    {entry.link.label} <span aria-hidden="true" style={{ fontSize: "0.82em", marginLeft: "0.2rem" }}>↗</span>
+                  </a>
+                </p>
+              )}
               {entry.details.map((detail) => <p key={detail}>{detail}</p>)}
               {entry.bullets && <ul>{entry.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}
             </div>
