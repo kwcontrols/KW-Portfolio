@@ -76,11 +76,12 @@ export default function ProjectsPage() {
       <main className="projects-page" id="projects">
         <section className="projects-intro" aria-label="Projects introduction">
           <p>
-            My project experience spans process automation, system integration,
-            electrical and instrumentation design, PLC/HMI/SCADA development,
-            migration, testing, and commissioning. The selected work below
-            highlights the types of systems and engineering challenges I have
-            worked on without turning this page into a second résumé.
+            Every automation project presents a unique set of challenges. Over
+            the past 20+ years, I have delivered projects ranging from small
+            system upgrades to large-scale distributed control systems across
+            multiple industries. Along the way, I have worked closely with
+            project teams and customers, and traveled throughout North America,
+            Asia, and Europe to commission systems on site.
           </p>
         </section>
 
