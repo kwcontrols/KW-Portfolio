@@ -34,12 +34,11 @@ const ELECTRICAL_ENGINEERING_PROJECT_IMAGES: SlideshowImage[] = [
 const PROJECTS: Project[] = [
   {
     number: "01",
-    title: "Process Automation & Rockwell Systems",
+    title: "Process Automation & Rockwell Automation Platforms",
     category: "PlantPAx / Pharma / Water / Material Handling / Machinery",
     images: ROCKWELL_PROJECT_IMAGES,
     overview: (
       <div className="project-overview">
-        <p><strong>Rockwell Automation Platforms & Technologies</strong></p>
         <ul>
           <li><strong>PlantPAx</strong> — process and pilot-plant automation, pharmaceutical systems, and system modernization</li>
           <li><strong>FactoryTalk View SE</strong> — Network Station and Network Distributed architectures</li>
