@@ -78,11 +78,14 @@ export default function ProjectsPage() {
           <p>
             Every automation project presents a unique set of challenges. In
             real-world systems, engineering and technical documentation may be
-            incomplete or out of sync with the actual control programs. Over
-            time, programs may also be modified by multiple people without
-            consistent revision control, creating discrepancies,
-            inconsistencies, and systems that become increasingly difficult to
-            understand, troubleshoot, and maintain.
+            incomplete or out of sync with the actual control programs. Program
+            architecture, tag structure, naming conventions, and module
+            organization may also be poorly defined, especially after years of
+            modifications by multiple people without consistent standards or
+            revision control. Over time, this can lead to tangled “spaghetti
+            code,” duplicated logic, inconsistencies, and systems that become
+            increasingly difficult to understand, troubleshoot, expand, and
+            maintain.
           </p>
           <p>
             Over the past 20+ years, I have developed not only technical skills
@@ -90,8 +93,9 @@ export default function ProjectsPage() {
             these challenges. By listening, questioning, analyzing, and
             assessing the system as a whole, I work collaboratively with project
             teams and clients to clearly define functional requirements,
-            establish sound engineering documentation, and develop practical,
-            maintainable solutions.
+            establish sound engineering documentation, develop a consistent
+            program and tag architecture, and implement practical, maintainable
+            solutions.
           </p>
           <p>
             The selected work below highlights the types of systems and
