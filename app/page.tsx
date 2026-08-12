@@ -17,26 +17,24 @@ export default function Home() {
               <p>
                 <strong>Kui Wu</strong> is a process automation and system
                 integration specialist with over two decades of experience
-                designing, integrating, troubleshooting, and commissioning
-                industrial automation systems—from targeted system upgrades to
-                large-scale distributed control systems. His experience spans
-                multiple industries, technologies, and project environments,
-                with hands-on commissioning assignments across North America,
-                Asia, and Europe.
+                designing and integrating industrial automation systems, ranging
+                from small system upgrades to large-scale distributed control
+                systems across multiple industries. His work has also taken him
+                throughout North America, Asia, and Europe for on-site
+                commissioning.
               </p>
               <p>
                 Building automation solutions is more than my
-                profession—it&apos;s my passion. I find great satisfaction in
-                solving complex problems, turning ideas into working systems,
-                and seeing them perform exactly as I envisioned.
+                profession—it&apos;s my passion. I enjoy solving complex problems,
+                turning ideas into working systems, and seeing them perform as
+                intended.
               </p>
               <p>
                 I grew up in China, where I earned degrees in electronics.
                 Before moving to Canada, I spent 10 years developing a wide
                 variety of embedded systems. That hands-on, board-level
-                experience laid the foundation for my engineering approach to
-                designing flexible, reliable, and scalable industrial automation
-                systems.
+                experience continues to shape my practical approach to industrial
+                automation today.
               </p>
               <p>
                 Outside of work, I enjoy staying active through hiking, playing
