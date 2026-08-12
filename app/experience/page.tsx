@@ -74,8 +74,12 @@ export default function ProjectsPage() {
     <div className="site-shell" id="page-start">
       <SiteHeader />
       <main className="projects-page" id="projects">
-        <section className="projects-intro" aria-label="Projects introduction">
-          <p>
+        <section
+          className="projects-intro"
+          aria-label="Projects introduction"
+          style={{ maxWidth: "840px" }}
+        >
+          <p style={{ maxWidth: "none" }}>
             Every automation project presents a unique set of challenges. In
             real-world systems, engineering and technical documentation may be
             incomplete or out of sync with the actual control programs. Program
@@ -87,7 +91,7 @@ export default function ProjectsPage() {
             increasingly difficult to understand, troubleshoot, expand, and
             maintain.
           </p>
-          <p>
+          <p style={{ maxWidth: "none", marginTop: "20px" }}>
             Over the past 20+ years, I have developed not only technical skills
             and experience, but also a practical engineering approach to solving
             these challenges. By listening, questioning, analyzing, and
@@ -97,9 +101,9 @@ export default function ProjectsPage() {
             program and tag architecture, and implement practical, maintainable
             solutions.
           </p>
-          <p>
-            The selected work below highlights the types of systems and
-            engineering challenges I have worked on.
+          <p style={{ maxWidth: "none", marginTop: "20px" }}>
+            The selected work below highlights some of the systems and
+            engineering challenges I have encountered along the way.
           </p>
         </section>
 
