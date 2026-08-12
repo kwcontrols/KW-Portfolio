@@ -17,8 +17,12 @@ export default function Home() {
               <p>
                 <strong>Kui Wu</strong> is a process automation and system
                 integration specialist with over two decades of experience
-                designing, integrating, and commissioning industrial automation
-                systems across multiple industries.
+                designing, integrating, troubleshooting, and commissioning
+                industrial automation systems—from targeted system upgrades to
+                large-scale distributed control systems. His experience spans
+                multiple industries, technologies, and project environments,
+                with hands-on commissioning assignments across North America,
+                Asia, and Europe.
               </p>
               <p>
                 Building automation solutions is more than my
