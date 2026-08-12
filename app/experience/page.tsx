@@ -76,12 +76,26 @@ export default function ProjectsPage() {
       <main className="projects-page" id="projects">
         <section className="projects-intro" aria-label="Projects introduction">
           <p>
-            Every automation project presents a unique set of challenges. Over
-            the past 20+ years, I have delivered projects ranging from small
-            system upgrades to large-scale distributed control systems across
-            multiple industries. Along the way, I have worked closely with
-            project teams and customers, and traveled throughout North America,
-            Asia, and Europe to commission systems on site.
+            Every automation project presents a unique set of challenges. In
+            real-world systems, engineering and technical documentation may be
+            incomplete or out of sync with the actual control programs. Over
+            time, programs may also be modified by multiple people without
+            consistent revision control, creating discrepancies,
+            inconsistencies, and systems that become increasingly difficult to
+            understand, troubleshoot, and maintain.
+          </p>
+          <p>
+            Over the past 20+ years, I have developed not only technical skills
+            and experience, but also a practical engineering approach to solving
+            these challenges. By listening, questioning, analyzing, and
+            assessing the system as a whole, I work collaboratively with project
+            teams and clients to clearly define functional requirements,
+            establish sound engineering documentation, and develop practical,
+            maintainable solutions.
+          </p>
+          <p>
+            The selected work below highlights the types of systems and
+            engineering challenges I have worked on.
           </p>
         </section>
 
