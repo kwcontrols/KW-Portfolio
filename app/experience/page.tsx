@@ -20,8 +20,7 @@ const SIEMENS_PROJECT_IMAGES: SlideshowImage[] = [
 ];
 
 const PROCESS_CONTROL_IMAGES: SlideshowImage[] = [
-  { src: "/projects/iFix-1.JPG", alt: "Pilot-plant SCADA and process-control system" },
-  { src: "/projects/iFix-2.jpg", alt: "Process-control HMI and system integration", displayMode: "contain" },
+  { src: "/projects/PlantPax-1.jpg", alt: "On-site pilot-plant process-control commissioning" },
 ];
 
 const ELECTRICAL_ENGINEERING_PROJECT_IMAGES: SlideshowImage[] = [
@@ -72,10 +71,10 @@ const PROJECTS: Project[] = [
   {
     number: "03",
     title: "Pilot-Plant Process Control",
-    category: "PlantPAx / Honeywell HC900 / GE iFIX / Emerson DeltaV",
+    category: "PlantPAx / Honeywell HC900 / GE iFIX/IGS / Emerson DeltaV",
     images: PROCESS_CONTROL_IMAGES,
     overview:
-      "Delivered pilot-plant process-control systems across multiple control platforms, including Rockwell PlantPAx, Honeywell HC900, GE iFIX, and Emerson DeltaV. Responsibilities included control-strategy development, PLC/DCS and HMI/SCADA configuration, communications integration, testing, troubleshooting, startup, and commissioning.",
+      "Delivered pilot-plant process-control systems across multiple control platforms, including Rockwell PlantPAx, Honeywell HC900, GE iFIX/IGS, and Emerson DeltaV. Responsibilities included control-strategy development based on Cause and Effect Matrix, PLC/DCS and HMI/SCADA configuration, communications integration, testing, troubleshooting, startup, and commissioning.",
   },
   {
     number: "04",
