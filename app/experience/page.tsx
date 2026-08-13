@@ -12,7 +12,10 @@ type Project = {
 };
 
 const ROCKWELL_PROJECT_IMAGES: SlideshowImage[] = [
-  { src: "/projects/rockwell/rockwell-4.jpg", alt: "On-site automation commissioning" },
+  { src: "/projects/PlantPax-1.jpg", alt: "On-site pilot-plant process-control commissioning" },
+  { src: "/projects/Pharma.PNG", alt: "Pharmaceutical process automation commissioning" },
+  { src: "/projects/rockwell-2.jpg", alt: "Rockwell-based process automation system" },
+  { src: "/projects/Conveyor Automation Upgrade.png", alt: "Conveyor automation upgrade commissioning" },
 ];
 
 const SIEMENS_PROJECT_IMAGES: SlideshowImage[] = [
@@ -20,7 +23,7 @@ const SIEMENS_PROJECT_IMAGES: SlideshowImage[] = [
 ];
 
 const PROCESS_CONTROL_IMAGES: SlideshowImage[] = [
-  { src: "/projects/PlantPax-1.jpg", alt: "On-site pilot-plant process-control commissioning" },
+  { src: "/projects/iFix-1.jpg", alt: "Pilot-plant process-control system commissioning" },
 ];
 
 const ELECTRICAL_ENGINEERING_PROJECT_IMAGES: SlideshowImage[] = [
