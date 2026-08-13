@@ -16,7 +16,7 @@ const ROCKWELL_PROJECT_IMAGES: SlideshowImage[] = [
 ];
 
 const SIEMENS_PROJECT_IMAGES: SlideshowImage[] = [
-  { src: "/projects/siemens-1.jpg", alt: "Siemens HVAC-R automation project", displayMode: "contain" },
+  { src: "/projects/siemens-2.JPG", alt: "On-site Siemens automation commissioning", displayMode: "contain" },
 ];
 
 const PROCESS_CONTROL_IMAGES: SlideshowImage[] = [
