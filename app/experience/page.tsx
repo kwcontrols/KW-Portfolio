@@ -53,8 +53,8 @@ const PROJECTS: Project[] = [
   },
   {
     number: "02",
-    title: "Process Automation & Siemens Platforms",
-    category: "Naval HVAC-R / Machinery",
+    title: "Naval HVAC Control Systems",
+    category: "Siemens Platforms",
     images: SIEMENS_PROJECT_IMAGES,
     overview: (
       <div className="project-overview">
@@ -62,7 +62,7 @@ const PROJECTS: Project[] = [
           <li><strong>TIA Portal</strong> — engineering, programming, commissioning, and diagnostics</li>
           <li><strong>PLC Platforms</strong> — SIMATIC S7-1200 and S7-1500</li>
           <li><strong>HMI Platforms</strong> — SIMATIC TP700 and TP1200 Comfort Panels</li>
-          <li><strong>Drives & Motion</strong> — SINAMICS G120 drives with CU250S-2 PN Control Units</li>
+          <li><strong>Drives</strong> — SINAMICS G120 drives</li>
           <li><strong>Industrial Networks</strong> — PROFINET, PROFIBUS, Modbus TCP/RTU</li>
         </ul>
       </div>
