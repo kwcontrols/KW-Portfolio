@@ -19,7 +19,7 @@ const ROCKWELL_PROJECT_IMAGES: SlideshowImage[] = [
 ];
 
 const SIEMENS_PROJECT_IMAGES: SlideshowImage[] = [
-  { src: "/projects/siemens-3.png", alt: "Siemens automation platform and HMI", displayMode: "contain" },
+  { src: "/projects/siemens-3.png", alt: "Siemens automation platform and HMI" },
 ];
 
 const PROCESS_CONTROL_IMAGES: SlideshowImage[] = [
