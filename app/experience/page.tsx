@@ -133,12 +133,19 @@ export default function ProjectsPage() {
       <main className="projects-page" id="projects">
         <section className="projects-intro" aria-label="Projects introduction">
           <p>
-            Every automation project presents a unique set of challenges. Over
-            the past 20+ years, I have delivered projects ranging from small
-            system upgrades to large-scale distributed control systems across
-            multiple industries. Along the way, I have worked closely with
-            project teams and customers, and traveled throughout North America,
-            Asia, and Europe to commission systems on site.
+            My project experience spans process and industrial automation,
+            system integration, electrical and instrumentation design,
+            PLC/HMI/SCADA development, industrial networks, system migration,
+            troubleshooting, and commissioning. Along the way, I have also
+            contributed to project planning, technical documentation, design
+            reviews, and the development of reusable engineering standards and
+            tools.
+          </p>
+          <p>
+            Each project has brought different technical and practical
+            challenges, and each has added to my experience. The selected work
+            below highlights some of the systems, technologies, and engineering
+            work I have been fortunate to be involved with.
           </p>
         </section>
 
