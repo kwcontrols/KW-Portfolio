@@ -27,7 +27,7 @@ const PROCESS_CONTROL_IMAGES: SlideshowImage[] = [
 ];
 
 const ELECTRICAL_ENGINEERING_PROJECT_IMAGES: SlideshowImage[] = [
-  { src: "/projects/Electrical-1.JPG", alt: "Industrial electrical design work" },
+  { src: "/projects/Electrical-2.png", alt: "Electrical and instrumentation system design" },
 ];
 
 const PROJECTS: Project[] = [
@@ -91,51 +91,21 @@ export default function ProjectsPage() {
     <div className="site-shell" id="page-start">
       <SiteHeader />
       <main className="projects-page" id="projects">
-        <section
-          className="projects-intro"
-          aria-label="Projects introduction"
-          style={{ maxWidth: "840px" }}
-        >
+        <section className="projects-intro" aria-label="Projects introduction" style={{ maxWidth: "840px" }}>
           <p style={{ maxWidth: "none" }}>
-            My project experience spans process and industrial automation, system
-            integration, electrical and instrumentation design, PLC/HMI/SCADA and
-            industrial network development, system migration, troubleshooting,
-            and commissioning. Beyond hands-on engineering, I have supported
-            project planning, scheduling, estimating, and procurement; contributed
-            technical input to proposals, scopes of work, and functional
-            specifications; and participated in design reviews and engineering
-            changes with consideration for project requirements, company standards,
-            industry practices, and applicable regulations.
+            My project experience spans process and industrial automation, system integration, electrical and instrumentation design, PLC/HMI/SCADA and industrial network development, system migration, troubleshooting, and commissioning. Beyond hands-on engineering, I have supported project planning, scheduling, estimating, and procurement; contributed technical input to proposals, scopes of work, and functional specifications; and participated in design reviews and engineering changes with consideration for project requirements, company standards, industry practices, and applicable regulations.
           </p>
           <p style={{ maxWidth: "none", marginTop: "20px" }}>
-            I have also had opportunities to contribute beyond individual
-            projects—working closely with engineering teams, sharing knowledge and
-            lessons learned, and helping develop reusable programming standards,
-            templates, libraries, implementation guidelines, and engineering tools.
-            These experiences have taught me that successful automation projects
-            depend as much on communication, collaboration, planning, and sound
-            engineering practices as they do on technical knowledge.
+            I have also had opportunities to contribute beyond individual projects—working closely with engineering teams, sharing knowledge and lessons learned, and helping develop reusable programming standards, templates, libraries, implementation guidelines, and engineering tools. These experiences have taught me that successful automation projects depend as much on communication, collaboration, planning, and sound engineering practices as they do on technical knowledge.
           </p>
           <p style={{ maxWidth: "none", marginTop: "20px" }}>
-            Every automation project brings its own challenges at different stages
-            of execution. Documentation may be incomplete or no longer match the
-            installed system. Programs may have evolved through years of
-            modification and become difficult to understand or maintain. Project
-            teams may also face changing requirements, tight schedules, budget
-            constraints, and unexpected technical issues.
+            Every automation project brings its own challenges at different stages of execution. Documentation may be incomplete or no longer match the installed system. Programs may have evolved through years of modification and become difficult to understand or maintain. Project teams may also face changing requirements, tight schedules, budget constraints, and unexpected technical issues.
           </p>
           <p style={{ maxWidth: "none", marginTop: "20px" }}>
-            Over the years, I have encountered many of these situations. Some were
-            difficult at the time, but working through them with project teams and
-            clients has been an important part of my professional development. Each
-            challenge has added to my experience and reinforced a practical
-            approach: understand the problem, ask the right questions, work
-            collaboratively, and find a solution that can be implemented and
-            maintained.
+            Over the years, I have encountered many of these situations. Some were difficult at the time, but working through them with project teams and clients has been an important part of my professional development. Each challenge has added to my experience and reinforced a practical approach: understand the problem, ask the right questions, work collaboratively, and find a solution that can be implemented and maintained.
           </p>
           <p style={{ maxWidth: "none", marginTop: "20px" }}>
-            The selected work below highlights some of the technologies, systems,
-            and engineering challenges I have encountered along the way.
+            The selected work below highlights some of the technologies, systems, and engineering challenges I have encountered along the way.
           </p>
         </section>
 
@@ -143,19 +113,13 @@ export default function ProjectsPage() {
           {PROJECTS.map((project) => (
             <article className="project-entry" key={project.number}>
               <div className="project-media">
-                {project.images && (
-                  <ImageSlideshow images={project.images} label={`${project.title} project photos`} />
-                )}
+                {project.images && <ImageSlideshow images={project.images} label={`${project.title} project photos`} />}
               </div>
               <div className="project-details">
                 <p className="project-number">{project.number}</p>
                 <h2>{project.title}</h2>
                 <p className="project-category">{project.category}</p>
-                {typeof project.overview === "string" ? (
-                  <p className="project-overview">{project.overview}</p>
-                ) : (
-                  project.overview
-                )}
+                {typeof project.overview === "string" ? <p className="project-overview">{project.overview}</p> : project.overview}
               </div>
             </article>
           ))}
