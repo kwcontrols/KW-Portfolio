@@ -54,11 +54,20 @@ const PROJECTS: Project[] = [
   },
   {
     number: "02",
-    title: "Naval HVAC-R Control Systems",
-    category: "Siemens TIA Portal / S7-1200 & S7-1500 / SINAMICS",
+    title: "Process Automation & Siemens Platforms",
+    category: "Naval HVAC-R / Machinery",
     images: SIEMENS_PROJECT_IMAGES,
-    overview:
-      "Designed and developed naval HVAC-R automation using Siemens TIA Portal, S7-1200/S7-1500 PLCs, and SINAMICS G120 drives. The work combined control-system design, PLC development, drive integration, functional testing, and troubleshooting for reliable marine HVAC and refrigeration operation.",
+    overview: (
+      <div className="project-overview">
+        <ul>
+          <li><strong>TIA Portal</strong> — engineering, programming, commissioning, and diagnostics</li>
+          <li><strong>PLC Platforms</strong> — SIMATIC S7-1200 and S7-1500</li>
+          <li><strong>HMI Platforms</strong> — SIMATIC TP700 and TP1200 Comfort Panels</li>
+          <li><strong>Drives & Motion</strong> — SINAMICS G120 drives with CU250S-2 PN Control Units</li>
+          <li><strong>Industrial Networks</strong> — PROFINET, PROFIBUS, Modbus TCP/RTU</li>
+        </ul>
+      </div>
+    ),
   },
   {
     number: "03",
