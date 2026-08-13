@@ -25,9 +25,6 @@ const PROCESS_CONTROL_IMAGES: SlideshowImage[] = [
 
 const ELECTRICAL_ENGINEERING_PROJECT_IMAGES: SlideshowImage[] = [
   { src: "/projects/Electrical-1.JPG", alt: "Industrial electrical design work" },
-  { src: "/projects/Electrical-2.png", alt: "Electrical CADD design", displayMode: "contain" },
-  { src: "/projects/electrical-3.jpg", alt: "Electrical project documentation", displayMode: "contain" },
-  { src: "/projects/electrical-4.jpg", alt: "Coordinated electrical design", displayMode: "contain" },
 ];
 
 const PROJECTS: Project[] = [
@@ -82,7 +79,7 @@ const PROJECTS: Project[] = [
     category: "E&I Design / AutoCAD Electrical / EPLAN / 2D & 3D CADD",
     images: ELECTRICAL_ENGINEERING_PROJECT_IMAGES,
     overview:
-      "Provided electrical and instrumentation design for industrial automation projects, including control schematics, panel and equipment layouts, cable and instrumentation coordination, design documentation, and multidisciplinary reviews. Earlier work also included CANDU nuclear electrical-system design and 2D/3D engineering models.",
+      "Provided electrical and instrumentation design for industrial projects, including single-line diagrams, electrical overhead and underground drawings, and 3D models of E&I equipment and cable-tray systems. Prepared technical specifications, bills of materials, MCC, distribution and control-panel layouts, hazardous-area classification drawings and details, electrical equipment lists, and instrument lists.",
   },
 ];
 
