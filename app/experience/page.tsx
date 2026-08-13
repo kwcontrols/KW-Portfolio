@@ -74,7 +74,7 @@ const PROJECTS: Project[] = [
     category: "PlantPAx / Honeywell HC900 / GE iFIX/IGS / Emerson DeltaV",
     images: PROCESS_CONTROL_IMAGES,
     overview:
-      "Delivered pilot-plant process-control systems across multiple control platforms, including Rockwell PlantPAx, Honeywell HC900, GE iFIX/IGS, and Emerson DeltaV. Responsibilities included control-strategy development based on Cause and Effect Matrix, PLC/DCS and HMI/SCADA configuration, communications integration, testing, troubleshooting, startup, and commissioning.",
+      "Delivered pilot-plant process-control systems across multiple platforms, including Rockwell PlantPAx, Honeywell HC900, GE iFIX/IGS, and Emerson DeltaV. Responsibilities included control-strategy development based on Cause and Effect Matrices, PLC/DCS and HMI/SCADA configuration, communications integration, testing, troubleshooting, startup, and commissioning.",
   },
   {
     number: "04",
