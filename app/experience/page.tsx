@@ -93,19 +93,10 @@ export default function ProjectsPage() {
       <main className="projects-page" id="projects">
         <section className="projects-intro" aria-label="Projects introduction" style={{ maxWidth: "840px" }}>
           <p style={{ maxWidth: "none" }}>
-            My project experience spans process and industrial automation, system integration, electrical and instrumentation design, PLC/HMI/SCADA and industrial network development, system migration, troubleshooting, and commissioning. Beyond hands-on engineering, I have supported project planning, scheduling, estimating, and procurement; contributed technical input to proposals, scopes of work, and functional specifications; and participated in design reviews and engineering changes with consideration for project requirements, company standards, industry practices, and applicable regulations.
+            My project experience spans process and industrial automation, system integration, electrical and instrumentation design, PLC/HMI/SCADA development, industrial networks, system migration, troubleshooting, and commissioning. Along the way, I have also contributed to project planning, technical documentation, design reviews, and the development of reusable engineering standards and tools.
           </p>
           <p style={{ maxWidth: "none", marginTop: "20px" }}>
-            I have also had opportunities to contribute beyond individual projects—working closely with engineering teams, sharing knowledge and lessons learned, and helping develop reusable programming standards, templates, libraries, implementation guidelines, and engineering tools. These experiences have taught me that successful automation projects depend as much on communication, collaboration, planning, and sound engineering practices as they do on technical knowledge.
-          </p>
-          <p style={{ maxWidth: "none", marginTop: "20px" }}>
-            Every automation project brings its own challenges at different stages of execution. Documentation may be incomplete or no longer match the installed system. Programs may have evolved through years of modification and become difficult to understand or maintain. Project teams may also face changing requirements, tight schedules, budget constraints, and unexpected technical issues.
-          </p>
-          <p style={{ maxWidth: "none", marginTop: "20px" }}>
-            Over the years, I have encountered many of these situations. Some were difficult at the time, but working through them with project teams and clients has been an important part of my professional development. Each challenge has added to my experience and reinforced a practical approach: understand the problem, ask the right questions, work collaboratively, and find a solution that can be implemented and maintained.
-          </p>
-          <p style={{ maxWidth: "none", marginTop: "20px" }}>
-            The selected work below highlights some of the technologies, systems, and engineering challenges I have encountered along the way.
+            Each project has brought different technical and practical challenges, and each has added to my experience. The selected work below highlights some of the systems, technologies, and engineering work I have been fortunate to be involved with.
           </p>
         </section>
 
