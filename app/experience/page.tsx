@@ -27,7 +27,7 @@ const PROCESS_CONTROL_IMAGES: SlideshowImage[] = [
 ];
 
 const ELECTRICAL_ENGINEERING_PROJECT_IMAGES: SlideshowImage[] = [
-  { src: "/projects/Electrical-2.png", alt: "Electrical and instrumentation system design" },
+  { src: "/projects/Electrical-2.png", alt: "Electrical and instrumentation system design", displayMode: "contain" },
 ];
 
 const PROJECTS: Project[] = [
