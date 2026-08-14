@@ -15,7 +15,8 @@
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate",
     "cloudflare:prepare": "node script/prepare-cloudflare-deploy.mjs",
-    "deploy:cloudflare": "npm run cloudflare:prepare && wrangler deploy --config dist/server/wrangler.json"
+    "deploy:cloudflare": "npm run cloudflare:prepare && wrangler deploy --config dist/server/wrangler.json",
+    "release:cloudflare": "vinext build && npm run deploy:cloudflare"
   },
   "dependencies": {
     "@google-analytics/data": "^7.0.0",
