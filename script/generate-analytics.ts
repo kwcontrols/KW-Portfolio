@@ -1,5 +1,5 @@
 import { BetaAnalyticsDataClient } from "@google-analytics/data";
-import { writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const propertyId = process.env.GA4_PROPERTY_ID;
@@ -173,7 +173,9 @@ async function main() {
     trafficSources,
   };
 
-  const outputPath = path.join(process.cwd(), "public", "analytics.json");
+  const outputDirectory = path.join(process.cwd(), "data");
+  const outputPath = path.join(outputDirectory, "analytics.json");
+  await mkdir(outputDirectory, { recursive: true });
   await writeFile(outputPath, JSON.stringify(analytics, null, 2), "utf8");
 
   console.log(`Analytics written to ${outputPath}`);

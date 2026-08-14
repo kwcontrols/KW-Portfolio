@@ -249,8 +249,8 @@ export default function StatisticsDashboard({
         animate={reducedMotion ? undefined : { opacity: 1, y: 0 }}
         transition={{ duration: 0.45 }}
       >
-        <p className="section-index">Portfolio Analytics</p>
-        <h1>Portfolio Analytics</h1>
+        <p className="section-index">Analytics</p>
+        <h1>Private Portal</h1>
         <p>
           A concise view of portfolio reach and engagement powered by live
           Google Analytics data, alongside selected professional highlights.

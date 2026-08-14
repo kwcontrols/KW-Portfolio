@@ -16,6 +16,28 @@ npm run dev
 npm run build
 ```
 
+## Local Private Portal
+
+`npm run dev` runs a non-destructive environment setup first. If `.env.local`
+does not exist, it is copied from `.env.local.example` and receives a newly
+generated local-only `STATISTICS_SESSION_SECRET`. If the file already exists,
+only missing Private Portal variable names are added; existing values are never
+overwritten. Real `.env.local` files remain ignored by Git.
+
+Before testing the portal:
+
+1. Open `.env.local` and replace `REPLACE_WITH_OWNER_ACCESS_CODE` inside
+   `STATISTICS_ACCESS_CODES` with the existing owner access code. Keep the JSON
+   on one line and do not commit or share this file.
+2. Fully stop any running development server and run `npm run dev` again.
+   Environment variables are read when the server starts.
+3. Open `http://localhost:3000/statistics-login`, enter the existing owner code,
+   and confirm that the browser redirects to the Private Portal.
+
+Run `npm run env:setup` at any time to create the file or add missing variable
+names without starting the server. This local setup does not change production
+settings, authentication behavior, permissions, or Cloudflare KV bindings.
+
 This starter does not use `wrangler.jsonc`.
 
 ## Included Shape
