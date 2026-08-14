@@ -1,92 +1,119 @@
 "use client";
 
-import { KeyboardEvent, useState } from "react";
+import { KeyboardEvent, MouseEvent, useState } from "react";
 
 type TimelineEntry = {
   marker: string;
   title: string;
   details: string[];
   bullets?: string[];
+  link?: {
+    label: string;
+    href: string;
+  };
 };
 
-// Resume timeline content is stored here for straightforward future updates.
 const CAREER_JOURNEY: TimelineEntry[] = [
   {
-    marker: "Present",
-    title: "System Integrator",
-    details: ["2011 – Present"],
+    marker: "2026 – Present",
+    title: "Process Automation Consultant",
+    details: [],
+    link: {
+      label: "KW Controls",
+      href: "https://kwcontrols.github.io/index.html",
+    },
     bullets: [
-      "Lead industrial automation projects from design through commissioning.",
-      "Develop PLC, HMI, and SCADA applications.",
-      "Deliver reliable automation solutions across multiple industrial sectors.",
+      "Providing process automation and system integration solutions, with a focus on PLC/HMI/SCADA development, troubleshooting, and technical support.",
     ],
   },
   {
-    marker: "2011",
-    title: "Electrical Designer",
-    details: ["2007 – 2011"],
+    marker: "2022 – 2026",
+    title: "System Integration & Process Automation",
+    details: [],
     bullets: [
-      "Designed electrical control systems, panel layouts, and instrumentation.",
-      "Supported system startup and commissioning.",
+      "Delivered PLC/SCADA modernization, material-handling automation, naval HVAC-R controls, and industrial water-treatment systems across Rockwell and Siemens platforms.",
     ],
   },
   {
-    marker: "2009",
-    title: "Certified Engineering Technologist, OACETT",
-    details: [
-      "Ontario Association of Certified Engineering Technicians and Technologists",
-      "2009 – 2025",
+    marker: "2018 – 2022",
+    title: "Process & Industrial Automation",
+    details: [],
+    bullets: [
+      "Developed automation solutions for pharmaceutical clean utilities and industrial machinery using Rockwell and Siemens PLC/HMI platforms.",
     ],
   },
   {
-    marker: "2002",
-    title: "Embedded Systems Engineer",
-    details: ["Dalian Electronic Research Institute", "1990 – 2002"],
+    marker: "2014 – 2017",
+    title: "Control System Integration",
+    details: [],
     bullets: [
-      "Developed embedded systems using RTOS, C, and assembly language.",
-      "Designed and tested board-level hardware and firmware.",
-      "Participated in product development from concept through production.",
+      "Delivered pilot-plant process-control systems using Rockwell PlantPAx, Honeywell HC900, GE iFIX, and Emerson DeltaV.",
+    ],
+  },
+  {
+    marker: "2007 – 2013",
+    title: "Electrical & Control Systems Engineering",
+    details: [],
+    bullets: [
+      "Worked across nuclear electrical design, pharmaceutical control-system validation, and industrial automation technical support.",
+    ],
+  },
+  {
+    marker: "2003 – 2006",
+    title: "Transition to Canada & Engineering Technology",
+    details: [],
+    bullets: [
+      "Moved to Canada and studied Electrical Engineering Technology – Control at Mohawk College of Applied Arts & Technology.",
+    ],
+  },
+  {
+    marker: "1990 – 2002",
+    title: "Embedded Systems Engineering",
+    details: ["Dalian Electronics Research Institute, China"],
+    bullets: [
+      "Developed embedded systems using C and assembly language, microcontrollers, real-time operating systems, digital/analog interfaces, and PCB design.",
     ],
   },
 ];
 
 const EDUCATION: TimelineEntry[] = [
   {
-    marker: "2004 – 2006",
+    marker: "2007",
     title: "Electrical Engineering Technology – Control (Honours Graduate)",
     details: ["Mohawk College of Applied Arts & Technology, Hamilton, Ontario"],
   },
   {
-    marker: "2000 – 2002",
+    marker: "2002",
     title: "Master of Engineering (M.Eng.)",
-    details: ["Electronic Engineering", "Dalian University of Technology, Dalian, China"],
+    details: ["Electronic Engineering", "Dalian University of Technology, China"],
   },
   {
-    marker: "1986 – 1990",
+    marker: "1990",
     title: "Bachelor of Engineering (B.Eng.)",
-    details: ["Electronic Engineering", "Tianjin University, Tianjin, China"],
+    details: ["Electronic Engineering", "Tianjin University, China"],
   },
 ];
 
-function TimelineSection({
-  title,
-  entries,
-  sectionId,
-}: {
-  title: string;
-  entries: TimelineEntry[];
-  sectionId: string;
-}) {
+function TimelineSection({ title, entries, sectionId }: { title: string; entries: TimelineEntry[]; sectionId: string }) {
   const [activeEntry, setActiveEntry] = useState<number | null>(null);
 
-  const toggleEntry = (index: number) => {
+  const activateEntry = (index: number, entry: TimelineEntry) => {
+    if (entry.link) {
+      window.open(entry.link.href, "_blank", "noopener,noreferrer");
+      return;
+    }
     setActiveEntry((current) => (current === index ? null : index));
   };
 
-  const handleKeyDown = (event: KeyboardEvent<HTMLElement>, index: number) => {
+  const handleClick = (event: MouseEvent<HTMLElement>, index: number, entry: TimelineEntry) => {
+    if ((event.target as HTMLElement).closest("a")) return;
+    activateEntry(index, entry);
+  };
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLElement>, index: number, entry: TimelineEntry) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      toggleEntry(index);
+      activateEntry(index, entry);
     }
   };
 
@@ -98,28 +125,32 @@ function TimelineSection({
           <article
             className={`timeline-row${activeEntry === index ? " is-active" : ""}`}
             key={`${entry.marker}-${entry.title}`}
-            role="button"
+            role={entry.link ? "link" : "button"}
             tabIndex={0}
-            aria-pressed={activeEntry === index}
-            onClick={() => toggleEntry(index)}
-            onKeyDown={(event) => handleKeyDown(event, index)}
+            aria-pressed={entry.link ? undefined : activeEntry === index}
+            aria-label={entry.link ? `${entry.title}, ${entry.marker}. Open ${entry.link.label} website` : undefined}
+            onClick={(event) => handleClick(event, index, entry)}
+            onKeyDown={(event) => handleKeyDown(event, index, entry)}
           >
-            <div className="timeline-marker" aria-hidden="true">
-              <span />
-            </div>
+            <div className="timeline-marker" aria-hidden="true"><span /></div>
             <p className="timeline-year">{entry.marker}</p>
             <div className="timeline-content">
               <h2>{entry.title}</h2>
-              {entry.details.map((detail) => (
-                <p key={detail}>{detail}</p>
-              ))}
-              {entry.bullets && (
-                <ul>
-                  {entry.bullets.map((bullet) => (
-                    <li key={bullet}>{bullet}</li>
-                  ))}
-                </ul>
+              {entry.link && (
+                <p>
+                  <a
+                    href={entry.link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "var(--blue)", fontWeight: 600, textDecoration: "none" }}
+                    aria-label={`${entry.link.label} website (opens in a new tab)`}
+                  >
+                    {entry.link.label} <span aria-hidden="true" style={{ fontSize: "0.82em", marginLeft: "0.2rem" }}>↗</span>
+                  </a>
+                </p>
               )}
+              {entry.details.map((detail) => <p key={detail}>{detail}</p>)}
+              {entry.bullets && <ul>{entry.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}
             </div>
           </article>
         ))}
@@ -131,16 +162,8 @@ function TimelineSection({
 export function ResumeTimeline() {
   return (
     <>
-      <TimelineSection
-        title="CAREER JOURNEY"
-        entries={CAREER_JOURNEY}
-        sectionId="career-journey"
-      />
-      <TimelineSection
-        title="EDUCATION"
-        entries={EDUCATION}
-        sectionId="education"
-      />
+      <TimelineSection title="CAREER JOURNEY" entries={CAREER_JOURNEY} sectionId="career-journey" />
+      <TimelineSection title="EDUCATION" entries={EDUCATION} sectionId="education" />
     </>
   );
 }

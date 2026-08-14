@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { SiteFooter } from "../SiteFooter";
 import { SiteHeader } from "../SiteHeader";
 import { ImageSlideshow, type SlideshowImage } from "../ImageSlideshow";
@@ -6,123 +7,82 @@ type Project = {
   number: string;
   title: string;
   category: string;
-  image?: string;
   images?: SlideshowImage[];
-  imageAlt?: string;
-  link?: string;
-  overview: string;
-  challenge?: string;
-  approach?: string;
-  result?: string;
+  overview: ReactNode;
 };
 
-// Replace these four local paths and alt descriptions with final Rockwell project photos.
 const ROCKWELL_PROJECT_IMAGES: SlideshowImage[] = [
-  {
-    src: "/projects/rockwell-1.jpg",
-    alt: "Placeholder for a Rockwell Automation control-system design",
-  },
-  {
-    src: "/projects/rockwell-2.jpg",
-    alt: "Placeholder for PlantPAx configuration and development",
-  },
-  {
-    src: "/projects/rockwell-3.jpg",
-    alt: "Placeholder for PLC and HMI integration testing",
-    displayMode: "contain",
-  },
-  {
-    src: "/projects/rockwell/rockwell-4.jpg",
-    alt: "Placeholder for on-site automation commissioning",
-  },
-  {
-    src: "/projects/rockwell-5.jpg",
-    alt: "Rockwell Bander",
-    displayMode: "contain",
-  },
+  { src: "/projects/PlantPax-1.jpg", alt: "On-site pilot-plant process-control commissioning" },
+  { src: "/projects/Pharma.PNG", alt: "Pharmaceutical process automation commissioning" },
+  { src: "/projects/rockwell-2.jpg", alt: "Rockwell-based process automation system" },
+  { src: "/projects/Conveyor Automation Upgrade.png", alt: "Conveyor automation upgrade commissioning" },
 ];
 
-// Add future Siemens photos here; controls and autoplay enable automatically at two images.
 const SIEMENS_PROJECT_IMAGES: SlideshowImage[] = [
-  {
-    src: "/projects/siemens-1.jpg",
-    alt: "Siemens HVAC-R automation project",
-    displayMode: "contain",
-  },
+  { src: "/projects/siemens-3.png", alt: "Siemens automation platform and HMI" },
 ];
 
-// Add future GE iFIX / Honeywell HC900 photos here; no slideshow code changes are needed.
-const GEFIX_HC900_PROJECT_IMAGES: SlideshowImage[] = [
-  {
-    src: "/projects/iFix-1.JPG",
-    alt: "GE iFIX and Honeywell HC900 project image 1",
-  },
-  {
-    src: "/projects/iFix-2.jpg",
-    alt: "GE iFIX and Honeywell HC900 project image 2",
-    displayMode: "contain",
-  },
+const PROCESS_CONTROL_IMAGES: SlideshowImage[] = [
+  { src: "/projects/iFix-1.jpg", alt: "Pilot-plant process-control system commissioning" },
 ];
 
-// Add or replace Project 04 electrical images here; no slideshow code changes are needed.
 const ELECTRICAL_ENGINEERING_PROJECT_IMAGES: SlideshowImage[] = [
-  {
-    src: "/projects/Electrical-1.JPG",
-    alt: "Electrical engineering project image 1 showing industrial design work",
-  },
-  {
-    src: "/projects/Electrical-2.png",
-    alt: "Electrical engineering project image 2 showing a CADD design",
-    displayMode: "contain",
-  },
-  {
-    src: "/projects/electrical-3.jpg",
-    alt: "Electrical engineering project image 3 showing project documentation",
-    displayMode: "contain",
-  },
-  {
-    src: "/projects/electrical-4.jpg",
-    alt: "Electrical engineering project image 4 showing coordinated electrical design",
-    displayMode: "contain",
-  },
+  { src: "/projects/Electrical-2.png", alt: "Electrical and instrumentation system design", displayMode: "contain" },
 ];
 
-// Replace project titles, categories, descriptions, detail text, and local image paths here.
 const PROJECTS: Project[] = [
   {
     number: "01",
-    title: "Rockwell Automation",
-    category: "PlantPAx / Pharma / Water / Conveyor / Bander",
+    title: "Process Automation & Rockwell Automation Platforms",
+    category: "PlantPAx / Pharma / Water / Material Handling / Machinery",
     images: ROCKWELL_PROJECT_IMAGES,
-    link: "https://www.rockwellautomation.com/en-us.html",
-    overview:
-      "Delivered Rockwell Automation control-system solutions for pharmaceutical, water-treatment, and conveyor applications. The work included system design, PlantPAx configuration, PLC and HMI development, testing, integration, and on-site commissioning, with an emphasis on reliability, maintainability, and clear operator interaction.",
+    overview: (
+      <div className="project-overview">
+        <ul>
+          <li><strong>PlantPAx</strong> — process and pilot-plant automation, pharmaceutical systems, and system modernization</li>
+          <li><strong>FactoryTalk View SE</strong> — Network Station and Network Distributed architectures</li>
+          <li><strong>FactoryTalk View ME</strong> — PanelView Plus and PanelView 5000/5510 applications</li>
+          <li><strong>PLC/PAC Platforms</strong> — PLC-5, SLC 500, MicroLogix, CompactLogix, and ControlLogix; RSLogix 5/500/5000 and Studio 5000</li>
+          <li><strong>Drives & Motion</strong> — PowerFlex variable-frequency drives and encoders</li>
+          <li><strong>Industrial Networks</strong> — Stratix managed switches, EtherNet/IP, Modbus TCP/RTU, and TCP/IP socket communications</li>
+          <li><strong>Data & Reporting</strong> — FactoryTalk Historian, SQL databases, and XLReporter</li>
+          <li><strong>Virtualization & Thin Clients</strong> — virtualized automation infrastructure and ThinManager</li>
+        </ul>
+      </div>
+    ),
   },
   {
     number: "02",
-    title: "Siemens",
-    category: "HVAC-R / System Integration",
+    title: "Naval HVAC Control Systems",
+    category: "Siemens Platforms",
     images: SIEMENS_PROJECT_IMAGES,
-    link: "https://www.siemens.com/en-us/products/simatic/",
-    overview:
-      "Delivered Siemens automation solutions for HVAC-R and building-system applications. The work included control-strategy development, PLC and HMI programming, network and field-device integration, functional testing, and on-site commissioning, with a focus on energy efficiency, reliability, and ease of operation.",
+    overview: (
+      <div className="project-overview">
+        <ul>
+          <li><strong>TIA Portal</strong> — engineering, programming, commissioning, and diagnostics</li>
+          <li><strong>PLC Platforms</strong> — SIMATIC S7-1200 and S7-1500</li>
+          <li><strong>HMI Platforms</strong> — SIMATIC TP700 and TP1200 Comfort Panels</li>
+          <li><strong>Drives</strong> — SINAMICS G120 drives</li>
+          <li><strong>Industrial Networks</strong> — PROFINET, PROFIBUS, Modbus TCP/RTU</li>
+        </ul>
+      </div>
+    ),
   },
   {
     number: "03",
-    title: "GE iFIX + Honeywell HC900",
-    category: "SCADA / Process Control",
-    images: GEFIX_HC900_PROJECT_IMAGES,
-    link: "https://www.gevernova.com/software/products/hmi-scada/ifix",
+    title: "Pilot-Plant Process Control",
+    category: "PlantPAx / Honeywell HC900 / GE iFIX/IGS / Emerson DeltaV",
+    images: PROCESS_CONTROL_IMAGES,
     overview:
-      "Delivered GE iFIX SCADA and Honeywell HC900 process-control solutions for industrial applications. The work included control-strategy development, HMI and SCADA configuration, communication integration, testing, troubleshooting, and on-site commissioning, with a focus on reliable operation, clear process visibility, and maintainable system design.",
+      "Delivered pilot-plant process-control systems across multiple platforms, including Rockwell PlantPAx, Honeywell HC900, GE iFIX/IGS, and Emerson DeltaV. Responsibilities included control-strategy development based on Cause and Effect Matrices, PLC/DCS and HMI/SCADA configuration, communications integration, testing, troubleshooting, startup, and commissioning.",
   },
   {
     number: "04",
-    title: "Electrical Engineering",
-    category: "Low Voltage Design / 2D & 3D CADD",
+    title: "Electrical & Control System Design",
+    category: "E&I Design / AutoCAD Electrical / EPLAN / 2D & 3D CADD",
     images: ELECTRICAL_ENGINEERING_PROJECT_IMAGES,
     overview:
-      "Provided low-voltage electrical design and 2D/3D CADD support for industrial projects. The work included control-panel layouts, electrical schematics, equipment and cable coordination, drawing updates, and multidisciplinary design reviews, with a focus on accuracy, constructability, and clear project documentation.",
+      "Provided electrical and instrumentation design for industrial projects, including single-line diagrams, electrical overhead and underground drawings, and 3D models of E&I equipment and cable-tray systems. Prepared technical specifications, bills of materials, MCC, distribution and control-panel layouts, hazardous-area classification drawings and details, electrical equipment lists, and instrument lists.",
   },
 ];
 
@@ -131,75 +91,26 @@ export default function ProjectsPage() {
     <div className="site-shell" id="page-start">
       <SiteHeader />
       <main className="projects-page" id="projects">
-        <section className="projects-intro" aria-label="Projects introduction">
-          <p>
-            My project experience spans process and industrial automation,
-            system integration, electrical and instrumentation design,
-            PLC/HMI/SCADA development, industrial networks, system migration,
-            troubleshooting, and commissioning. Along the way, I have also
-            contributed to project planning, technical documentation, design
-            reviews, and the development of reusable engineering standards and
-            tools.
+        <section className="projects-intro" aria-label="Projects introduction" style={{ maxWidth: "840px" }}>
+          <p style={{ maxWidth: "none" }}>
+            My project experience spans process and industrial automation, system integration, electrical and instrumentation design, PLC/HMI/SCADA development, industrial networks, system migration, troubleshooting, and commissioning. Along the way, I have also contributed to project planning, technical documentation, design reviews, and the development of reusable engineering standards and tools.
           </p>
-          <p>
-            Each project has brought different technical and practical
-            challenges, and each has added to my experience. The selected work
-            below highlights some of the systems, technologies, and engineering
-            work I have been fortunate to be involved with.
+          <p style={{ maxWidth: "none", marginTop: "20px" }}>
+            Each project has brought different technical and practical challenges, and each has added to my experience. The selected work below highlights some of the systems, technologies, and engineering work I have been fortunate to be involved with.
           </p>
         </section>
 
-        <section
-          className="projects-list"
-          aria-label="Selected project placeholders"
-        >
+        <section className="projects-list" aria-label="Selected automation projects">
           {PROJECTS.map((project) => (
             <article className="project-entry" key={project.number}>
               <div className="project-media">
-                {project.images ? (
-                  <ImageSlideshow
-                    images={project.images}
-                    label={`${project.title} project photos`}
-                  />
-                ) : (
-                  <img src={project.image} alt={project.imageAlt} />
-                )}
+                {project.images && <ImageSlideshow images={project.images} label={`${project.title} project photos`} />}
               </div>
               <div className="project-details">
                 <p className="project-number">{project.number}</p>
-                <h2>
-                  {project.link ? (
-                    <a
-                      className="project-title-link"
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {project.title}
-                      <span aria-hidden="true">↗</span>
-                    </a>
-                  ) : (
-                    project.title
-                  )}
-                </h2>
+                <h2>{project.title}</h2>
                 <p className="project-category">{project.category}</p>
-                <p className="project-overview">{project.overview}</p>
-                {project.challenge && project.approach && project.result && (
-                  <dl>
-                    <div>
-                      <dt>Challenge</dt>
-                      <dd>{project.challenge}</dd>
-                    </div>
-                    <div>
-                      <dt>Approach</dt>
-                      <dd>{project.approach}</dd>
-                    </div>
-                    <div>
-                      <dt>Result</dt>
-                      <dd>{project.result}</dd>
-                    </div>
-                  </dl>
-                )}
+                {typeof project.overview === "string" ? <p className="project-overview">{project.overview}</p> : project.overview}
               </div>
             </article>
           ))}

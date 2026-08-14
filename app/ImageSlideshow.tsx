@@ -19,7 +19,9 @@ export function ImageSlideshow({
   const [interactionVersion, setInteractionVersion] = useState(0);
   const hasMultipleSlides = images.length > 1;
   const currentImage = images[currentSlide];
-  const displayMode = currentImage.displayMode ?? "cover";
+  const displayMode =
+    currentImage.displayMode ??
+    (currentImage.src.endsWith("/siemens-3.png") ? "contain" : "cover");
 
   useEffect(() => {
     if (!hasMultipleSlides) return;
@@ -48,7 +50,14 @@ export function ImageSlideshow({
 
   return (
     <div className="image-slideshow" aria-label={label}>
-      <div className={`image-slideshow-frame is-${displayMode}`}>
+      <div
+        className={`image-slideshow-frame is-${displayMode}`}
+        style={
+          displayMode === "contain"
+            ? { background: "var(--content-background)" }
+            : undefined
+        }
+      >
         <img
           key={currentImage.src}
           className={`image-slideshow-image is-${displayMode}`}
