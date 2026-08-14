@@ -141,7 +141,7 @@ export function GuestAccessManager() {
         <div style={{ fontSize: "0.72rem", letterSpacing: "0.12em", color: "#52647a" }}>
           OWNER ONLY
         </div>
-        <h2 style={{ margin: "5px 0 7px", fontSize: "1.35rem" }}>Guest Access</h2>
+        <h2 style={{ margin: "5px 0 7px", fontSize: "1.35rem" }}>Guest Management</h2>
         <p style={{ margin: 0, color: "#52647a", lineHeight: 1.55 }}>
           Create a unique temporary code for each person. Revoking a guest invalidates
           both the code and any active session on their next request.

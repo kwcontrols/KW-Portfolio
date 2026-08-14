@@ -47,19 +47,19 @@ export default async function StatisticsLoginPage({
               color: "#52647a",
             }}
           >
-            Private analytics
+            Private Portal
           </p>
           <h1 id="statistics-login-title" style={{ margin: "0 0 12px" }}>
-            Statistics access
+            Administrator Access
           </h1>
           <p style={{ margin: "0 0 26px", color: "#52647a", lineHeight: 1.65 }}>
-            Enter the access code provided by Kui. Guest access can be limited or
-            revoked at any time.
+            Sign in to access the private portal. Authorized users can access the
+            tools available to their account.
           </p>
 
           {hasError ? (
             <p role="alert" style={{ color: "#9a3412", marginBottom: "18px" }}>
-              That access code is invalid or has expired.
+              That access code is invalid or has expired. Please try again.
             </p>
           ) : null}
           {hasConfigError ? (
