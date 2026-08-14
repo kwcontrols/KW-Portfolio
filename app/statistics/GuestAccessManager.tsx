@@ -92,11 +92,9 @@ export function GuestAccessManager() {
         return [data.guest, ...existing.filter((guest) => guest.id !== data.guest.id)];
       });
       setName("");
-      // Workers KV list() can be briefly eventually consistent after a write.
-      // Keep the newly created guest visible immediately, then refresh shortly after.
-      window.setTimeout(() => {
-        void loadGuests();
-      }, 2500);
+      // Workers KV list() may lag briefly after a write. Keep the optimistic row
+      // stable instead of immediately replacing it with a potentially stale list.
+      // A later page load will naturally reconcile with KV.
     } catch {
       setMessage("Guest could not be created.");
     } finally {
@@ -125,9 +123,8 @@ export function GuestAccessManager() {
       }
       setCreated(null);
       setGuests((current) => current?.filter((guest) => guest.id !== id) ?? []);
-      window.setTimeout(() => {
-        void loadGuests();
-      }, 2500);
+      // Do not immediately reload from KV here either, because list() may still
+      // momentarily include the revoked record. A later page load will reconcile.
     } finally {
       setBusy(false);
     }
