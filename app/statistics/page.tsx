@@ -94,11 +94,12 @@ export default function StatisticsPage() {
 
     async function loadAnalytics() {
       try {
-        const response = await fetch("/analytics.json", {
+        const response = await fetch("/api/statistics-data", {
           cache: "no-store",
+          credentials: "same-origin",
           signal: controller.signal,
         });
-        if (!response.ok) throw new Error("Analytics file could not be loaded");
+        if (!response.ok) throw new Error("Analytics data could not be loaded");
         setAnalytics(parseAnalytics(await response.json()));
       } catch (error) {
         if (!(error instanceof DOMException && error.name === "AbortError")) {
@@ -115,6 +116,24 @@ export default function StatisticsPage() {
     <div className="site-shell" id="page-start">
       <SiteHeader />
       <main className="statistics-page">
+        <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "12px" }}>
+          <form action="/api/statistics-logout" method="post">
+            <button
+              type="submit"
+              style={{
+                border: "1px solid #c8d8ea",
+                background: "#fff",
+                color: "#52647a",
+                padding: "8px 12px",
+                font: "inherit",
+                fontSize: "0.78rem",
+                cursor: "pointer",
+              }}
+            >
+              Sign out
+            </button>
+          </form>
+        </div>
         <StatisticsDashboard analytics={analytics} />
       </main>
       <SiteFooter />
