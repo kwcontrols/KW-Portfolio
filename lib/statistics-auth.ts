@@ -76,8 +76,8 @@ function configuredSecret(): string | null {
 }
 
 function guestStore(): StatisticsGuestKv | null {
-  const binding = (env as unknown as { STATISTICS_GUESTS?: StatisticsGuestKv })
-    .STATISTICS_GUESTS;
+  const binding = (env as unknown as { KW_STATISTICS_GUESTS?: StatisticsGuestKv })
+    .KW_STATISTICS_GUESTS;
   return binding ?? null;
 }
 
