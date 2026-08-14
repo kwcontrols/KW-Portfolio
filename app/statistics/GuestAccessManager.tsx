@@ -23,7 +23,7 @@ function defaultExpiryLocal() {
 
 export function GuestAccessManager() {
   const [guests, setGuests] = useState<Guest[] | null>(null);
-  const [available, setAvailable] = useState(true);
+  const [available, setAvailable] = useState(false);
   const [name, setName] = useState("");
   const [expiresAt, setExpiresAt] = useState(defaultExpiryLocal);
   const [sessionHours, setSessionHours] = useState(2);
@@ -38,6 +38,9 @@ export function GuestAccessManager() {
     });
     if (response.status === 403) {
       setAvailable(false);
+      setGuests(null);
+      setCreated(null);
+      setMessage("");
       return;
     }
     if (response.status === 503) {
@@ -47,7 +50,8 @@ export function GuestAccessManager() {
       return;
     }
     if (!response.ok) {
-      setMessage("Guest access could not be loaded.");
+      setAvailable(false);
+      setMessage("");
       return;
     }
     const data = (await response.json()) as { guests?: Guest[] };
@@ -101,10 +105,17 @@ export function GuestAccessManager() {
         method: "DELETE",
         credentials: "same-origin",
       });
+      if (response.status === 403) {
+        setAvailable(false);
+        setGuests(null);
+        setCreated(null);
+        return;
+      }
       if (!response.ok) {
         setMessage("Guest could not be revoked.");
         return;
       }
+      setCreated(null);
       await loadGuests();
     } finally {
       setBusy(false);
