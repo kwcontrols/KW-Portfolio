@@ -1,6 +1,12 @@
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import { SiteFooter } from "../SiteFooter";
 import { SiteHeader } from "../SiteHeader";
-import { safeStatisticsReturnPath } from "../../lib/statistics-auth";
+import {
+  safeStatisticsReturnPath,
+  STATISTICS_SESSION_COOKIE,
+  verifyStatisticsSession,
+} from "../../lib/statistics-auth";
 
 type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 
@@ -14,6 +20,15 @@ export default async function StatisticsLoginPage({
     ? params.return_to[0]
     : params.return_to;
   const returnTo = safeStatisticsReturnPath(rawReturnTo ?? null);
+
+  const cookieStore = await cookies();
+  const existingSession = await verifyStatisticsSession(
+    cookieStore.get(STATISTICS_SESSION_COOKIE)?.value,
+  );
+  if (existingSession) {
+    redirect(returnTo);
+  }
+
   const hasError = params.error === "invalid";
   const hasConfigError = params.error === "config";
 
