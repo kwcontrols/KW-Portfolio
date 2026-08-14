@@ -87,8 +87,16 @@ export function GuestAccessManager() {
         return;
       }
       setCreated(data);
+      setGuests((current) => {
+        const existing = current ?? [];
+        return [data.guest, ...existing.filter((guest) => guest.id !== data.guest.id)];
+      });
       setName("");
-      await loadGuests();
+      // Workers KV list() can be briefly eventually consistent after a write.
+      // Keep the newly created guest visible immediately, then refresh shortly after.
+      window.setTimeout(() => {
+        void loadGuests();
+      }, 2500);
     } catch {
       setMessage("Guest could not be created.");
     } finally {
@@ -116,7 +124,10 @@ export function GuestAccessManager() {
         return;
       }
       setCreated(null);
-      await loadGuests();
+      setGuests((current) => current?.filter((guest) => guest.id !== id) ?? []);
+      window.setTimeout(() => {
+        void loadGuests();
+      }, 2500);
     } finally {
       setBusy(false);
     }
