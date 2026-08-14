@@ -5,7 +5,7 @@ import { VancouverTime } from "./VancouverTime";
 const CONTACT_EMAIL = "teck3618@gmail.com";
 const VANCOUVER_MAP_URL =
   "https://www.google.com/maps/search/?api=1&query=Vancouver,+British+Columbia,+Canada";
-const PORTFOLIO_URL = "https://site-creator-vinext-starter.teck3618.workers.dev/";
+const PORTFOLIO_URL = "https://kuiwu.teck3618.workers.dev/";
 const PORTFOLIO_QR_URL = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&format=svg&data=${encodeURIComponent(PORTFOLIO_URL)}`;
 
 export default function ContactPage() {
