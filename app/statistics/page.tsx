@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { SiteFooter } from "../SiteFooter";
 import { SiteHeader } from "../SiteHeader";
+import { GuestAccessManager } from "./GuestAccessManager";
 import StatisticsDashboard, { type AnalyticsData } from "./StatisticsDashboard";
 
 function finiteNumber(value: unknown): number | null {
@@ -135,6 +136,7 @@ export default function StatisticsPage() {
           </form>
         </div>
         <StatisticsDashboard analytics={analytics} />
+        <GuestAccessManager />
       </main>
       <SiteFooter />
     </div>
