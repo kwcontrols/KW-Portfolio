@@ -22,6 +22,7 @@
 # misc
 .DS_Store
 *.pem
+.tmp-access-codes.json
 
 # debug
 npm-debug.log*
