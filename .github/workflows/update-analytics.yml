@@ -2,6 +2,11 @@ name: Update GA4 Analytics
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "data/analytics.json"
   schedule:
     - cron: "17 8 * * *"
 
