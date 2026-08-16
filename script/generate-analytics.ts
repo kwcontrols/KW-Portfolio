@@ -52,7 +52,7 @@ function recentUtcDates(days: number) {
 }
 
 async function main() {
-  const [batch] = await analyticsDataClient.batchRunReports({
+  const [coreBatch] = await analyticsDataClient.batchRunReports({
     property: `properties/${propertyId}`,
     requests: [
       {
@@ -60,6 +60,8 @@ async function main() {
         metrics: [
           { name: "screenPageViews" },
           { name: "totalUsers" },
+          { name: "activeUsers" },
+          { name: "sessions" },
           { name: "userEngagementDuration" },
         ],
       },
@@ -73,7 +75,11 @@ async function main() {
       {
         dateRanges: [{ startDate: "6daysAgo", endDate: "today" }],
         dimensions: [{ name: "date" }],
-        metrics: [{ name: "totalUsers" }, { name: "screenPageViews" }],
+        metrics: [
+          { name: "totalUsers" },
+          { name: "screenPageViews" },
+          { name: "sessions" },
+        ],
         orderBys: [{ dimension: { dimensionName: "date" } }],
       },
       {
@@ -93,15 +99,50 @@ async function main() {
     ],
   });
 
+  const [visitorBatch] = await analyticsDataClient.batchRunReports({
+    property: `properties/${propertyId}`,
+    requests: [
+      {
+        dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
+        dimensions: [{ name: "city" }, { name: "country" }],
+        metrics: [{ name: "totalUsers" }, { name: "sessions" }],
+        orderBys: [{ metric: { metricName: "totalUsers" }, desc: true }],
+        limit: 12,
+      },
+      {
+        dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
+        dimensions: [
+          { name: "deviceCategory" },
+          { name: "browser" },
+          { name: "operatingSystem" },
+        ],
+        metrics: [{ name: "totalUsers" }, { name: "sessions" }],
+        orderBys: [{ metric: { metricName: "totalUsers" }, desc: true }],
+        limit: 12,
+      },
+      {
+        dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
+        dimensions: [{ name: "newVsReturning" }],
+        metrics: [{ name: "totalUsers" }],
+        orderBys: [{ metric: { metricName: "totalUsers" }, desc: true }],
+        limit: 5,
+      },
+    ],
+  });
+
   const [summaryReport, countryReport, trendsReport, pagesReport, sourcesReport] =
-    batch.reports ?? [];
+    coreBatch.reports ?? [];
+  const [citiesReport, devicesReport, visitorTypeReport] = visitorBatch.reports ?? [];
+
   const summaryRow = summaryReport?.rows?.[0];
   const pageViews = metricValue(summaryRow, 0);
   const totalVisitors = metricValue(summaryRow, 1);
-  const engagementDuration = metricValue(summaryRow, 2);
+  const activeVisitors = metricValue(summaryRow, 2);
+  const sessions = metricValue(summaryRow, 3);
+  const engagementDuration = metricValue(summaryRow, 4);
   const averageEngagementTime =
-    totalVisitors > 0
-      ? Number((engagementDuration / totalVisitors).toFixed(1))
+    activeVisitors > 0
+      ? Number((engagementDuration / activeVisitors).toFixed(1))
       : 0;
 
   const countryRows = (countryReport?.rows ?? [])
@@ -117,7 +158,7 @@ async function main() {
     (sum, country) => sum + country.users,
     0,
   );
-  const countries = countryRows.slice(0, 6).map((country) => ({
+  const countries = countryRows.slice(0, 8).map((country) => ({
     ...country,
     percentage: percentage(country.users, countryUserTotal),
   }));
@@ -125,13 +166,18 @@ async function main() {
   const trendRows = new Map(
     (trendsReport?.rows ?? []).map((row) => [
       formatGaDate(dimensionValue(row, 0)),
-      { users: metricValue(row, 0), pageViews: metricValue(row, 1) },
+      {
+        users: metricValue(row, 0),
+        pageViews: metricValue(row, 1),
+        sessions: metricValue(row, 2),
+      },
     ]),
   );
   const visitorTrends = recentUtcDates(7).map((date) => ({
     date,
     users: trendRows.get(date)?.users ?? 0,
     pageViews: trendRows.get(date)?.pageViews ?? 0,
+    sessions: trendRows.get(date)?.sessions ?? 0,
   }));
 
   const topPages = (pagesReport?.rows ?? []).map((row) => {
@@ -160,14 +206,56 @@ async function main() {
     percentage: percentage(source.users, sourceUserTotal),
   }));
 
+  const cities = (citiesReport?.rows ?? [])
+    .map((row) => ({
+      city: dimensionValue(row, 0),
+      country: dimensionValue(row, 1),
+      users: metricValue(row, 0),
+      sessions: metricValue(row, 1),
+    }))
+    .filter(
+      (item) =>
+        item.city && item.city !== "(not set)" && item.users > 0,
+    );
+
+  const devices = (devicesReport?.rows ?? [])
+    .map((row) => ({
+      category: dimensionValue(row, 0) || "Unknown",
+      browser: dimensionValue(row, 1) || "Unknown",
+      operatingSystem: dimensionValue(row, 2) || "Unknown",
+      users: metricValue(row, 0),
+      sessions: metricValue(row, 1),
+    }))
+    .filter((item) => item.users > 0);
+
+  const rawVisitorTypes = (visitorTypeReport?.rows ?? [])
+    .map((row) => ({
+      type: dimensionValue(row, 0) || "unknown",
+      users: metricValue(row, 0),
+    }))
+    .filter((item) => item.users > 0);
+  const visitorTypeTotal = rawVisitorTypes.reduce(
+    (sum, item) => sum + item.users,
+    0,
+  );
+  const visitorTypes = rawVisitorTypes.map((item) => ({
+    ...item,
+    percentage: percentage(item.users, visitorTypeTotal),
+  }));
+
   const analytics = {
     updatedAt: new Date().toISOString(),
     period: "last30days",
     pageViews,
     totalVisitors,
+    activeVisitors,
+    sessions,
     averageEngagementTime,
     countriesReached: countryRows.length,
     countries,
+    cities,
+    devices,
+    visitorTypes,
     visitorTrends,
     topPages,
     trafficSources,
