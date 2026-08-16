@@ -15,9 +15,25 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  return NextResponse.json(analytics, {
-    headers: {
-      "Cache-Control": "private, no-store",
+  const desktop = analytics.deviceSummary?.find(
+    (item) => item.category.toLowerCase() === "desktop",
+  );
+  const mobile = analytics.deviceSummary?.find(
+    (item) => item.category.toLowerCase() === "mobile",
+  );
+
+  return NextResponse.json(
+    {
+      ...analytics,
+      desktopUsers: desktop?.users ?? 0,
+      desktopSessions: desktop?.sessions ?? 0,
+      mobileUsers: mobile?.users ?? 0,
+      mobileSessions: mobile?.sessions ?? 0,
     },
-  });
+    {
+      headers: {
+        "Cache-Control": "private, no-store",
+      },
+    },
+  );
 }
