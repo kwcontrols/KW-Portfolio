@@ -31,7 +31,7 @@ const CAREER_JOURNEY: TimelineEntry[] = [
     title: "System Integration & Process Automation",
     details: [],
     bullets: [
-      "Delivered PLC/SCADA modernization, material-handling automation, naval HVAC-R controls, and industrial water-treatment systems across Rockwell and Siemens platforms.",
+      "Delivered PLC/SCADA modernization, material handling automation, naval HVAC-R controls, and industrial water treatment systems across Rockwell and Siemens platforms.",
     ],
   },
   {
@@ -47,7 +47,7 @@ const CAREER_JOURNEY: TimelineEntry[] = [
     title: "Control System Integration",
     details: [],
     bullets: [
-      "Delivered pilot-plant process-control systems using Rockwell PlantPAx, Honeywell HC900, GE iFIX, and Emerson DeltaV.",
+      "Delivered pilot plant process control systems using Rockwell PlantPAx, Honeywell HC900, GE iFIX, and Emerson DeltaV.",
     ],
   },
   {
@@ -85,7 +85,10 @@ const EDUCATION: TimelineEntry[] = [
   {
     marker: "2002",
     title: "Master of Engineering (M.Eng.)",
-    details: ["Electronic Engineering", "Dalian University of Technology, China"],
+    details: [
+      "Electronic Engineering",
+      "Dalian University of Technology, China",
+    ],
   },
   {
     marker: "1990",
@@ -94,7 +97,15 @@ const EDUCATION: TimelineEntry[] = [
   },
 ];
 
-function TimelineSection({ title, entries, sectionId }: { title: string; entries: TimelineEntry[]; sectionId: string }) {
+function TimelineSection({
+  title,
+  entries,
+  sectionId,
+}: {
+  title: string;
+  entries: TimelineEntry[];
+  sectionId: string;
+}) {
   const [activeEntry, setActiveEntry] = useState<number | null>(null);
 
   const activateEntry = (index: number, entry: TimelineEntry) => {
@@ -105,12 +116,20 @@ function TimelineSection({ title, entries, sectionId }: { title: string; entries
     setActiveEntry((current) => (current === index ? null : index));
   };
 
-  const handleClick = (event: MouseEvent<HTMLElement>, index: number, entry: TimelineEntry) => {
+  const handleClick = (
+    event: MouseEvent<HTMLElement>,
+    index: number,
+    entry: TimelineEntry,
+  ) => {
     if ((event.target as HTMLElement).closest("a")) return;
     activateEntry(index, entry);
   };
 
-  const handleKeyDown = (event: KeyboardEvent<HTMLElement>, index: number, entry: TimelineEntry) => {
+  const handleKeyDown = (
+    event: KeyboardEvent<HTMLElement>,
+    index: number,
+    entry: TimelineEntry,
+  ) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       activateEntry(index, entry);
@@ -128,11 +147,17 @@ function TimelineSection({ title, entries, sectionId }: { title: string; entries
             role={entry.link ? "link" : "button"}
             tabIndex={0}
             aria-pressed={entry.link ? undefined : activeEntry === index}
-            aria-label={entry.link ? `${entry.title}, ${entry.marker}. Open ${entry.link.label} website` : undefined}
+            aria-label={
+              entry.link
+                ? `${entry.title}, ${entry.marker}. Open ${entry.link.label} website`
+                : undefined
+            }
             onClick={(event) => handleClick(event, index, entry)}
             onKeyDown={(event) => handleKeyDown(event, index, entry)}
           >
-            <div className="timeline-marker" aria-hidden="true"><span /></div>
+            <div className="timeline-marker" aria-hidden="true">
+              <span />
+            </div>
             <p className="timeline-year">{entry.marker}</p>
             <div className="timeline-content">
               <h2>{entry.title}</h2>
@@ -142,15 +167,33 @@ function TimelineSection({ title, entries, sectionId }: { title: string; entries
                     href={entry.link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: "var(--blue)", fontWeight: 600, textDecoration: "none" }}
+                    style={{
+                      color: "var(--blue)",
+                      fontWeight: 600,
+                      textDecoration: "none",
+                    }}
                     aria-label={`${entry.link.label} website (opens in a new tab)`}
                   >
-                    {entry.link.label} <span aria-hidden="true" style={{ fontSize: "0.82em", marginLeft: "0.2rem" }}>↗</span>
+                    {entry.link.label}{" "}
+                    <span
+                      aria-hidden="true"
+                      style={{ fontSize: "0.82em", marginLeft: "0.2rem" }}
+                    >
+                      ↗
+                    </span>
                   </a>
                 </p>
               )}
-              {entry.details.map((detail) => <p key={detail}>{detail}</p>)}
-              {entry.bullets && <ul>{entry.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}
+              {entry.details.map((detail) => (
+                <p key={detail}>{detail}</p>
+              ))}
+              {entry.bullets && (
+                <ul>
+                  {entry.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+              )}
             </div>
           </article>
         ))}
@@ -162,8 +205,16 @@ function TimelineSection({ title, entries, sectionId }: { title: string; entries
 export function ResumeTimeline() {
   return (
     <>
-      <TimelineSection title="CAREER JOURNEY" entries={CAREER_JOURNEY} sectionId="career-journey" />
-      <TimelineSection title="EDUCATION" entries={EDUCATION} sectionId="education" />
+      <TimelineSection
+        title="CAREER JOURNEY"
+        entries={CAREER_JOURNEY}
+        sectionId="career-journey"
+      />
+      <TimelineSection
+        title="EDUCATION"
+        entries={EDUCATION}
+        sectionId="education"
+      />
     </>
   );
 }

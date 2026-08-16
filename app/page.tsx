@@ -24,17 +24,16 @@ export default function Home() {
                 commissioning.
               </p>
               <p>
-                Building automation solutions is more than my
-                profession—it&apos;s my passion. I enjoy solving complex problems,
-                turning ideas into working systems, and seeing them perform as
-                intended.
+                Building automation solutions is more than my profession -
+                it&apos;s my passion. I enjoy solving complex problems, turning
+                ideas into working systems, and seeing them perform as intended.
               </p>
               <p>
                 I grew up in China, where I earned degrees in electronics.
                 Before moving to Canada, I spent 10 years developing a wide
                 variety of embedded systems. That hands-on, board-level
-                experience continues to shape my practical approach to industrial
-                automation today.
+                experience continues to shape my practical approach to
+                industrial automation today.
               </p>
               <p>
                 Outside of work, I enjoy staying active through hiking, playing
