@@ -28,6 +28,11 @@ function parseAnalytics(value: unknown): AnalyticsData {
     const category=textValue(item.category), browser=textValue(item.browser), operatingSystem=textValue(item.operatingSystem), users=finiteNumber(item.users), sessions=finiteNumber(item.sessions);
     return category && users!==null && sessions!==null ? [{category,browser,operatingSystem,users,sessions}] : [];
   }) : [];
+  const deviceSummary = Array.isArray(data.deviceSummary) ? data.deviceSummary.flatMap((entry) => {
+    if (!entry || typeof entry !== "object") return []; const item=entry as Record<string,unknown>;
+    const category=textValue(item.category), users=finiteNumber(item.users), sessions=finiteNumber(item.sessions);
+    return category && users!==null && sessions!==null ? [{category,users,sessions}] : [];
+  }) : [];
   const visitorTypes = Array.isArray(data.visitorTypes) ? data.visitorTypes.flatMap((entry) => {
     if (!entry || typeof entry !== "object") return []; const item=entry as Record<string,unknown>;
     const type=textValue(item.type), users=finiteNumber(item.users), percentage=finiteNumber(item.percentage);
@@ -54,12 +59,19 @@ function parseAnalytics(value: unknown): AnalyticsData {
     const sessions=finiteNumber(item.sessions), pageViews=finiteNumber(item.pageViews), averageSessionDuration=finiteNumber(item.averageSessionDuration), activeUsers=finiteNumber(item.activeUsers);
     return date && sessions!==null && pageViews!==null && averageSessionDuration!==null && activeUsers!==null ? [{date,city,country,device,browser,operatingSystem,landingPage,sessions,pageViews,averageSessionDuration,activeUsers}] : [];
   }) : [];
+  const realtimeVisitors = Array.isArray(data.realtimeVisitors) ? data.realtimeVisitors.flatMap((entry) => {
+    if (!entry || typeof entry !== "object") return []; const item=entry as Record<string,unknown>;
+    const city=textValue(item.city), country=textValue(item.country), device=textValue(item.device), activeUsers=finiteNumber(item.activeUsers);
+    return activeUsers!==null ? [{city:city||"Unknown",country:country||"Unknown",device:device||"Unknown",activeUsers}] : [];
+  }) : [];
 
   return {
     updatedAt:textValue(data.updatedAt), period:textValue(data.period), pageViews:finiteNumber(data.pageViews), totalVisitors:finiteNumber(data.totalVisitors),
     activeVisitors:finiteNumber(data.activeVisitors), sessions:finiteNumber(data.sessions), countriesReached:finiteNumber(data.countriesReached),
     averageEngagementTime:finiteNumber(data.averageEngagementTime), averageSessionDuration:finiteNumber(data.averageSessionDuration), sessionsPerActiveUser:finiteNumber(data.sessionsPerActiveUser),
-    countries,cities,devices,visitorTypes,visitorTrends,topPages,trafficSources,activityLog,
+    countries,cities,devices,deviceSummary,visitorTypes,visitorTrends,topPages,trafficSources,activityLog,
+    realtimeActiveUsers:finiteNumber(data.realtimeActiveUsers) ?? 0,
+    realtimeVisitors,
   };
 }
 
