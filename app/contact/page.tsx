@@ -68,7 +68,6 @@ export default function ContactPage() {
                     height="120"
                   />
                 </a>
-                <span className="contact-qr-caption">Scan to open on mobile.</span>
               </dd>
             </div>
           </dl>
