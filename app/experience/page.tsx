@@ -12,7 +12,6 @@ type Project = {
 };
 
 const ROCKWELL_PROJECT_IMAGES: SlideshowImage[] = [
-  { src: "/projects/PlantPax-1.jpg", alt: "On-site pilot-plant process-control commissioning" },
   { src: "/projects/Pharma.PNG", alt: "Pharmaceutical process automation commissioning" },
   { src: "/projects/rockwell-2.jpg", alt: "Rockwell-based process automation system" },
   { src: "/projects/Conveyor Automation Upgrade.png", alt: "Conveyor automation upgrade commissioning" },
@@ -20,10 +19,6 @@ const ROCKWELL_PROJECT_IMAGES: SlideshowImage[] = [
 
 const SIEMENS_PROJECT_IMAGES: SlideshowImage[] = [
   { src: "/projects/siemens-3.png", alt: "Siemens automation platform and HMI" },
-];
-
-const PROCESS_CONTROL_IMAGES: SlideshowImage[] = [
-  { src: "/projects/iFix-1.jpg", alt: "Pilot-plant process-control system commissioning" },
 ];
 
 const ELECTRICAL_ENGINEERING_PROJECT_IMAGES: SlideshowImage[] = [
@@ -70,14 +65,6 @@ const PROJECTS: Project[] = [
   },
   {
     number: "03",
-    title: "Pilot-Plant Process Control",
-    category: "PlantPAx / Honeywell HC900 / GE iFIX/IGS / Emerson DeltaV",
-    images: PROCESS_CONTROL_IMAGES,
-    overview:
-      "Delivered pilot-plant process-control systems across multiple platforms, including Rockwell PlantPAx, Honeywell HC900, GE iFIX/IGS, and Emerson DeltaV. Responsibilities included control-strategy development based on Cause and Effect Matrices, PLC/DCS and HMI/SCADA configuration, communications integration, testing, troubleshooting, startup, and commissioning.",
-  },
-  {
-    number: "04",
     title: "Electrical & Control System Design",
     category: "E&I Design / AutoCAD Electrical / EPLAN / 2D & 3D CADD",
     images: ELECTRICAL_ENGINEERING_PROJECT_IMAGES,
