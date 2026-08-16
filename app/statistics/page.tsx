@@ -34,6 +34,48 @@ function parseAnalytics(value: unknown): AnalyticsData {
       })
     : [];
 
+  const cities = Array.isArray(data.cities)
+    ? data.cities.flatMap((entry) => {
+        if (!entry || typeof entry !== "object") return [];
+        const item = entry as Record<string, unknown>;
+        const city = textValue(item.city);
+        const country = textValue(item.country);
+        const users = finiteNumber(item.users);
+        const sessions = finiteNumber(item.sessions);
+        return city && users !== null && sessions !== null
+          ? [{ city, country, users, sessions }]
+          : [];
+      })
+    : [];
+
+  const devices = Array.isArray(data.devices)
+    ? data.devices.flatMap((entry) => {
+        if (!entry || typeof entry !== "object") return [];
+        const item = entry as Record<string, unknown>;
+        const category = textValue(item.category);
+        const browser = textValue(item.browser);
+        const operatingSystem = textValue(item.operatingSystem);
+        const users = finiteNumber(item.users);
+        const sessions = finiteNumber(item.sessions);
+        return category && users !== null && sessions !== null
+          ? [{ category, browser, operatingSystem, users, sessions }]
+          : [];
+      })
+    : [];
+
+  const visitorTypes = Array.isArray(data.visitorTypes)
+    ? data.visitorTypes.flatMap((entry) => {
+        if (!entry || typeof entry !== "object") return [];
+        const item = entry as Record<string, unknown>;
+        const type = textValue(item.type);
+        const users = finiteNumber(item.users);
+        const percentage = finiteNumber(item.percentage);
+        return type && users !== null && percentage !== null
+          ? [{ type, users, percentage }]
+          : [];
+      })
+    : [];
+
   const visitorTrends = Array.isArray(data.visitorTrends)
     ? data.visitorTrends.flatMap((entry) => {
         if (!entry || typeof entry !== "object") return [];
@@ -41,8 +83,9 @@ function parseAnalytics(value: unknown): AnalyticsData {
         const date = textValue(item.date);
         const users = finiteNumber(item.users);
         const pageViews = finiteNumber(item.pageViews);
-        return date && users !== null && pageViews !== null
-          ? [{ date, users, pageViews }]
+        const sessions = finiteNumber(item.sessions);
+        return date && users !== null && pageViews !== null && sessions !== null
+          ? [{ date, users, pageViews, sessions }]
           : [];
       })
     : [];
@@ -78,9 +121,14 @@ function parseAnalytics(value: unknown): AnalyticsData {
     period: textValue(data.period),
     pageViews: finiteNumber(data.pageViews),
     totalVisitors: finiteNumber(data.totalVisitors),
+    activeVisitors: finiteNumber(data.activeVisitors),
+    sessions: finiteNumber(data.sessions),
     countriesReached: finiteNumber(data.countriesReached),
     averageEngagementTime: finiteNumber(data.averageEngagementTime),
     countries,
+    cities,
+    devices,
+    visitorTypes,
     visitorTrends,
     topPages,
     trafficSources,
