@@ -29,8 +29,17 @@ async function main(){
   {dateRanges:[{startDate:"6daysAgo",endDate:"today"}],dimensions:[{name:"date"}],metrics:[{name:"totalUsers"},{name:"screenPageViews"},{name:"sessions"}],orderBys:[{dimension:{dimensionName:"date"}}]},
   {dateRanges:[{startDate:"30daysAgo",endDate:"today"}],dimensions:[{name:"pageTitle"},{name:"pagePath"}],metrics:[{name:"screenPageViews"}],orderBys:[{metric:{metricName:"screenPageViews"},desc:true}],limit:8},
   {dateRanges:[{startDate:"30daysAgo",endDate:"today"}],dimensions:[{name:"sessionDefaultChannelGroup"}],metrics:[{name:"totalUsers"}],orderBys:[{metric:{metricName:"totalUsers"},desc:true}],limit:8},
-  {dateRanges:[{startDate:"30daysAgo",endDate:"today"}],dimensions:[{name:"deviceCategory"}],metrics:[{name:"totalUsers"},{name:"sessions"}],orderBys:[{metric:{metricName:"totalUsers"},desc:true}],limit:10},
  ]});
+
+ // GA4 batchRunReports accepts at most five requests, so keep the device summary in its own report.
+ const [deviceSummaryReport]=await analyticsDataClient.runReport({
+  property:`properties/${propertyId}`,
+  dateRanges:[{startDate:"30daysAgo",endDate:"today"}],
+  dimensions:[{name:"deviceCategory"}],
+  metrics:[{name:"totalUsers"},{name:"sessions"}],
+  orderBys:[{metric:{metricName:"totalUsers"},desc:true}],
+  limit:10,
+ });
 
  const [visitorBatch]=await analyticsDataClient.batchRunReports({property:`properties/${propertyId}`,requests:[
   {dateRanges:[{startDate:"30daysAgo",endDate:"today"}],dimensions:[{name:"city"},{name:"country"}],metrics:[{name:"totalUsers"},{name:"sessions"}],orderBys:[{metric:{metricName:"totalUsers"},desc:true}],limit:20},
@@ -45,7 +54,7 @@ async function main(){
   realtimeRows=realtime.rows??[];
  }catch(error){console.warn("Realtime GA4 query unavailable; continuing with processed reports.",error);}
 
- const [summaryReport,countryReport,trendsReport,pagesReport,sourcesReport,deviceSummaryReport]=coreBatch.reports??[];
+ const [summaryReport,countryReport,trendsReport,pagesReport,sourcesReport]=coreBatch.reports??[];
  const [citiesReport,devicesReport,visitorTypeReport,activityReport]=visitorBatch.reports??[];
  const summaryRow=summaryReport?.rows?.[0];
  const pageViews=metricValue(summaryRow,0),totalVisitors=metricValue(summaryRow,1),activeVisitors=metricValue(summaryRow,2),sessions=metricValue(summaryRow,3),engagementDuration=metricValue(summaryRow,4),averageSessionDuration=metricValue(summaryRow,5);
