@@ -13,12 +13,12 @@ type Project = {
 
 const ROCKWELL_PROJECT_IMAGES: SlideshowImage[] = [
   {
-    src: "/projects/Pharma.PNG",
-    alt: "Pharmaceutical process automation commissioning",
+    src: "/projects/PlantPax-1.jpg",
+    alt: "PlantPAx pilot-plant process-control commissioning",
   },
   {
-    src: "/projects/rockwell-2.jpg",
-    alt: "Rockwell-based process automation system",
+    src: "/projects/Pharma.PNG",
+    alt: "Pharmaceutical process automation commissioning",
   },
   {
     src: "/projects/Conveyor Automation Upgrade.png",
@@ -30,13 +30,6 @@ const SIEMENS_PROJECT_IMAGES: SlideshowImage[] = [
   {
     src: "/projects/siemens-3.png",
     alt: "Siemens automation platform and HMI",
-  },
-];
-
-const PROCESS_CONTROL_IMAGES: SlideshowImage[] = [
-  {
-    src: "/projects/iFix-1.jpg",
-    alt: "Pilot-plant process-control system commissioning",
   },
 ];
 
