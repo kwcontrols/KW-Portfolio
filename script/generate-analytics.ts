@@ -3,49 +3,28 @@ import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const propertyId = process.env.GA4_PROPERTY_ID;
-
-if (!propertyId) {
-  throw new Error("GA4_PROPERTY_ID is missing");
-}
+if (!propertyId) throw new Error("GA4_PROPERTY_ID is missing");
 
 const analyticsDataClient = new BetaAnalyticsDataClient();
 
-function metricValue(
-  row: { metricValues?: Array<{ value?: string | null }> | null } | null | undefined,
-  index: number,
-) {
+function metricValue(row: { metricValues?: Array<{ value?: string | null }> | null } | null | undefined, index: number) {
   const value = Number(row?.metricValues?.[index]?.value ?? 0);
   return Number.isFinite(value) ? value : 0;
 }
-
-function dimensionValue(
-  row: { dimensionValues?: Array<{ value?: string | null }> | null } | null | undefined,
-  index: number,
-) {
+function dimensionValue(row: { dimensionValues?: Array<{ value?: string | null }> | null } | null | undefined, index: number) {
   return row?.dimensionValues?.[index]?.value?.trim() ?? "";
 }
-
 function percentage(value: number, total: number) {
   return total > 0 ? Number(((value / total) * 100).toFixed(1)) : 0;
 }
-
 function formatGaDate(value: string) {
-  return value.length === 8
-    ? `${value.slice(0, 4)}-${value.slice(4, 6)}-${value.slice(6, 8)}`
-    : value;
+  return value.length === 8 ? `${value.slice(0, 4)}-${value.slice(4, 6)}-${value.slice(6, 8)}` : value;
 }
-
 function recentUtcDates(days: number) {
   const dates: string[] = [];
   const today = new Date();
   for (let offset = days - 1; offset >= 0; offset -= 1) {
-    const date = new Date(
-      Date.UTC(
-        today.getUTCFullYear(),
-        today.getUTCMonth(),
-        today.getUTCDate() - offset,
-      ),
-    );
+    const date = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate() - offset));
     dates.push(date.toISOString().slice(0, 10));
   }
   return dates;
@@ -58,43 +37,26 @@ async function main() {
       {
         dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
         metrics: [
-          { name: "screenPageViews" },
-          { name: "totalUsers" },
-          { name: "activeUsers" },
-          { name: "sessions" },
-          { name: "userEngagementDuration" },
+          { name: "screenPageViews" }, { name: "totalUsers" }, { name: "activeUsers" },
+          { name: "sessions" }, { name: "userEngagementDuration" }, { name: "averageSessionDuration" },
         ],
       },
       {
-        dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
-        dimensions: [{ name: "country" }],
-        metrics: [{ name: "totalUsers" }],
-        orderBys: [{ metric: { metricName: "totalUsers" }, desc: true }],
-        limit: 250,
+        dateRanges: [{ startDate: "30daysAgo", endDate: "today" }], dimensions: [{ name: "country" }],
+        metrics: [{ name: "totalUsers" }], orderBys: [{ metric: { metricName: "totalUsers" }, desc: true }], limit: 250,
       },
       {
-        dateRanges: [{ startDate: "6daysAgo", endDate: "today" }],
-        dimensions: [{ name: "date" }],
-        metrics: [
-          { name: "totalUsers" },
-          { name: "screenPageViews" },
-          { name: "sessions" },
-        ],
+        dateRanges: [{ startDate: "6daysAgo", endDate: "today" }], dimensions: [{ name: "date" }],
+        metrics: [{ name: "totalUsers" }, { name: "screenPageViews" }, { name: "sessions" }],
         orderBys: [{ dimension: { dimensionName: "date" } }],
       },
       {
-        dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
-        dimensions: [{ name: "pageTitle" }, { name: "pagePath" }],
-        metrics: [{ name: "screenPageViews" }],
-        orderBys: [{ metric: { metricName: "screenPageViews" }, desc: true }],
-        limit: 5,
+        dateRanges: [{ startDate: "30daysAgo", endDate: "today" }], dimensions: [{ name: "pageTitle" }, { name: "pagePath" }],
+        metrics: [{ name: "screenPageViews" }], orderBys: [{ metric: { metricName: "screenPageViews" }, desc: true }], limit: 8,
       },
       {
-        dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
-        dimensions: [{ name: "sessionDefaultChannelGroup" }],
-        metrics: [{ name: "totalUsers" }],
-        orderBys: [{ metric: { metricName: "totalUsers" }, desc: true }],
-        limit: 6,
+        dateRanges: [{ startDate: "30daysAgo", endDate: "today" }], dimensions: [{ name: "sessionDefaultChannelGroup" }],
+        metrics: [{ name: "totalUsers" }], orderBys: [{ metric: { metricName: "totalUsers" }, desc: true }], limit: 8,
       },
     ],
   });
@@ -103,174 +65,90 @@ async function main() {
     property: `properties/${propertyId}`,
     requests: [
       {
+        dateRanges: [{ startDate: "30daysAgo", endDate: "today" }], dimensions: [{ name: "city" }, { name: "country" }],
+        metrics: [{ name: "totalUsers" }, { name: "sessions" }], orderBys: [{ metric: { metricName: "totalUsers" }, desc: true }], limit: 20,
+      },
+      {
         dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
-        dimensions: [{ name: "city" }, { name: "country" }],
-        metrics: [{ name: "totalUsers" }, { name: "sessions" }],
-        orderBys: [{ metric: { metricName: "totalUsers" }, desc: true }],
-        limit: 12,
+        dimensions: [{ name: "deviceCategory" }, { name: "browser" }, { name: "operatingSystem" }],
+        metrics: [{ name: "totalUsers" }, { name: "sessions" }], orderBys: [{ metric: { metricName: "totalUsers" }, desc: true }], limit: 20,
+      },
+      {
+        dateRanges: [{ startDate: "30daysAgo", endDate: "today" }], dimensions: [{ name: "newVsReturning" }],
+        metrics: [{ name: "totalUsers" }], orderBys: [{ metric: { metricName: "totalUsers" }, desc: true }], limit: 5,
       },
       {
         dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
         dimensions: [
-          { name: "deviceCategory" },
-          { name: "browser" },
-          { name: "operatingSystem" },
+          { name: "date" }, { name: "city" }, { name: "country" }, { name: "deviceCategory" },
+          { name: "browser" }, { name: "operatingSystem" }, { name: "landingPage" },
         ],
-        metrics: [{ name: "totalUsers" }, { name: "sessions" }],
-        orderBys: [{ metric: { metricName: "totalUsers" }, desc: true }],
-        limit: 12,
-      },
-      {
-        dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
-        dimensions: [{ name: "newVsReturning" }],
-        metrics: [{ name: "totalUsers" }],
-        orderBys: [{ metric: { metricName: "totalUsers" }, desc: true }],
-        limit: 5,
+        metrics: [{ name: "sessions" }, { name: "screenPageViews" }, { name: "averageSessionDuration" }, { name: "activeUsers" }],
+        orderBys: [{ dimension: { dimensionName: "date" }, desc: true }, { metric: { metricName: "sessions" }, desc: true }],
+        limit: 100,
       },
     ],
   });
 
-  const [summaryReport, countryReport, trendsReport, pagesReport, sourcesReport] =
-    coreBatch.reports ?? [];
-  const [citiesReport, devicesReport, visitorTypeReport] = visitorBatch.reports ?? [];
-
+  const [summaryReport, countryReport, trendsReport, pagesReport, sourcesReport] = coreBatch.reports ?? [];
+  const [citiesReport, devicesReport, visitorTypeReport, activityReport] = visitorBatch.reports ?? [];
   const summaryRow = summaryReport?.rows?.[0];
   const pageViews = metricValue(summaryRow, 0);
   const totalVisitors = metricValue(summaryRow, 1);
   const activeVisitors = metricValue(summaryRow, 2);
   const sessions = metricValue(summaryRow, 3);
   const engagementDuration = metricValue(summaryRow, 4);
-  const averageEngagementTime =
-    activeVisitors > 0
-      ? Number((engagementDuration / activeVisitors).toFixed(1))
-      : 0;
+  const averageSessionDuration = metricValue(summaryRow, 5);
+  const averageEngagementTime = activeVisitors > 0 ? Number((engagementDuration / activeVisitors).toFixed(1)) : 0;
+  const sessionsPerActiveUser = activeVisitors > 0 ? Number((sessions / activeVisitors).toFixed(2)) : 0;
 
-  const countryRows = (countryReport?.rows ?? [])
-    .map((row) => ({
-      name: dimensionValue(row, 0),
-      users: metricValue(row, 0),
-    }))
-    .filter(
-      (country) =>
-        country.name && country.name !== "(not set)" && country.users > 0,
-    );
-  const countryUserTotal = countryRows.reduce(
-    (sum, country) => sum + country.users,
-    0,
-  );
-  const countries = countryRows.slice(0, 8).map((country) => ({
-    ...country,
-    percentage: percentage(country.users, countryUserTotal),
-  }));
+  const countryRows = (countryReport?.rows ?? []).map((row) => ({ name: dimensionValue(row, 0), users: metricValue(row, 0) }))
+    .filter((item) => item.name && item.name !== "(not set)" && item.users > 0);
+  const countryUserTotal = countryRows.reduce((sum, item) => sum + item.users, 0);
+  const countries = countryRows.slice(0, 10).map((item) => ({ ...item, percentage: percentage(item.users, countryUserTotal) }));
 
-  const trendRows = new Map(
-    (trendsReport?.rows ?? []).map((row) => [
-      formatGaDate(dimensionValue(row, 0)),
-      {
-        users: metricValue(row, 0),
-        pageViews: metricValue(row, 1),
-        sessions: metricValue(row, 2),
-      },
-    ]),
-  );
-  const visitorTrends = recentUtcDates(7).map((date) => ({
-    date,
-    users: trendRows.get(date)?.users ?? 0,
-    pageViews: trendRows.get(date)?.pageViews ?? 0,
-    sessions: trendRows.get(date)?.sessions ?? 0,
-  }));
+  const trendRows = new Map((trendsReport?.rows ?? []).map((row) => [formatGaDate(dimensionValue(row, 0)), {
+    users: metricValue(row, 0), pageViews: metricValue(row, 1), sessions: metricValue(row, 2),
+  }]));
+  const visitorTrends = recentUtcDates(7).map((date) => ({ date, users: trendRows.get(date)?.users ?? 0,
+    pageViews: trendRows.get(date)?.pageViews ?? 0, sessions: trendRows.get(date)?.sessions ?? 0 }));
 
   const topPages = (pagesReport?.rows ?? []).map((row) => {
-    const pathValue = dimensionValue(row, 1) || "/";
-    const titleValue = dimensionValue(row, 0);
-    return {
-      title:
-        titleValue && titleValue !== "(not set)" ? titleValue : pathValue,
-      path: pathValue,
-      views: metricValue(row, 0),
-    };
+    const pathValue = dimensionValue(row, 1) || "/"; const titleValue = dimensionValue(row, 0);
+    return { title: titleValue && titleValue !== "(not set)" ? titleValue : pathValue, path: pathValue, views: metricValue(row, 0) };
   });
+  const rawSources = (sourcesReport?.rows ?? []).map((row) => ({ source: dimensionValue(row, 0) || "Unassigned", users: metricValue(row, 0) })).filter((item) => item.users > 0);
+  const sourceUserTotal = rawSources.reduce((sum, item) => sum + item.users, 0);
+  const trafficSources = rawSources.map((item) => ({ ...item, percentage: percentage(item.users, sourceUserTotal) }));
 
-  const rawSources = (sourcesReport?.rows ?? [])
-    .map((row) => ({
-      source: dimensionValue(row, 0) || "Unassigned",
-      users: metricValue(row, 0),
-    }))
-    .filter((source) => source.users > 0);
-  const sourceUserTotal = rawSources.reduce(
-    (sum, source) => sum + source.users,
-    0,
-  );
-  const trafficSources = rawSources.map((source) => ({
-    ...source,
-    percentage: percentage(source.users, sourceUserTotal),
-  }));
+  const cities = (citiesReport?.rows ?? []).map((row) => ({ city: dimensionValue(row, 0), country: dimensionValue(row, 1), users: metricValue(row, 0), sessions: metricValue(row, 1) }))
+    .filter((item) => item.city && item.city !== "(not set)" && item.users > 0);
+  const devices = (devicesReport?.rows ?? []).map((row) => ({ category: dimensionValue(row, 0) || "Unknown", browser: dimensionValue(row, 1) || "Unknown",
+    operatingSystem: dimensionValue(row, 2) || "Unknown", users: metricValue(row, 0), sessions: metricValue(row, 1) })).filter((item) => item.users > 0);
+  const rawVisitorTypes = (visitorTypeReport?.rows ?? []).map((row) => ({ type: dimensionValue(row, 0) || "unknown", users: metricValue(row, 0) })).filter((item) => item.users > 0);
+  const visitorTypeTotal = rawVisitorTypes.reduce((sum, item) => sum + item.users, 0);
+  const visitorTypes = rawVisitorTypes.map((item) => ({ ...item, percentage: percentage(item.users, visitorTypeTotal) }));
 
-  const cities = (citiesReport?.rows ?? [])
-    .map((row) => ({
-      city: dimensionValue(row, 0),
-      country: dimensionValue(row, 1),
-      users: metricValue(row, 0),
-      sessions: metricValue(row, 1),
-    }))
-    .filter(
-      (item) =>
-        item.city && item.city !== "(not set)" && item.users > 0,
-    );
-
-  const devices = (devicesReport?.rows ?? [])
-    .map((row) => ({
-      category: dimensionValue(row, 0) || "Unknown",
-      browser: dimensionValue(row, 1) || "Unknown",
-      operatingSystem: dimensionValue(row, 2) || "Unknown",
-      users: metricValue(row, 0),
-      sessions: metricValue(row, 1),
-    }))
-    .filter((item) => item.users > 0);
-
-  const rawVisitorTypes = (visitorTypeReport?.rows ?? [])
-    .map((row) => ({
-      type: dimensionValue(row, 0) || "unknown",
-      users: metricValue(row, 0),
-    }))
-    .filter((item) => item.users > 0);
-  const visitorTypeTotal = rawVisitorTypes.reduce(
-    (sum, item) => sum + item.users,
-    0,
-  );
-  const visitorTypes = rawVisitorTypes.map((item) => ({
-    ...item,
-    percentage: percentage(item.users, visitorTypeTotal),
-  }));
+  // This is an aggregate activity log, not a raw per-person/session log. GA4 intentionally does not expose visitor IP addresses here.
+  const activityLog = (activityReport?.rows ?? []).map((row) => ({
+    date: formatGaDate(dimensionValue(row, 0)), city: dimensionValue(row, 1) || "Unknown", country: dimensionValue(row, 2) || "Unknown",
+    device: dimensionValue(row, 3) || "Unknown", browser: dimensionValue(row, 4) || "Unknown", operatingSystem: dimensionValue(row, 5) || "Unknown",
+    landingPage: dimensionValue(row, 6) || "/", sessions: metricValue(row, 0), pageViews: metricValue(row, 1),
+    averageSessionDuration: Number(metricValue(row, 2).toFixed(1)), activeUsers: metricValue(row, 3),
+  })).filter((item) => item.sessions > 0 || item.pageViews > 0);
 
   const analytics = {
-    updatedAt: new Date().toISOString(),
-    period: "last30days",
-    pageViews,
-    totalVisitors,
-    activeVisitors,
-    sessions,
-    averageEngagementTime,
-    countriesReached: countryRows.length,
-    countries,
-    cities,
-    devices,
-    visitorTypes,
-    visitorTrends,
-    topPages,
-    trafficSources,
+    updatedAt: new Date().toISOString(), period: "last30days", pageViews, totalVisitors, activeVisitors, sessions,
+    averageEngagementTime, averageSessionDuration: Number(averageSessionDuration.toFixed(1)), sessionsPerActiveUser,
+    countriesReached: countryRows.length, countries, cities, devices, visitorTypes, visitorTrends, topPages, trafficSources, activityLog,
   };
 
   const outputDirectory = path.join(process.cwd(), "data");
   const outputPath = path.join(outputDirectory, "analytics.json");
   await mkdir(outputDirectory, { recursive: true });
   await writeFile(outputPath, JSON.stringify(analytics, null, 2), "utf8");
-
   console.log(`Analytics written to ${outputPath}`);
   console.log(analytics);
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+main().catch((error) => { console.error(error); process.exit(1); });
