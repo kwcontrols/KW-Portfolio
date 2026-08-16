@@ -17,7 +17,13 @@ export default function StatisticsDashboard({analytics}:{analytics:AnalyticsData
  const reducedMotion=useReducedMotion(),chartDuration=reducedMotion?0:700;const updatedDate=analytics?.updatedAt?new Date(analytics.updatedAt):null;const updatedLabel=updatedDate&&!Number.isNaN(updatedDate.getTime())?new Intl.DateTimeFormat("en-CA",{month:"short",day:"numeric",year:"numeric",hour:"numeric",minute:"2-digit"}).format(updatedDate):null;
  const visitorTrends=(analytics?.visitorTrends??[]).map(i=>({day:new Intl.DateTimeFormat("en-CA",{weekday:"short",timeZone:"UTC"}).format(new Date(`${i.date}T00:00:00Z`)),visitors:i.users,sessions:i.sessions,views:i.pageViews}));
  const trafficSources=(analytics?.trafficSources??[]).map((s,i)=>({...s,fill:CHART_COLORS[i%CHART_COLORS.length]}));
- const device=(name:string)=>analytics?.deviceSummary?.find(i=>i.category.toLowerCase()===name);
+ const device=(name:string)=>{
+   const summary=analytics?.deviceSummary?.find(i=>i.category.toLowerCase()===name);
+   if(summary) return summary;
+   const matches=(analytics?.devices??[]).filter(i=>i.category.toLowerCase()===name);
+   if(!matches.length) return undefined;
+   return {category:name,users:Math.max(...matches.map(i=>i.users)),sessions:matches.reduce((sum,i)=>sum+i.sessions,0)};
+ };
  const desktop=device("desktop"),mobile=device("mobile");
  return <>
  <motion.header className="statistics-hero" initial={reducedMotion?false:{opacity:0,y:12}} animate={reducedMotion?undefined:{opacity:1,y:0}} transition={{duration:.45}}><p className="section-index">Analytics</p><h1>Private Portal</h1><p>A private view of portfolio traffic, visitor locations, technology, sessions, and engagement powered by Google Analytics.</p><span>GA4 analytics{updatedLabel?` · Generated ${updatedLabel}`:""}</span></motion.header>
