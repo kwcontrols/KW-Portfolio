@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-08-16T22:02:06.716Z",
+  "updatedAt": "2026-08-16T22:39:24.446Z",
   "period": "last30days",
-  "pageViews": 139,
+  "pageViews": 140,
   "totalVisitors": 3,
   "activeVisitors": 3,
-  "sessions": 24,
-  "averageEngagementTime": 1286,
-  "averageSessionDuration": 1423.9,
-  "sessionsPerActiveUser": 8,
+  "sessions": 26,
+  "averageEngagementTime": 1293,
+  "averageSessionDuration": 1316,
+  "sessionsPerActiveUser": 8.67,
   "countriesReached": 1,
   "countries": [
     {
@@ -21,10 +21,16 @@
       "city": "Vancouver",
       "country": "Canada",
       "users": 3,
-      "sessions": 24
+      "sessions": 25
     },
     {
       "city": "Abbotsford",
+      "country": "Canada",
+      "users": 1,
+      "sessions": 1
+    },
+    {
+      "city": "Ucluelet",
       "country": "Canada",
       "users": 1,
       "sessions": 1
@@ -36,26 +42,26 @@
       "browser": "Chrome",
       "operatingSystem": "Windows",
       "users": 2,
-      "sessions": 20
+      "sessions": 21
     },
     {
       "category": "mobile",
       "browser": "Safari",
       "operatingSystem": "iOS",
       "users": 1,
-      "sessions": 4
+      "sessions": 5
     }
   ],
   "deviceSummary": [
     {
       "category": "desktop",
       "users": 2,
-      "sessions": 20
+      "sessions": 21
     },
     {
       "category": "mobile",
       "users": 1,
-      "sessions": 4
+      "sessions": 5
     }
   ],
   "visitorTypes": [
@@ -110,15 +116,15 @@
     {
       "date": "2026-08-16",
       "users": 2,
-      "pageViews": 26,
-      "sessions": 3
+      "pageViews": 27,
+      "sessions": 5
     }
   ],
   "topPages": [
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/statistics",
-      "views": 48
+      "views": 49
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -159,6 +165,62 @@
     }
   ],
   "activityLog": [
+    {
+      "date": "2026-08-16",
+      "time": "14:55",
+      "city": "Ucluelet",
+      "country": "Canada",
+      "device": "mobile",
+      "browser": "Safari",
+      "operatingSystem": "iOS",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 0,
+      "activeUsers": 0
+    },
+    {
+      "date": "2026-08-16",
+      "time": "14:19",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 43.9,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-16",
+      "time": "14:18",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 0,
+      "activeUsers": 0
+    },
+    {
+      "date": "2026-08-16",
+      "time": "14:18",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 0,
+      "activeUsers": 1
+    },
     {
       "date": "2026-08-16",
       "time": "12:46",
@@ -1546,10 +1608,16 @@
       "activeUsers": 1
     }
   ],
-  "realtimeActiveUsers": 1,
+  "realtimeActiveUsers": 2,
   "realtimeVisitors": [
     {
-      "city": "Ucluelet",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "activeUsers": 1
+    },
+    {
+      "city": "Vancouver",
       "country": "Canada",
       "device": "mobile",
       "activeUsers": 1
