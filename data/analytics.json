@@ -1,86 +1,341 @@
 {
-  "updatedAt": "2026-08-15T08:45:57.068Z",
+  "updatedAt": "2026-08-16T08:47:25.444Z",
   "period": "last30days",
-  "pageViews": 93,
-  "totalVisitors": 1,
-  "averageEngagementTime": 2346,
+  "pageViews": 112,
+  "totalVisitors": 3,
+  "activeVisitors": 3,
+  "sessions": 21,
+  "averageEngagementTime": 867.7,
+  "averageSessionDuration": 784.4,
+  "sessionsPerActiveUser": 7,
   "countriesReached": 1,
   "countries": [
     {
       "name": "Canada",
-      "users": 1,
+      "users": 3,
       "percentage": 100
+    }
+  ],
+  "cities": [
+    {
+      "city": "Vancouver",
+      "country": "Canada",
+      "users": 3,
+      "sessions": 21
+    }
+  ],
+  "devices": [
+    {
+      "category": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "users": 2,
+      "sessions": 19
+    },
+    {
+      "category": "mobile",
+      "browser": "Safari",
+      "operatingSystem": "iOS",
+      "users": 1,
+      "sessions": 2
+    }
+  ],
+  "deviceSummary": [
+    {
+      "category": "desktop",
+      "users": 2,
+      "sessions": 19
+    },
+    {
+      "category": "mobile",
+      "users": 1,
+      "sessions": 2
+    }
+  ],
+  "visitorTypes": [
+    {
+      "type": "new",
+      "users": 3,
+      "percentage": 50
+    },
+    {
+      "type": "unknown",
+      "users": 2,
+      "percentage": 33.3
+    },
+    {
+      "type": "returning",
+      "users": 1,
+      "percentage": 16.7
     }
   ],
   "visitorTrends": [
     {
-      "date": "2026-08-09",
-      "users": 1,
-      "pageViews": 1
-    },
-    {
       "date": "2026-08-10",
       "users": 1,
-      "pageViews": 2
+      "pageViews": 2,
+      "sessions": 2
     },
     {
       "date": "2026-08-11",
       "users": 1,
-      "pageViews": 9
+      "pageViews": 9,
+      "sessions": 2
     },
     {
       "date": "2026-08-12",
       "users": 0,
-      "pageViews": 0
+      "pageViews": 0,
+      "sessions": 0
     },
     {
       "date": "2026-08-13",
       "users": 0,
-      "pageViews": 0
+      "pageViews": 0,
+      "sessions": 0
     },
     {
       "date": "2026-08-14",
       "users": 0,
-      "pageViews": 0
+      "pageViews": 0,
+      "sessions": 0
     },
     {
       "date": "2026-08-15",
+      "users": 2,
+      "pageViews": 19,
+      "sessions": 3
+    },
+    {
+      "date": "2026-08-16",
       "users": 0,
-      "pageViews": 0
+      "pageViews": 0,
+      "sessions": 0
     }
   ],
   "topPages": [
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/statistics",
-      "views": 29
+      "views": 31
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/resume",
-      "views": 23
+      "views": 26
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/",
-      "views": 16
+      "views": 23
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/experience",
-      "views": 16
+      "views": 20
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/contact",
-      "views": 9
+      "views": 12
     }
   ],
   "trafficSources": [
     {
       "source": "Direct",
-      "users": 1,
-      "percentage": 100
+      "users": 3,
+      "percentage": 60
+    },
+    {
+      "source": "Unassigned",
+      "users": 2,
+      "percentage": 40
     }
-  ]
+  ],
+  "activityLog": [
+    {
+      "date": "2026-08-15",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "mobile",
+      "browser": "Safari",
+      "operatingSystem": "iOS",
+      "landingPage": "/",
+      "sessions": 2,
+      "pageViews": 15,
+      "averageSessionDuration": 340.1,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-15",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 0,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-15",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 2,
+      "averageSessionDuration": 895.5,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-15",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "mobile",
+      "browser": "Safari",
+      "operatingSystem": "iOS",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 0,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-15",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "mobile",
+      "browser": "Safari",
+      "operatingSystem": "iOS",
+      "landingPage": "/experience",
+      "sessions": 1,
+      "pageViews": 2,
+      "averageSessionDuration": 100,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-11",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/resume",
+      "sessions": 2,
+      "pageViews": 9,
+      "averageSessionDuration": 867.8,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-10",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/resume",
+      "sessions": 2,
+      "pageViews": 2,
+      "averageSessionDuration": 5.8,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-09",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/resume",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 30.6,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-08",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/resume",
+      "sessions": 3,
+      "pageViews": 3,
+      "averageSessionDuration": 3.5,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-08",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/experience",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 8,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-07",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 6,
+      "pageViews": 37,
+      "averageSessionDuration": 916.2,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-07",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/contact",
+      "sessions": 1,
+      "pageViews": 27,
+      "averageSessionDuration": 4041.1,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-07",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/experience",
+      "sessions": 1,
+      "pageViews": 7,
+      "averageSessionDuration": 1146.1,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-06",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/contact",
+      "sessions": 1,
+      "pageViews": 6,
+      "averageSessionDuration": 2315.8,
+      "activeUsers": 1
+    }
+  ],
+  "realtimeActiveUsers": 0,
+  "realtimeVisitors": []
 }
