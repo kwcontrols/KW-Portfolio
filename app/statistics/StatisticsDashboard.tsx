@@ -1,45 +1,747 @@
 "use client";
 import { motion, useInView, useReducedMotion } from "framer-motion";
-import { useEffect,useRef,useState,type ReactNode } from "react";
-import { Area,AreaChart,Bar,BarChart,Cell,CartesianGrid,ResponsiveContainer,Tooltip,XAxis,YAxis } from "recharts";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  Area,
+  AreaChart,
+  Bar,
+  BarChart,
+  Cell,
+  CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 
-export type AnalyticsData={updatedAt:string;period:string;pageViews:number|null;totalVisitors:number|null;activeVisitors:number|null;sessions:number|null;countriesReached:number|null;averageEngagementTime:number|null;averageSessionDuration:number|null;sessionsPerActiveUser:number|null;countries:Array<{name:string;users:number;percentage:number}>;cities:Array<{city:string;country:string;users:number;sessions:number}>;devices:Array<{category:string;browser:string;operatingSystem:string;users:number;sessions:number}>;deviceSummary:Array<{category:string;users:number;sessions:number}>;visitorTypes:Array<{type:string;users:number;percentage:number}>;visitorTrends:Array<{date:string;users:number;pageViews:number;sessions:number}>;topPages:Array<{title:string;path:string;views:number}>;trafficSources:Array<{source:string;users:number;percentage:number}>;activityLog:Array<{date:string;time:string;city:string;country:string;device:string;browser:string;operatingSystem:string;landingPage:string;sessions:number;pageViews:number;averageSessionDuration:number;activeUsers:number}>;realtimeActiveUsers:number;realtimeVisitors:Array<{city:string;country:string;device:string;activeUsers:number}>};
-type SummaryKey="totalVisitors"|"activeVisitors"|"sessions"|"pageViews"|"averageEngagementTime"|"averageSessionDuration";
-const SUMMARY_METRICS=[{key:"totalVisitors" as SummaryKey,label:"Total Users",display:(v:number)=>Math.round(v).toLocaleString(),icon:"◎",tone:"blue"},{key:"activeVisitors" as SummaryKey,label:"Active Users",display:(v:number)=>Math.round(v).toLocaleString(),icon:"●",tone:"teal"},{key:"sessions" as SummaryKey,label:"Sessions",display:(v:number)=>Math.round(v).toLocaleString(),icon:"◫",tone:"navy"},{key:"pageViews" as SummaryKey,label:"Page Views",display:(v:number)=>Math.round(v).toLocaleString(),icon:"↗",tone:"blue"},{key:"averageEngagementTime" as SummaryKey,label:"Avg. Engagement / User",display:formatDuration,icon:"◷",tone:"gold"},{key:"averageSessionDuration" as SummaryKey,label:"Avg. Session Duration",display:formatDuration,icon:"◴",tone:"teal"}];
-const CHART_COLORS=["#175dcc","#0b387d","#2c8c91","#a66f20","#6f7f92","#87a6c8"];
-function formatDuration(v:number){const s=Math.max(0,Math.round(v));return s>=60?`${Math.floor(s/60)}m ${s%60}s`:`${s}s`}
-function FadeSection({children,className=""}:{children:ReactNode;className?:string}){const r=useReducedMotion();return <motion.section className={className} initial={r?false:{opacity:0,y:18}} whileInView={r?undefined:{opacity:1,y:0}} viewport={{once:true,amount:.15}} transition={{duration:.48,ease:"easeOut"}}>{children}</motion.section>}
-function AnimatedValue({value,display}:{value:number;display:(v:number)=>string}){const ref=useRef<HTMLSpanElement>(null),view=useInView(ref,{once:true,amount:.7}),r=useReducedMotion();const[current,setCurrent]=useState(r?value:0);useEffect(()=>{if(!view||r)return;const d=900,start=performance.now();let f=0;const u=(now:number)=>{const p=Math.min((now-start)/d,1);setCurrent(value*(1-Math.pow(1-p,3)));if(p<1)f=requestAnimationFrame(u)};f=requestAnimationFrame(u);return()=>cancelAnimationFrame(f)},[view,r,value]);return <span ref={ref}>{display(current)}</span>}
-const tooltipStyle={border:"1px solid #c8d8ea",borderRadius:0,background:"#fff",color:"#10233f",fontSize:".75rem",boxShadow:"0 8px 24px rgba(16,35,63,.08)"};
-function labelVisitorType(v:string){if(v==="new")return"New visitors";if(v==="returning")return"Returning visitors";return v==="(not set)"?"Unclassified":v}
+export type AnalyticsData = {
+  updatedAt: string;
+  period: string;
+  pageViews: number | null;
+  totalVisitors: number | null;
+  activeVisitors: number | null;
+  sessions: number | null;
+  countriesReached: number | null;
+  averageEngagementTime: number | null;
+  averageSessionDuration: number | null;
+  sessionsPerActiveUser: number | null;
+  countries: Array<{ name: string; users: number; percentage: number }>;
+  cities: Array<{
+    city: string;
+    country: string;
+    users: number;
+    sessions: number;
+  }>;
+  devices: Array<{
+    category: string;
+    browser: string;
+    operatingSystem: string;
+    users: number;
+    sessions: number;
+  }>;
+  deviceSummary: Array<{ category: string; users: number; sessions: number }>;
+  visitorTypes: Array<{ type: string; users: number; percentage: number }>;
+  visitorTrends: Array<{
+    date: string;
+    users: number;
+    pageViews: number;
+    sessions: number;
+  }>;
+  topPages: Array<{ title: string; path: string; views: number }>;
+  trafficSources: Array<{ source: string; users: number; percentage: number }>;
+  activityLog: Array<{
+    date: string;
+    time: string;
+    city: string;
+    country: string;
+    device: string;
+    browser: string;
+    operatingSystem: string;
+    landingPage: string;
+    sessions: number;
+    pageViews: number;
+    averageSessionDuration: number;
+    activeUsers: number;
+  }>;
+  realtimeActiveUsers: number;
+  realtimeVisitors: Array<{
+    city: string;
+    country: string;
+    device: string;
+    activeUsers: number;
+  }>;
+};
+type SummaryKey =
+  | "totalVisitors"
+  | "activeVisitors"
+  | "sessions"
+  | "pageViews"
+  | "averageEngagementTime"
+  | "averageSessionDuration";
+const SUMMARY_METRICS = [
+  {
+    key: "totalVisitors" as SummaryKey,
+    label: "Total Users",
+    display: (v: number) => Math.round(v).toLocaleString(),
+    icon: "◎",
+    tone: "blue",
+  },
+  {
+    key: "activeVisitors" as SummaryKey,
+    label: "Active Users",
+    display: (v: number) => Math.round(v).toLocaleString(),
+    icon: "●",
+    tone: "teal",
+  },
+  {
+    key: "sessions" as SummaryKey,
+    label: "Sessions",
+    display: (v: number) => Math.round(v).toLocaleString(),
+    icon: "◫",
+    tone: "navy",
+  },
+  {
+    key: "pageViews" as SummaryKey,
+    label: "Page Views",
+    display: (v: number) => Math.round(v).toLocaleString(),
+    icon: "↗",
+    tone: "blue",
+  },
+  {
+    key: "averageEngagementTime" as SummaryKey,
+    label: "Avg. Engagement / User",
+    display: formatDuration,
+    icon: "◷",
+    tone: "gold",
+  },
+  {
+    key: "averageSessionDuration" as SummaryKey,
+    label: "Avg. Session Duration",
+    display: formatDuration,
+    icon: "◴",
+    tone: "teal",
+  },
+];
+const CHART_COLORS = [
+  "#175dcc",
+  "#0b387d",
+  "#2c8c91",
+  "#a66f20",
+  "#6f7f92",
+  "#87a6c8",
+];
+function formatDuration(v: number) {
+  const s = Math.max(0, Math.round(v));
+  return s >= 60 ? `${Math.floor(s / 60)}m ${s % 60}s` : `${s}s`;
+}
+function FadeSection({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  const r = useReducedMotion();
+  return (
+    <motion.section
+      className={className}
+      initial={r ? false : { opacity: 0, y: 18 }}
+      whileInView={r ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.48, ease: "easeOut" }}
+    >
+      {children}
+    </motion.section>
+  );
+}
+function AnimatedValue({
+  value,
+  display,
+}: {
+  value: number;
+  display: (v: number) => string;
+}) {
+  const ref = useRef<HTMLSpanElement>(null),
+    view = useInView(ref, { once: true, amount: 0.7 }),
+    r = useReducedMotion();
+  const [current, setCurrent] = useState(r ? value : 0);
+  useEffect(() => {
+    if (!view || r) return;
+    const d = 900,
+      start = performance.now();
+    let f = 0;
+    const u = (now: number) => {
+      const p = Math.min((now - start) / d, 1);
+      setCurrent(value * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) f = requestAnimationFrame(u);
+    };
+    f = requestAnimationFrame(u);
+    return () => cancelAnimationFrame(f);
+  }, [view, r, value]);
+  return <span ref={ref}>{display(current)}</span>;
+}
+const tooltipStyle = {
+  border: "1px solid #c8d8ea",
+  borderRadius: 0,
+  background: "#fff",
+  color: "#10233f",
+  fontSize: ".75rem",
+  boxShadow: "0 8px 24px rgba(16,35,63,.08)",
+};
+function labelVisitorType(v: string) {
+  if (v === "new") return "New visitors";
+  if (v === "returning") return "Returning visitors";
+  return v === "(not set)" ? "Unclassified" : v;
+}
 
-export default function StatisticsDashboard({analytics}:{analytics:AnalyticsData|null}){
- const reducedMotion=useReducedMotion(),chartDuration=reducedMotion?0:700;const updatedDate=analytics?.updatedAt?new Date(analytics.updatedAt):null;const updatedLabel=updatedDate&&!Number.isNaN(updatedDate.getTime())?new Intl.DateTimeFormat("en-CA",{month:"short",day:"numeric",year:"numeric",hour:"numeric",minute:"2-digit"}).format(updatedDate):null;
- const visitorTrends=(analytics?.visitorTrends??[]).map(i=>({day:new Intl.DateTimeFormat("en-CA",{weekday:"short",timeZone:"UTC"}).format(new Date(`${i.date}T00:00:00Z`)),visitors:i.users,sessions:i.sessions,views:i.pageViews}));
- const trafficSources=(analytics?.trafficSources??[]).map((s,i)=>({...s,fill:CHART_COLORS[i%CHART_COLORS.length]}));
- const device=(name:string)=>{
-   const summary=analytics?.deviceSummary?.find(i=>i.category.toLowerCase()===name);
-   if(summary) return summary;
-   const matches=(analytics?.devices??[]).filter(i=>i.category.toLowerCase()===name);
-   if(!matches.length) return undefined;
-   return {category:name,users:Math.max(...matches.map(i=>i.users)),sessions:matches.reduce((sum,i)=>sum+i.sessions,0)};
- };
- const desktop=device("desktop"),mobile=device("mobile");
- return <>
- <motion.header className="statistics-hero" initial={reducedMotion?false:{opacity:0,y:12}} animate={reducedMotion?undefined:{opacity:1,y:0}} transition={{duration:.45}}><p className="section-index">Analytics</p><h1>Private Portal</h1><p>A private view of portfolio traffic, visitor locations, technology, sessions, and engagement powered by Google Analytics.</p><span>GA4 analytics{updatedLabel?` · Generated ${updatedLabel}`:""}</span></motion.header>
- <FadeSection className="statistics-grid">{SUMMARY_METRICS.map(metric=><motion.article className={`statistic-card tone-${metric.tone}`} key={metric.label} whileHover={reducedMotion?undefined:{y:-4}} transition={{duration:.2}}><div className="statistic-card-top"><p>{metric.label}</p><span aria-hidden="true">{metric.icon}</span></div><strong>{analytics?.[metric.key]===null||analytics?.[metric.key]===undefined?<span>—</span>:<AnimatedValue value={analytics[metric.key]??0} display={metric.display}/>}</strong><small>Last 30 days</small></motion.article>)}
- <article className="statistic-card tone-navy"><div className="statistic-card-top"><p>Desktop Users</p><span>▣</span></div><strong>{desktop?.users??0}</strong><small>{desktop?.sessions??0} sessions · Last 30 days</small></article>
- <article className="statistic-card tone-teal"><div className="statistic-card-top"><p>Mobile Users</p><span>▯</span></div><strong>{mobile?.users??0}</strong><small>{mobile?.sessions??0} sessions · Last 30 days</small></article></FadeSection>
- <div className="analytics-grid">
- <FadeSection className="analytics-card analytics-card-wide"><div className="analytics-card-heading"><div><p className="analytics-label">Last 30 minutes</p><h2>Recent / Realtime Visitors</h2></div><span>{analytics?.realtimeActiveUsers??0} active</span></div><p style={{marginTop:0,color:"#526b89",fontSize:".85rem"}}>Useful for confirming a phone or another visitor is being measured now. Realtime is separate from the processed 30-day report below.</p>{analytics?.realtimeVisitors?.length?<ol className="top-pages-list">{analytics.realtimeVisitors.map((i,n)=><li key={`${i.city}-${i.country}-${i.device}-${n}`}><div><strong>{i.city}, {i.country}</strong><span>{i.device}</span></div><div className="page-result"><strong>{i.activeUsers}</strong><small>active</small></div></li>)}</ol>:<p className="analytics-empty">No active users reported in the last 30 minutes when this snapshot was generated.</p>}</FadeSection>
- <FadeSection className="analytics-card analytics-card-wide"><div className="analytics-card-heading"><div><p className="analytics-label">Last seven days</p><h2>Visitor Trends</h2></div><span>Processed GA4 data</span></div>{visitorTrends.length?<div className="recharts-frame"><ResponsiveContainer width="100%" height="100%"><AreaChart data={visitorTrends} margin={{top:12,right:8,left:-22,bottom:0}}><CartesianGrid stroke="#dce6f1" strokeDasharray="3 5" vertical={false}/><XAxis dataKey="day" axisLine={false} tickLine={false}/><YAxis axisLine={false} tickLine={false} allowDecimals={false}/><Tooltip contentStyle={tooltipStyle}/><Area type="monotone" dataKey="views" name="Page views" stroke="#8ba7c7" fill="transparent" animationDuration={chartDuration}/><Area type="monotone" dataKey="sessions" name="Sessions" stroke="#2c8c91" fill="transparent" animationDuration={chartDuration}/><Area type="monotone" dataKey="visitors" name="Users" stroke="#175dcc" fill="transparent" strokeWidth={2} animationDuration={chartDuration}/></AreaChart></ResponsiveContainer></div>:<p className="analytics-empty">No data yet</p>}</FadeSection>
- <FadeSection className="analytics-card"><div className="analytics-card-heading"><div><p className="analytics-label">Visitor location</p><h2>Top Cities</h2></div></div>{analytics?.cities.length?<ol className="top-pages-list">{analytics.cities.map(i=><li key={`${i.city}-${i.country}`}><div><strong>{i.city}</strong><span>{i.country}</span></div><div className="page-result"><strong>{i.users}</strong><small>{i.sessions} sessions</small></div></li>)}</ol>:<p className="analytics-empty">No city data yet</p>}</FadeSection>
- <FadeSection className="analytics-card"><div className="analytics-card-heading"><div><p className="analytics-label">Technology</p><h2>Devices & Browsers</h2></div></div>{analytics?.devices.length?<ol className="top-pages-list">{analytics.devices.map((i,n)=><li key={`${i.category}-${i.browser}-${i.operatingSystem}-${n}`}><div><strong>{i.category}</strong><span>{i.browser} · {i.operatingSystem}</span></div><div className="page-result"><strong>{i.users}</strong><small>{i.sessions} sessions</small></div></li>)}</ol>:<p className="analytics-empty">No device data yet</p>}</FadeSection>
- <FadeSection className="analytics-card"><div className="analytics-card-heading"><div><p className="analytics-label">Visitor mix</p><h2>New vs. Returning</h2></div></div>{analytics?.visitorTypes.length?<dl className="audience-list">{analytics.visitorTypes.map((i,n)=><div key={i.type}><dt><i className="tone-dot" style={{background:CHART_COLORS[n%CHART_COLORS.length]}}/>{labelVisitorType(i.type)}</dt><dd>{i.users} · {i.percentage}%</dd></div>)}</dl>:<p className="analytics-empty">No visitor-type data yet</p>}</FadeSection>
- <FadeSection className="analytics-card"><div className="analytics-card-heading"><div><p className="analytics-label">Geographic reach</p><h2>Countries</h2></div></div>{analytics?.countries.length?<dl className="audience-list">{analytics.countries.map((i,n)=><div key={i.name}><dt><i className="tone-dot" style={{background:CHART_COLORS[n%CHART_COLORS.length]}}/>{i.name}</dt><dd>{i.users} · {i.percentage}%</dd></div>)}</dl>:<p className="analytics-empty">No country data yet</p>}</FadeSection>
- <FadeSection className="analytics-card"><div className="analytics-card-heading"><div><p className="analytics-label">Most visited</p><h2>Top Pages</h2></div></div>{analytics?.topPages.length?<ol className="top-pages-list">{analytics.topPages.map(i=><li key={`${i.path}-${i.title}`}><div><strong>{i.title}</strong><span>{i.path}</span></div><div className="page-result"><strong>{i.views}</strong><small>views</small></div></li>)}</ol>:<p className="analytics-empty">No data yet</p>}</FadeSection>
- <FadeSection className="analytics-card"><div className="analytics-card-heading"><div><p className="analytics-label">Acquisition</p><h2>Traffic Sources</h2></div></div>{trafficSources.length?<div className="recharts-frame recharts-frame-compact"><ResponsiveContainer width="100%" height="100%"><BarChart data={trafficSources} layout="vertical"><XAxis type="number" domain={[0,100]} hide/><YAxis type="category" dataKey="source" width={76} axisLine={false} tickLine={false}/><Tooltip contentStyle={tooltipStyle} formatter={v=>[`${v}%`,"Share"]}/><Bar dataKey="percentage" animationDuration={chartDuration}>{trafficSources.map(i=><Cell key={i.source} fill={i.fill}/>)}</Bar></BarChart></ResponsiveContainer></div>:<p className="analytics-empty">No data yet</p>}</FadeSection>
- </div>
- <FadeSection className="dashboard-section"><div className="dashboard-section-heading"><p className="analytics-label">Last 30 days</p><h2>Processed Visitor Activity Detail</h2><p>Aggregated GA4 activity by date, time, location, technology and landing page. Time is reported in the GA4 property timezone. Standard GA4 processing can lag, especially for recent dates. Rows may combine multiple sessions or users; this is not an IP or personally identifiable visitor log.</p></div>{analytics?.activityLog.length?<div style={{overflowX:"auto",border:"1px solid #c8d8ea",background:"#fff"}}><table style={{width:"100%",borderCollapse:"collapse",fontSize:"0.78rem",minWidth:"1120px"}}><thead><tr>{["Date","Time","City / Country","Device","OS","Browser","Landing page","Users","Sessions","Views","Avg. session"].map(h=><th key={h} style={{textAlign:"left",padding:"12px",borderBottom:"1px solid #c8d8ea"}}>{h}</th>)}</tr></thead><tbody>{analytics.activityLog.map((i,n)=><tr key={`${i.date}-${i.time}-${i.city}-${i.device}-${i.browser}-${i.landingPage}-${n}`}><td style={{padding:"10px 12px",borderBottom:"1px solid #edf2f7"}}>{i.date}</td><td style={{padding:"10px 12px",borderBottom:"1px solid #edf2f7",whiteSpace:"nowrap"}}>{i.time||"—"}</td><td style={{padding:"10px 12px",borderBottom:"1px solid #edf2f7"}}>{i.city}, {i.country}</td><td style={{padding:"10px 12px",borderBottom:"1px solid #edf2f7"}}>{i.device}</td><td style={{padding:"10px 12px",borderBottom:"1px solid #edf2f7"}}>{i.operatingSystem}</td><td style={{padding:"10px 12px",borderBottom:"1px solid #edf2f7"}}>{i.browser}</td><td style={{padding:"10px 12px",borderBottom:"1px solid #edf2f7"}}>{i.landingPage}</td><td style={{padding:"10px 12px",borderBottom:"1px solid #edf2f7"}}>{i.activeUsers}</td><td style={{padding:"10px 12px",borderBottom:"1px solid #edf2f7"}}>{i.sessions}</td><td style={{padding:"10px 12px",borderBottom:"1px solid #edf2f7"}}>{i.pageViews}</td><td style={{padding:"10px 12px",borderBottom:"1px solid #edf2f7"}}>{formatDuration(i.averageSessionDuration)}</td></tr>)}</tbody></table></div>:<p className="analytics-empty">No detailed activity data yet. Run the analytics update to populate this section.</p>}</FadeSection>
- </>;
+export default function StatisticsDashboard({
+  analytics,
+}: {
+  analytics: AnalyticsData | null;
+}) {
+  const reducedMotion = useReducedMotion(),
+    chartDuration = reducedMotion ? 0 : 700;
+  const updatedDate = analytics?.updatedAt
+    ? new Date(analytics.updatedAt)
+    : null;
+  const updatedLabel =
+    updatedDate && !Number.isNaN(updatedDate.getTime())
+      ? new Intl.DateTimeFormat("en-CA", {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+          hour: "numeric",
+          minute: "2-digit",
+        }).format(updatedDate)
+      : null;
+  const visitorTrends = (analytics?.visitorTrends ?? []).map((i) => ({
+    day: new Intl.DateTimeFormat("en-CA", {
+      weekday: "short",
+      timeZone: "UTC",
+    }).format(new Date(`${i.date}T00:00:00Z`)),
+    visitors: i.users,
+    sessions: i.sessions,
+    views: i.pageViews,
+  }));
+  const trafficSources = (analytics?.trafficSources ?? []).map((s, i) => ({
+    ...s,
+    fill: CHART_COLORS[i % CHART_COLORS.length],
+  }));
+  const device = (name: string) => {
+    const summary = analytics?.deviceSummary?.find(
+      (i) => i.category.toLowerCase() === name,
+    );
+    if (summary) return summary;
+    const matches = (analytics?.devices ?? []).filter(
+      (i) => i.category.toLowerCase() === name,
+    );
+    if (!matches.length) return undefined;
+    return {
+      category: name,
+      users: Math.max(...matches.map((i) => i.users)),
+      sessions: matches.reduce((sum, i) => sum + i.sessions, 0),
+    };
+  };
+  const desktop = device("desktop"),
+    mobile = device("mobile");
+  return (
+    <>
+      <motion.header
+        className="statistics-hero"
+        initial={reducedMotion ? false : { opacity: 0, y: 12 }}
+        animate={reducedMotion ? undefined : { opacity: 1, y: 0 }}
+        transition={{ duration: 0.45 }}
+      >
+        <p className="section-index">Analytics</p>
+        <h1>Private Portal</h1>
+        <p>
+          A private view of portfolio traffic, visitor locations, technology,
+          sessions, and engagement powered by Google Analytics.
+        </p>
+        <span>
+          GA4 analytics{updatedLabel ? ` · Generated ${updatedLabel}` : ""}
+        </span>
+      </motion.header>
+      <FadeSection className="statistics-grid">
+        {SUMMARY_METRICS.map((metric) => (
+          <motion.article
+            className={`statistic-card tone-${metric.tone}`}
+            key={metric.label}
+            whileHover={reducedMotion ? undefined : { y: -4 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="statistic-card-top">
+              <p>{metric.label}</p>
+              <span aria-hidden="true">{metric.icon}</span>
+            </div>
+            <strong>
+              {analytics?.[metric.key] === null ||
+              analytics?.[metric.key] === undefined ? (
+                <span>—</span>
+              ) : (
+                <AnimatedValue
+                  value={analytics[metric.key] ?? 0}
+                  display={metric.display}
+                />
+              )}
+            </strong>
+            <small>Last 30 days</small>
+          </motion.article>
+        ))}
+        <article className="statistic-card tone-navy">
+          <div className="statistic-card-top">
+            <p>Desktop Users</p>
+            <span>▣</span>
+          </div>
+          <strong>{desktop?.users ?? 0}</strong>
+          <small>{desktop?.sessions ?? 0} sessions · Last 30 days</small>
+        </article>
+        <article className="statistic-card tone-teal">
+          <div className="statistic-card-top">
+            <p>Mobile Users</p>
+            <span>▯</span>
+          </div>
+          <strong>{mobile?.users ?? 0}</strong>
+          <small>{mobile?.sessions ?? 0} sessions · Last 30 days</small>
+        </article>
+      </FadeSection>
+      <div className="analytics-grid">
+        <FadeSection className="analytics-card analytics-card-wide">
+          <div className="analytics-card-heading">
+            <div>
+              <p className="analytics-label">Last 30 minutes</p>
+              <h2>Recent / Realtime Visitors</h2>
+            </div>
+            <span>{analytics?.realtimeActiveUsers ?? 0} active</span>
+          </div>
+          <p style={{ marginTop: 0, color: "#526b89", fontSize: ".85rem" }}>
+            Useful for confirming a phone or another visitor is being measured
+            now. Realtime is separate from the processed 30-day report below.
+          </p>
+          {analytics?.realtimeVisitors?.length ? (
+            <ol className="top-pages-list">
+              {analytics.realtimeVisitors.map((i, n) => (
+                <li key={`${i.city}-${i.country}-${i.device}-${n}`}>
+                  <div>
+                    <strong>
+                      {i.city}, {i.country}
+                    </strong>
+                    <span>{i.device}</span>
+                  </div>
+                  <div className="page-result">
+                    <strong>{i.activeUsers}</strong>
+                    <small>active</small>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <p className="analytics-empty">
+              No active users reported in the last 30 minutes when this snapshot
+              was generated.
+            </p>
+          )}
+        </FadeSection>
+        <FadeSection className="analytics-card analytics-card-wide">
+          <div className="analytics-card-heading">
+            <div>
+              <p className="analytics-label">Last seven days</p>
+              <h2>Visitor Trends</h2>
+            </div>
+            <span>Processed GA4 data</span>
+          </div>
+          {visitorTrends.length ? (
+            <div className="recharts-frame">
+              <ResponsiveContainer width="100%" height="100%">
+                <AreaChart
+                  data={visitorTrends}
+                  margin={{ top: 12, right: 8, left: -22, bottom: 0 }}
+                >
+                  <CartesianGrid
+                    stroke="#dce6f1"
+                    strokeDasharray="3 5"
+                    vertical={false}
+                  />
+                  <XAxis dataKey="day" axisLine={false} tickLine={false} />
+                  <YAxis
+                    axisLine={false}
+                    tickLine={false}
+                    allowDecimals={false}
+                  />
+                  <Tooltip contentStyle={tooltipStyle} />
+                  <Area
+                    type="monotone"
+                    dataKey="views"
+                    name="Page views"
+                    stroke="#8ba7c7"
+                    fill="transparent"
+                    animationDuration={chartDuration}
+                  />
+                  <Area
+                    type="monotone"
+                    dataKey="sessions"
+                    name="Sessions"
+                    stroke="#2c8c91"
+                    fill="transparent"
+                    animationDuration={chartDuration}
+                  />
+                  <Area
+                    type="monotone"
+                    dataKey="visitors"
+                    name="Users"
+                    stroke="#175dcc"
+                    fill="transparent"
+                    strokeWidth={2}
+                    animationDuration={chartDuration}
+                  />
+                </AreaChart>
+              </ResponsiveContainer>
+            </div>
+          ) : (
+            <p className="analytics-empty">No data yet</p>
+          )}
+        </FadeSection>
+        <FadeSection className="analytics-card">
+          <div className="analytics-card-heading">
+            <div>
+              <p className="analytics-label">Visitor location</p>
+              <h2>Top Cities</h2>
+            </div>
+          </div>
+          {analytics?.cities.length ? (
+            <ol className="top-pages-list">
+              {analytics.cities.map((i) => (
+                <li key={`${i.city}-${i.country}`}>
+                  <div>
+                    <strong>{i.city}</strong>
+                    <span>{i.country}</span>
+                  </div>
+                  <div className="page-result">
+                    <strong>{i.users}</strong>
+                    <small>{i.sessions} sessions</small>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <p className="analytics-empty">No city data yet</p>
+          )}
+        </FadeSection>
+        <FadeSection className="analytics-card">
+          <div className="analytics-card-heading">
+            <div>
+              <p className="analytics-label">Technology</p>
+              <h2>Devices & Browsers</h2>
+            </div>
+          </div>
+          {analytics?.devices.length ? (
+            <ol className="top-pages-list">
+              {analytics.devices.map((i, n) => (
+                <li
+                  key={`${i.category}-${i.browser}-${i.operatingSystem}-${n}`}
+                >
+                  <div>
+                    <strong>{i.category}</strong>
+                    <span>
+                      {i.browser} · {i.operatingSystem}
+                    </span>
+                  </div>
+                  <div className="page-result">
+                    <strong>{i.users}</strong>
+                    <small>{i.sessions} sessions</small>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <p className="analytics-empty">No device data yet</p>
+          )}
+        </FadeSection>
+        <FadeSection className="analytics-card">
+          <div className="analytics-card-heading">
+            <div>
+              <p className="analytics-label">Visitor mix</p>
+              <h2>New vs. Returning</h2>
+            </div>
+          </div>
+          {analytics?.visitorTypes.length ? (
+            <dl className="audience-list">
+              {analytics.visitorTypes.map((i, n) => (
+                <div key={i.type}>
+                  <dt>
+                    <i
+                      className="tone-dot"
+                      style={{
+                        background: CHART_COLORS[n % CHART_COLORS.length],
+                      }}
+                    />
+                    {labelVisitorType(i.type)}
+                  </dt>
+                  <dd>
+                    {i.users} · {i.percentage}%
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          ) : (
+            <p className="analytics-empty">No visitor-type data yet</p>
+          )}
+        </FadeSection>
+        <FadeSection className="analytics-card">
+          <div className="analytics-card-heading">
+            <div>
+              <p className="analytics-label">Geographic reach</p>
+              <h2>Countries</h2>
+            </div>
+          </div>
+          {analytics?.countries.length ? (
+            <dl className="audience-list">
+              {analytics.countries.map((i, n) => (
+                <div key={i.name}>
+                  <dt>
+                    <i
+                      className="tone-dot"
+                      style={{
+                        background: CHART_COLORS[n % CHART_COLORS.length],
+                      }}
+                    />
+                    {i.name}
+                  </dt>
+                  <dd>
+                    {i.users} · {i.percentage}%
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          ) : (
+            <p className="analytics-empty">No country data yet</p>
+          )}
+        </FadeSection>
+        <FadeSection className="analytics-card">
+          <div className="analytics-card-heading">
+            <div>
+              <p className="analytics-label">Most visited</p>
+              <h2>Top Pages</h2>
+            </div>
+          </div>
+          {analytics?.topPages.length ? (
+            <ol className="top-pages-list">
+              {analytics.topPages.map((i) => (
+                <li key={`${i.path}-${i.title}`}>
+                  <div>
+                    <strong>{i.title}</strong>
+                    <span>{i.path}</span>
+                  </div>
+                  <div className="page-result">
+                    <strong>{i.views}</strong>
+                    <small>views</small>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <p className="analytics-empty">No data yet</p>
+          )}
+        </FadeSection>
+        <FadeSection className="analytics-card">
+          <div className="analytics-card-heading">
+            <div>
+              <p className="analytics-label">Acquisition</p>
+              <h2>Traffic Sources</h2>
+            </div>
+          </div>
+          {trafficSources.length ? (
+            <div className="recharts-frame recharts-frame-compact">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={trafficSources} layout="vertical">
+                  <XAxis type="number" domain={[0, 100]} hide />
+                  <YAxis
+                    type="category"
+                    dataKey="source"
+                    width={76}
+                    axisLine={false}
+                    tickLine={false}
+                  />
+                  <Tooltip
+                    contentStyle={tooltipStyle}
+                    formatter={(v) => [`${v}%`, "Share"]}
+                  />
+                  <Bar dataKey="percentage" animationDuration={chartDuration}>
+                    {trafficSources.map((i) => (
+                      <Cell key={i.source} fill={i.fill} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          ) : (
+            <p className="analytics-empty">No data yet</p>
+          )}
+        </FadeSection>
+      </div>
+      <FadeSection className="dashboard-section">
+        <div className="dashboard-section-heading">
+          <p className="analytics-label">Last 30 days</p>
+          <h2>Processed Visitor Activity Detail</h2>
+          <p>
+            Aggregated GA4 activity by date, time, location, technology and
+            landing page. Times shown in Pacific Time (PT). Recent activity may
+            take several hours to appear due to GA4 processing. Standard GA4
+            processing can lag, especially for recent dates. Rows may combine
+            multiple sessions or users; this is not an IP or personally
+            identifiable visitor log.
+          </p>
+        </div>
+        {analytics?.activityLog.length ? (
+          <div
+            style={{
+              overflowX: "auto",
+              border: "1px solid #c8d8ea",
+              background: "#fff",
+            }}
+          >
+            <table
+              style={{
+                width: "100%",
+                borderCollapse: "collapse",
+                fontSize: "0.78rem",
+                minWidth: "1120px",
+              }}
+            >
+              <thead>
+                <tr>
+                  {[
+                    "Date",
+                    "Time",
+                    "City / Country",
+                    "Device",
+                    "OS",
+                    "Browser",
+                    "Landing page",
+                    "Users",
+                    "Sessions",
+                    "Views",
+                    "Avg. session",
+                  ].map((h) => (
+                    <th
+                      key={h}
+                      style={{
+                        textAlign: "left",
+                        padding: "12px",
+                        borderBottom: "1px solid #c8d8ea",
+                      }}
+                    >
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {analytics.activityLog.map((i, n) => (
+                  <tr
+                    key={`${i.date}-${i.time}-${i.city}-${i.device}-${i.browser}-${i.landingPage}-${n}`}
+                  >
+                    <td
+                      style={{
+                        padding: "10px 12px",
+                        borderBottom: "1px solid #edf2f7",
+                      }}
+                    >
+                      {i.date}
+                    </td>
+                    <td
+                      style={{
+                        padding: "10px 12px",
+                        borderBottom: "1px solid #edf2f7",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {i.time || "—"}
+                    </td>
+                    <td
+                      style={{
+                        padding: "10px 12px",
+                        borderBottom: "1px solid #edf2f7",
+                      }}
+                    >
+                      {i.city}, {i.country}
+                    </td>
+                    <td
+                      style={{
+                        padding: "10px 12px",
+                        borderBottom: "1px solid #edf2f7",
+                      }}
+                    >
+                      {i.device}
+                    </td>
+                    <td
+                      style={{
+                        padding: "10px 12px",
+                        borderBottom: "1px solid #edf2f7",
+                      }}
+                    >
+                      {i.operatingSystem}
+                    </td>
+                    <td
+                      style={{
+                        padding: "10px 12px",
+                        borderBottom: "1px solid #edf2f7",
+                      }}
+                    >
+                      {i.browser}
+                    </td>
+                    <td
+                      style={{
+                        padding: "10px 12px",
+                        borderBottom: "1px solid #edf2f7",
+                      }}
+                    >
+                      {i.landingPage}
+                    </td>
+                    <td
+                      style={{
+                        padding: "10px 12px",
+                        borderBottom: "1px solid #edf2f7",
+                      }}
+                    >
+                      {i.activeUsers}
+                    </td>
+                    <td
+                      style={{
+                        padding: "10px 12px",
+                        borderBottom: "1px solid #edf2f7",
+                      }}
+                    >
+                      {i.sessions}
+                    </td>
+                    <td
+                      style={{
+                        padding: "10px 12px",
+                        borderBottom: "1px solid #edf2f7",
+                      }}
+                    >
+                      {i.pageViews}
+                    </td>
+                    <td
+                      style={{
+                        padding: "10px 12px",
+                        borderBottom: "1px solid #edf2f7",
+                      }}
+                    >
+                      {formatDuration(i.averageSessionDuration)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          <p className="analytics-empty">
+            No detailed activity data yet. Run the analytics update to populate
+            this section.
+          </p>
+        )}
+      </FadeSection>
+    </>
+  );
 }
