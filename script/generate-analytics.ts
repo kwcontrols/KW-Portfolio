@@ -16,6 +16,7 @@ function dimensionValue(row: { dimensionValues?: Array<{ value?: string | null }
 }
 function percentage(value: number, total: number) { return total > 0 ? Number(((value / total) * 100).toFixed(1)) : 0; }
 function formatGaDate(value: string) { return value.length === 8 ? `${value.slice(0,4)}-${value.slice(4,6)}-${value.slice(6,8)}` : value; }
+function formatGaTime(value: string) { return value.length >= 12 ? `${value.slice(8,10)}:${value.slice(10,12)}` : ""; }
 function recentUtcDates(days: number) {
   const dates:string[]=[]; const today=new Date();
   for(let offset=days-1;offset>=0;offset-=1){const date=new Date(Date.UTC(today.getUTCFullYear(),today.getUTCMonth(),today.getUTCDate()-offset));dates.push(date.toISOString().slice(0,10));}
@@ -45,7 +46,7 @@ async function main(){
   {dateRanges:[{startDate:"30daysAgo",endDate:"today"}],dimensions:[{name:"city"},{name:"country"}],metrics:[{name:"totalUsers"},{name:"sessions"}],orderBys:[{metric:{metricName:"totalUsers"},desc:true}],limit:20},
   {dateRanges:[{startDate:"30daysAgo",endDate:"today"}],dimensions:[{name:"deviceCategory"},{name:"browser"},{name:"operatingSystem"}],metrics:[{name:"totalUsers"},{name:"sessions"}],orderBys:[{metric:{metricName:"totalUsers"},desc:true}],limit:20},
   {dateRanges:[{startDate:"30daysAgo",endDate:"today"}],dimensions:[{name:"newVsReturning"}],metrics:[{name:"totalUsers"}],orderBys:[{metric:{metricName:"totalUsers"},desc:true}],limit:5},
-  {dateRanges:[{startDate:"30daysAgo",endDate:"today"}],dimensions:[{name:"date"},{name:"city"},{name:"country"},{name:"deviceCategory"},{name:"browser"},{name:"operatingSystem"},{name:"landingPage"}],metrics:[{name:"sessions"},{name:"screenPageViews"},{name:"averageSessionDuration"},{name:"activeUsers"}],orderBys:[{dimension:{dimensionName:"date"},desc:true},{metric:{metricName:"sessions"},desc:true}],limit:250},
+  {dateRanges:[{startDate:"30daysAgo",endDate:"today"}],dimensions:[{name:"date"},{name:"dateHourMinute"},{name:"city"},{name:"country"},{name:"deviceCategory"},{name:"browser"},{name:"operatingSystem"},{name:"landingPage"}],metrics:[{name:"sessions"},{name:"screenPageViews"},{name:"averageSessionDuration"},{name:"activeUsers"}],orderBys:[{dimension:{dimensionName:"dateHourMinute"},desc:true},{metric:{metricName:"sessions"},desc:true}],limit:250},
  ]});
 
  let realtimeRows:any[]=[];
@@ -71,7 +72,7 @@ async function main(){
  const cities=(citiesReport?.rows??[]).map(row=>({city:dimensionValue(row,0),country:dimensionValue(row,1),users:metricValue(row,0),sessions:metricValue(row,1)})).filter(i=>i.city&&i.city!=="(not set)"&&i.users>0);
  const devices=(devicesReport?.rows??[]).map(row=>({category:dimensionValue(row,0)||"Unknown",browser:dimensionValue(row,1)||"Unknown",operatingSystem:dimensionValue(row,2)||"Unknown",users:metricValue(row,0),sessions:metricValue(row,1)})).filter(i=>i.users>0);
  const rawVisitorTypes=(visitorTypeReport?.rows??[]).map(row=>({type:dimensionValue(row,0)||"unknown",users:metricValue(row,0)})).filter(i=>i.users>0); const visitorTypeTotal=rawVisitorTypes.reduce((s,i)=>s+i.users,0); const visitorTypes=rawVisitorTypes.map(i=>({...i,percentage:percentage(i.users,visitorTypeTotal)}));
- const activityLog=(activityReport?.rows??[]).map(row=>({date:formatGaDate(dimensionValue(row,0)),city:dimensionValue(row,1)||"Unknown",country:dimensionValue(row,2)||"Unknown",device:dimensionValue(row,3)||"Unknown",browser:dimensionValue(row,4)||"Unknown",operatingSystem:dimensionValue(row,5)||"Unknown",landingPage:dimensionValue(row,6)||"/",sessions:metricValue(row,0),pageViews:metricValue(row,1),averageSessionDuration:Number(metricValue(row,2).toFixed(1)),activeUsers:metricValue(row,3)})).filter(i=>i.sessions>0||i.pageViews>0);
+ const activityLog=(activityReport?.rows??[]).map(row=>({date:formatGaDate(dimensionValue(row,0)),time:formatGaTime(dimensionValue(row,1)),city:dimensionValue(row,2)||"Unknown",country:dimensionValue(row,3)||"Unknown",device:dimensionValue(row,4)||"Unknown",browser:dimensionValue(row,5)||"Unknown",operatingSystem:dimensionValue(row,6)||"Unknown",landingPage:dimensionValue(row,7)||"/",sessions:metricValue(row,0),pageViews:metricValue(row,1),averageSessionDuration:Number(metricValue(row,2).toFixed(1)),activeUsers:metricValue(row,3)})).filter(i=>i.sessions>0||i.pageViews>0);
  const realtimeVisitors=realtimeRows.map(row=>({city:dimensionValue(row,0)||"Unknown",country:dimensionValue(row,1)||"Unknown",device:dimensionValue(row,2)||"Unknown",activeUsers:metricValue(row,0)})).filter(i=>i.activeUsers>0);
  const realtimeActiveUsers=realtimeVisitors.reduce((s,i)=>s+i.activeUsers,0);
 
