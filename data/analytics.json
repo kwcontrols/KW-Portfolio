@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-08-16T08:47:25.444Z",
+  "updatedAt": "2026-08-16T17:37:19.410Z",
   "period": "last30days",
-  "pageViews": 112,
+  "pageViews": 120,
   "totalVisitors": 3,
   "activeVisitors": 3,
-  "sessions": 21,
-  "averageEngagementTime": 867.7,
-  "averageSessionDuration": 784.4,
-  "sessionsPerActiveUser": 7,
+  "sessions": 22,
+  "averageEngagementTime": 900.7,
+  "averageSessionDuration": 759.6,
+  "sessionsPerActiveUser": 7.33,
   "countriesReached": 1,
   "countries": [
     {
@@ -21,7 +21,7 @@
       "city": "Vancouver",
       "country": "Canada",
       "users": 3,
-      "sessions": 21
+      "sessions": 22
     }
   ],
   "devices": [
@@ -37,7 +37,7 @@
       "browser": "Safari",
       "operatingSystem": "iOS",
       "users": 1,
-      "sessions": 2
+      "sessions": 3
     }
   ],
   "deviceSummary": [
@@ -49,7 +49,7 @@
     {
       "category": "mobile",
       "users": 1,
-      "sessions": 2
+      "sessions": 3
     }
   ],
   "visitorTypes": [
@@ -108,36 +108,36 @@
     },
     {
       "date": "2026-08-16",
-      "users": 0,
-      "pageViews": 0,
-      "sessions": 0
+      "users": 1,
+      "pageViews": 8,
+      "sessions": 1
     }
   ],
   "topPages": [
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/statistics",
-      "views": 31
+      "views": 33
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/resume",
-      "views": 26
+      "views": 28
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/",
-      "views": 23
+      "views": 24
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/experience",
-      "views": 20
+      "views": 21
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/contact",
-      "views": 12
+      "views": 14
     }
   ],
   "trafficSources": [
@@ -153,6 +153,19 @@
     }
   ],
   "activityLog": [
+    {
+      "date": "2026-08-16",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "mobile",
+      "browser": "Safari",
+      "operatingSystem": "iOS",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 8,
+      "averageSessionDuration": 239,
+      "activeUsers": 1
+    },
     {
       "date": "2026-08-15",
       "city": "Vancouver",
@@ -336,6 +349,19 @@
       "activeUsers": 1
     }
   ],
-  "realtimeActiveUsers": 0,
-  "realtimeVisitors": []
+  "realtimeActiveUsers": 2,
+  "realtimeVisitors": [
+    {
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "activeUsers": 1
+    },
+    {
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "mobile",
+      "activeUsers": 1
+    }
+  ]
 }
