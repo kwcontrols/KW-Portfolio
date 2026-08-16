@@ -117,24 +117,6 @@ export default function StatisticsPage() {
     <div className="site-shell" id="page-start">
       <SiteHeader />
       <main className="statistics-page">
-        <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "12px" }}>
-          <form action="/api/statistics-logout" method="post">
-            <button
-              type="submit"
-              style={{
-                border: "1px solid #c8d8ea",
-                background: "#fff",
-                color: "#52647a",
-                padding: "8px 12px",
-                font: "inherit",
-                fontSize: "0.78rem",
-                cursor: "pointer",
-              }}
-            >
-              Sign out
-            </button>
-          </form>
-        </div>
         <StatisticsDashboard analytics={analytics} />
         <GuestAccessManager />
       </main>
