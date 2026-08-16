@@ -24,6 +24,12 @@ function isAnalyticsData(value: unknown): value is AnalyticsData {
   );
 }
 
+function nonNegativeNumber(value: unknown): number | null {
+  return typeof value === "number" && Number.isFinite(value) && value >= 0
+    ? value
+    : null;
+}
+
 export default function StatisticsPage() {
   const [analytics, setAnalytics] = useState<AnalyticsData | null>(null);
 
@@ -45,11 +51,27 @@ export default function StatisticsPage() {
           throw new Error("Analytics data payload is incomplete");
         }
 
-        // This API is our own authenticated endpoint and already returns the
-        // generated analytics shape. Pass it through intact so newly added
-        // fields such as deviceSummary and realtimeVisitors cannot be silently
-        // dropped by a second client-side normalization layer.
-        setAnalytics(payload);
+        const raw = payload as AnalyticsData & Record<string, unknown>;
+        const desktopUsers = nonNegativeNumber(raw.desktopUsers);
+        const desktopSessions = nonNegativeNumber(raw.desktopSessions);
+        const mobileUsers = nonNegativeNumber(raw.mobileUsers);
+        const mobileSessions = nonNegativeNumber(raw.mobileSessions);
+
+        // The API exposes these four device totals as top-level scalars as well
+        // as in deviceSummary. Hydrating deviceSummary from the scalars makes
+        // the cards robust across the current vinext/Cloudflare client boundary.
+        const deviceSummary =
+          desktopUsers !== null &&
+          desktopSessions !== null &&
+          mobileUsers !== null &&
+          mobileSessions !== null
+            ? [
+                { category: "desktop", users: desktopUsers, sessions: desktopSessions },
+                { category: "mobile", users: mobileUsers, sessions: mobileSessions },
+              ]
+            : payload.deviceSummary;
+
+        setAnalytics({ ...payload, deviceSummary });
       } catch (error) {
         if (!(error instanceof DOMException && error.name === "AbortError")) {
           setAnalytics(null);
