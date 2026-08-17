@@ -13,6 +13,7 @@ export function SiteHeader() {
     { href: "/", label: "About" },
     { href: "/resume", label: "Resume" },
     { href: "/experience", label: "Projects" },
+    { href: "/blog", label: "Blogs" },
     { href: "/contact", label: "Contact" },
   ];
 
