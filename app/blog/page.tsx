@@ -56,11 +56,6 @@ export default function BlogPage() {
               <p>AI became an important part of this journey - not as a replacement for engineering judgment, but as a powerful tool. The technologies may be different, but the engineering principles are remarkably familiar: understand the interfaces, trace the data, test assumptions, secure the boundaries, and solve problems systematically.</p>
 
               <p>This website now represents more than a portfolio. It is an ongoing experiment in learning AI, learning how to work effectively with AI, and exploring how to leverage it as a powerful engineering tool to improve the efficiency and quality of my process automation design work.</p>
-
-              <div className="blog-engagement" aria-label="Post engagement">
-                <span>0 Views</span>
-                <span>0 Likes</span>
-              </div>
             </div>
           </article>
         </section>
@@ -84,7 +79,6 @@ export default function BlogPage() {
         .blog-article-copy h2{max-width:none;margin-bottom:2rem;font-size:clamp(1rem,1.5vw,1.25rem);line-height:1.25}
         .blog-article-copy>p:not(.blog-meta){max-width:66ch;margin:0;font-size:1.03rem;line-height:1.82}
         .blog-article-copy>p+p{margin-top:1.5rem!important}
-        .blog-engagement{display:flex;justify-content:flex-end;gap:1rem;margin-top:.35rem;color:var(--ink-soft);font-size:.75rem;line-height:1.4}
         @media(max-width:780px){.blog-feature{grid-template-columns:1fr}.workflow-panel{position:static}.workflow-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.workflow-step{min-height:auto}.workflow-line{display:none}}
         @media(max-width:520px){.workflow-list{grid-template-columns:1fr}}
       `}</style>
