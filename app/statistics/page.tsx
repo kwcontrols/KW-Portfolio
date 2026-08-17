@@ -5,7 +5,6 @@ import { SiteFooter } from "../SiteFooter";
 import { SiteHeader } from "../SiteHeader";
 import { GuestAccessManager } from "./GuestAccessManager";
 import { FiveMinuteRealtime } from "./FiveMinuteRealtime";
-import { ProcessedActivityDetail } from "./ProcessedActivityDetail";
 import StatisticsDashboard, { type AnalyticsData } from "./StatisticsDashboard";
 
 type RealtimeVisitor = { city: string; country: string; device: string; activeUsers: number };
@@ -58,21 +57,50 @@ export default function StatisticsPage() {
     return () => controller.abort();
   }, []);
 
+  useEffect(() => {
+    const card = document.querySelector<HTMLElement>(".statistics-grid .statistic-card:nth-child(2)");
+    if (!card) return;
+
+    const label = card.querySelector<HTMLElement>(".statistic-card-top p");
+    if (label) label.textContent = "Active Users & Details";
+    card.setAttribute("role", "link");
+    card.setAttribute("tabindex", "0");
+    card.setAttribute("aria-label", "Open active users and processed visitor activity details");
+    card.classList.add("statistic-card-link");
+
+    const openDetails = () => window.location.assign("/statistics/details");
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openDetails();
+      }
+    };
+
+    card.addEventListener("click", openDetails);
+    card.addEventListener("keydown", onKeyDown);
+    return () => {
+      card.removeEventListener("click", openDetails);
+      card.removeEventListener("keydown", onKeyDown);
+    };
+  }, [analytics]);
+
   return (
     <div className="site-shell" id="page-start">
       <SiteHeader />
       <main className="statistics-page">
         <StatisticsDashboard analytics={analytics} />
-
         <FiveMinuteRealtime activeUsers={analytics?.realtimeFiveMinuteActiveUsers ?? 0} visitors={analytics?.realtimeFiveMinuteVisitors ?? []} />
-        <ProcessedActivityDetail activityLog={analytics?.activityLog ?? []} />
 
         <p style={{ margin: "18px 0 0", color: "#526b89", fontSize: ".8rem", lineHeight: 1.55 }}>
           Location note: city and country throughout this dashboard are GA4-estimated from network/IP information. They should be treated as approximate, not as precise physical location.
         </p>
 
         <GuestAccessManager />
-        <style>{`.statistics-page > .dashboard-section{display:none}`}</style>
+        <style>{`
+          .statistics-page > .dashboard-section{display:none}
+          .statistic-card-link{cursor:pointer}
+          .statistic-card-link:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+        `}</style>
       </main>
       <SiteFooter />
     </div>
