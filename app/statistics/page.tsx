@@ -19,15 +19,9 @@ function isAnalyticsData(value: unknown): value is AnalyticsData {
   const data = value as Record<string, unknown>;
   return (
     typeof data.updatedAt === "string" &&
-    Array.isArray(data.countries) &&
-    Array.isArray(data.cities) &&
-    Array.isArray(data.devices) &&
-    Array.isArray(data.deviceSummary) &&
-    Array.isArray(data.visitorTypes) &&
-    Array.isArray(data.visitorTrends) &&
-    Array.isArray(data.topPages) &&
-    Array.isArray(data.trafficSources) &&
-    Array.isArray(data.activityLog) &&
+    Array.isArray(data.countries) && Array.isArray(data.cities) && Array.isArray(data.devices) &&
+    Array.isArray(data.deviceSummary) && Array.isArray(data.visitorTypes) && Array.isArray(data.visitorTrends) &&
+    Array.isArray(data.topPages) && Array.isArray(data.trafficSources) && Array.isArray(data.activityLog) &&
     Array.isArray(data.realtimeVisitors)
   );
 }
@@ -70,11 +64,7 @@ export default function StatisticsPage() {
       <main className="statistics-page">
         <StatisticsDashboard analytics={analytics} />
 
-        <FiveMinuteRealtime
-          activeUsers={analytics?.realtimeFiveMinuteActiveUsers ?? 0}
-          visitors={analytics?.realtimeFiveMinuteVisitors ?? []}
-        />
-
+        <FiveMinuteRealtime activeUsers={analytics?.realtimeFiveMinuteActiveUsers ?? 0} visitors={analytics?.realtimeFiveMinuteVisitors ?? []} />
         <ProcessedActivityDetail activityLog={analytics?.activityLog ?? []} />
 
         <p style={{ margin: "18px 0 0", color: "#526b89", fontSize: ".8rem", lineHeight: 1.55 }}>
@@ -82,6 +72,7 @@ export default function StatisticsPage() {
         </p>
 
         <GuestAccessManager />
+        <style>{`.statistics-page > .dashboard-section{display:none}`}</style>
       </main>
       <SiteFooter />
     </div>
