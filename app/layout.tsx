@@ -3,6 +3,7 @@ import Script from "next/script";
 import { headers } from "next/headers";
 import "./globals.css";
 import "./portal-auth.css";
+import "./statistics-layout-fix.css";
 
 const GA_MEASUREMENT_ID = "G-76RBFH4SD1";
 
