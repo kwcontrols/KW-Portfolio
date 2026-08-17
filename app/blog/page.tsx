@@ -4,7 +4,7 @@ import { SiteHeader } from "../SiteHeader";
 
 export const metadata: Metadata = {
   title: "Blogs | Kui Wu",
-  description: "Notes from my journey through process automation, software, cloud technologies, and AI.",
+  description: "Lifelong learning through engineering, software, cloud technologies, and AI.",
 };
 
 const workflow = [
@@ -25,9 +25,8 @@ export default function BlogPage() {
       <main>
         <section className="blog-page">
           <header className="blog-intro">
-            <p className="section-index">Blogs</p>
-            <h1>Learning in public.</h1>
-            <p>Notes from my journey through process automation, software, cloud technologies, and AI.</p>
+            <p className="section-index">All Posts</p>
+            <h1>Lifelong Learning</h1>
           </header>
 
           <article className="blog-feature">
@@ -57,7 +56,15 @@ export default function BlogPage() {
 
               <p>AI became an important part of this journey - not as a replacement for engineering judgment, but as a powerful tool. The technologies may be different, but the engineering principles are remarkably familiar: understand the interfaces, trace the data, test assumptions, secure the boundaries, and solve problems systematically.</p>
 
-              <p>This website now represents more than a portfolio. It is an ongoing experiment in <strong>learning AI, learning how to work effectively with AI, and exploring how to leverage it as a powerful engineering tool to improve the efficiency and quality of my process automation design work.</strong></p>
+              <p>This website now represents more than a portfolio. It is an ongoing experiment in learning AI, learning how to work effectively with AI, and exploring how to leverage it as a powerful engineering tool to improve the efficiency and quality of my process automation design work.</p>
+
+              <footer className="blog-engagement" aria-label="Post engagement">
+                <div className="blog-engagement-left">
+                  <span title="Views" aria-label="0 views"><span aria-hidden="true" className="engagement-icon">◎</span> 0</span>
+                  <span title="Comments" aria-label="0 comments"><span aria-hidden="true" className="engagement-icon">□</span> 0</span>
+                </div>
+                <button type="button" className="blog-like" aria-label="Like this post" title="Like">♡</button>
+              </footer>
             </div>
           </article>
         </section>
@@ -67,8 +74,7 @@ export default function BlogPage() {
       <style>{`
         .blog-page{max-width:1180px;margin:0 auto;padding:clamp(2.5rem,6vw,5rem) 0 clamp(4rem,8vw,7rem)}
         .blog-intro{max-width:720px;margin-bottom:clamp(2.5rem,5vw,4.5rem)}
-        .blog-intro h1{margin-bottom:1.2rem}
-        .blog-intro p:last-child{max-width:62ch;margin-bottom:0;font-size:1.05rem}
+        .blog-intro h1{max-width:none;margin:0;font-size:clamp(1rem,1.5vw,1.25rem);line-height:1.25}
         .blog-feature{display:grid;grid-template-columns:minmax(250px,.72fr) minmax(0,1.35fr);gap:clamp(2.5rem,7vw,6.5rem);align-items:start;padding-top:2rem;border-top:1px solid var(--line)}
         .workflow-panel{position:sticky;top:7rem;padding:1.5rem;background:#fff;border:1px solid var(--line)}
         .workflow-kicker,.blog-meta{margin:0 0 1.4rem;color:var(--blue);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
@@ -80,10 +86,15 @@ export default function BlogPage() {
         .workflow-step strong{padding-top:.18rem;color:var(--ink);font-size:.88rem}
         .workflow-step small{margin-top:.18rem;color:var(--ink-soft);font-size:.72rem;line-height:1.35}
         .blog-article-copy{max-width:720px}
-        .blog-article-copy h2{max-width:18ch;margin-bottom:2rem;font-size:clamp(2rem,3.5vw,3.25rem)}
+        .blog-article-copy h2{max-width:none;margin-bottom:2rem;font-size:clamp(1rem,1.5vw,1.25rem);line-height:1.25}
         .blog-article-copy>p:not(.blog-meta){max-width:66ch;margin:0;font-size:1.03rem;line-height:1.82}
         .blog-article-copy>p+p{margin-top:1.5rem!important}
-        .blog-article-copy strong{color:var(--ink);font-weight:700}
+        .blog-engagement{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:2.25rem;padding:1rem .35rem;border-top:1px solid #cbbfb5;color:#4d2815;font-size:.82rem}
+        .blog-engagement-left{display:flex;align-items:center;gap:1.6rem}
+        .blog-engagement-left>span{display:inline-flex;align-items:center;gap:.45rem}
+        .engagement-icon{font-size:1.2rem;line-height:1}
+        .blog-like{border:0;background:transparent;color:#e33;font-size:1.8rem;line-height:1;cursor:pointer;padding:.15rem .35rem}
+        .blog-like:hover,.blog-like:focus-visible{transform:scale(1.08)}
         @media(max-width:780px){.blog-feature{grid-template-columns:1fr}.workflow-panel{position:static}.workflow-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.workflow-step{min-height:auto}.workflow-line{display:none}}
         @media(max-width:520px){.workflow-list{grid-template-columns:1fr}}
       `}</style>
