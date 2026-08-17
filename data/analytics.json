@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-08-17T18:55:01.765Z",
+  "updatedAt": "2026-08-17T20:00:30.544Z",
   "period": "last30days",
-  "pageViews": 209,
+  "pageViews": 227,
   "totalVisitors": 5,
   "activeVisitors": 5,
-  "sessions": 33,
-  "averageEngagementTime": 1600.8,
-  "averageSessionDuration": 1686.5,
-  "sessionsPerActiveUser": 6.6,
+  "sessions": 34,
+  "averageEngagementTime": 1763.6,
+  "averageSessionDuration": 1323.6,
+  "sessionsPerActiveUser": 6.8,
   "countriesReached": 1,
   "countries": [
     {
@@ -21,7 +21,7 @@
       "city": "Vancouver",
       "country": "Canada",
       "users": 3,
-      "sessions": 30
+      "sessions": 31
     },
     {
       "city": "Abbotsford",
@@ -31,6 +31,12 @@
     },
     {
       "city": "Campbell River",
+      "country": "Canada",
+      "users": 1,
+      "sessions": 1
+    },
+    {
+      "city": "Chilliwack",
       "country": "Canada",
       "users": 1,
       "sessions": 1
@@ -78,7 +84,7 @@
       "browser": "Chrome",
       "operatingSystem": "Windows",
       "users": 2,
-      "sessions": 25
+      "sessions": 26
     },
     {
       "category": "mobile",
@@ -99,7 +105,7 @@
     {
       "category": "desktop",
       "users": 3,
-      "sessions": 26
+      "sessions": 27
     },
     {
       "category": "mobile",
@@ -111,17 +117,12 @@
     {
       "type": "new",
       "users": 5,
-      "percentage": 55.6
+      "percentage": 62.5
     },
     {
       "type": "returning",
       "users": 3,
-      "percentage": 33.3
-    },
-    {
-      "type": "unknown",
-      "users": 1,
-      "percentage": 11.1
+      "percentage": 37.5
     }
   ],
   "visitorTrends": [
@@ -158,31 +159,31 @@
     {
       "date": "2026-08-16",
       "users": 4,
-      "pageViews": 90,
+      "pageViews": 107,
       "sessions": 11
     },
     {
       "date": "2026-08-17",
       "users": 1,
-      "pageViews": 6,
-      "sessions": 1
+      "pageViews": 7,
+      "sessions": 2
     }
   ],
   "topPages": [
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/statistics",
-      "views": 78
+      "views": 90
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/",
-      "views": 41
+      "views": 42
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/resume",
-      "views": 40
+      "views": 42
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -192,7 +193,7 @@
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/contact",
-      "views": 19
+      "views": 22
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -204,15 +205,71 @@
     {
       "source": "Direct",
       "users": 5,
-      "percentage": 62.5
+      "percentage": 83.3
     },
     {
       "source": "Unassigned",
-      "users": 3,
-      "percentage": 37.5
+      "users": 1,
+      "percentage": 16.7
     }
   ],
   "activityLog": [
+    {
+      "date": "2026-08-17",
+      "time": "11:55",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 849.8,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "11:55",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 322.4,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "11:50",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 0,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "11:41",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 0,
+      "activeUsers": 0
+    },
     {
       "date": "2026-08-17",
       "time": "09:45",
@@ -2378,5 +2435,7 @@
       "device": "desktop",
       "activeUsers": 1
     }
-  ]
+  ],
+  "realtimeFiveMinuteActiveUsers": 0,
+  "realtimeFiveMinuteVisitors": []
 }
