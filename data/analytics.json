@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-08-17T22:00:11.057Z",
+  "updatedAt": "2026-08-17T22:14:42.353Z",
   "period": "last30days",
-  "pageViews": 246,
+  "pageViews": 248,
   "totalVisitors": 5,
   "activeVisitors": 5,
   "sessions": 36,
-  "averageEngagementTime": 1781,
-  "averageSessionDuration": 1416.1,
+  "averageEngagementTime": 1854,
+  "averageSessionDuration": 1494.2,
   "sessionsPerActiveUser": 7.2,
   "countriesReached": 1,
   "countries": [
@@ -165,7 +165,7 @@
     {
       "date": "2026-08-17",
       "users": 1,
-      "pageViews": 26,
+      "pageViews": 28,
       "sessions": 4
     }
   ],
@@ -173,7 +173,7 @@
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/statistics",
-      "views": 94
+      "views": 95
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -188,7 +188,7 @@
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/experience",
-      "views": 33
+      "views": 34
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -221,6 +221,34 @@
   "activityLog": [
     {
       "date": "2026-08-17",
+      "time": "14:24",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 433.8,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "14:22",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 514.8,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
       "time": "14:17",
       "city": "Vancouver",
       "country": "Canada",
@@ -230,7 +258,21 @@
       "landingPage": "/statistics",
       "sessions": 1,
       "pageViews": 1,
-      "averageSessionDuration": 732.3,
+      "averageSessionDuration": 1088.1,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "14:14",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 1505.7,
       "activeUsers": 1
     },
     {
