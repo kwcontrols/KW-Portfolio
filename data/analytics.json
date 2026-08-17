@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-08-17T21:21:49.017Z",
+  "updatedAt": "2026-08-17T21:44:07.550Z",
   "period": "last30days",
-  "pageViews": 232,
+  "pageViews": 238,
   "totalVisitors": 5,
   "activeVisitors": 5,
-  "sessions": 35,
-  "averageEngagementTime": 1765,
-  "averageSessionDuration": 1308.6,
-  "sessionsPerActiveUser": 7,
+  "sessions": 36,
+  "averageEngagementTime": 1767,
+  "averageSessionDuration": 1311.9,
+  "sessionsPerActiveUser": 7.2,
   "countriesReached": 1,
   "countries": [
     {
@@ -21,7 +21,7 @@
       "city": "Vancouver",
       "country": "Canada",
       "users": 3,
-      "sessions": 32
+      "sessions": 33
     },
     {
       "city": "Abbotsford",
@@ -84,7 +84,7 @@
       "browser": "Chrome",
       "operatingSystem": "Windows",
       "users": 2,
-      "sessions": 27
+      "sessions": 28
     },
     {
       "category": "mobile",
@@ -105,7 +105,7 @@
     {
       "category": "desktop",
       "users": 3,
-      "sessions": 28
+      "sessions": 29
     },
     {
       "category": "mobile",
@@ -165,35 +165,35 @@
     {
       "date": "2026-08-17",
       "users": 1,
-      "pageViews": 12,
-      "sessions": 3
+      "pageViews": 18,
+      "sessions": 4
     }
   ],
   "topPages": [
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/statistics",
-      "views": 91
-    },
-    {
-      "title": "KW Portfolio | Automation, Integration & AI",
-      "path": "/resume",
-      "views": 43
+      "views": 92
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/",
-      "views": 42
+      "views": 44
+    },
+    {
+      "title": "KW Portfolio | Automation, Integration & AI",
+      "path": "/resume",
+      "views": 44
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/experience",
-      "views": 31
+      "views": 32
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/contact",
-      "views": 24
+      "views": 25
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -216,6 +216,76 @@
   "activityLog": [
     {
       "date": "2026-08-17",
+      "time": "14:01",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 720.1,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "14:00",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 646.4,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "13:50",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 0,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "13:50",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 2,
+      "averageSessionDuration": 61.1,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "13:49",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 0,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
       "time": "12:44",
       "city": "Vancouver",
       "country": "Canada",
@@ -224,7 +294,7 @@
       "operatingSystem": "Windows",
       "landingPage": "/contact",
       "sessions": 1,
-      "pageViews": 4,
+      "pageViews": 5,
       "averageSessionDuration": 801.2,
       "activeUsers": 1
     },
