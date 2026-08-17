@@ -32,7 +32,6 @@ async function main(){
   {dateRanges:[{startDate:"30daysAgo",endDate:"today"}],dimensions:[{name:"sessionDefaultChannelGroup"}],metrics:[{name:"totalUsers"}],orderBys:[{metric:{metricName:"totalUsers"},desc:true}],limit:8},
  ]});
 
- // GA4 batchRunReports accepts at most five requests, so keep the device summary in its own report.
  const [deviceSummaryReport]=await analyticsDataClient.runReport({
   property:`properties/${propertyId}`,
   dateRanges:[{startDate:"30daysAgo",endDate:"today"}],
@@ -50,9 +49,12 @@ async function main(){
  ]});
 
  let realtimeRows:any[]=[];
+ let realtimeFiveMinuteRows:any[]=[];
  try{
   const [realtime]=await analyticsDataClient.runRealtimeReport({property:`properties/${propertyId}`,dimensions:[{name:"city"},{name:"country"},{name:"deviceCategory"}],metrics:[{name:"activeUsers"}],limit:50});
   realtimeRows=realtime.rows??[];
+  const [realtimeFiveMinutes]=await analyticsDataClient.runRealtimeReport({property:`properties/${propertyId}`,minuteRanges:[{name:"last5minutes",startMinutesAgo:4,endMinutesAgo:0}],dimensions:[{name:"city"},{name:"country"},{name:"deviceCategory"}],metrics:[{name:"activeUsers"}],limit:50});
+  realtimeFiveMinuteRows=realtimeFiveMinutes.rows??[];
  }catch(error){console.warn("Realtime GA4 query unavailable; continuing with processed reports.",error);}
 
  const [summaryReport,countryReport,trendsReport,pagesReport,sourcesReport]=coreBatch.reports??[];
@@ -75,8 +77,10 @@ async function main(){
  const activityLog=(activityReport?.rows??[]).map(row=>({date:formatGaDate(dimensionValue(row,0)),time:formatGaTime(dimensionValue(row,1)),city:dimensionValue(row,2)||"Unknown",country:dimensionValue(row,3)||"Unknown",device:dimensionValue(row,4)||"Unknown",browser:dimensionValue(row,5)||"Unknown",operatingSystem:dimensionValue(row,6)||"Unknown",landingPage:dimensionValue(row,7)||"/",sessions:metricValue(row,0),pageViews:metricValue(row,1),averageSessionDuration:Number(metricValue(row,2).toFixed(1)),activeUsers:metricValue(row,3)})).filter(i=>i.sessions>0||i.pageViews>0);
  const realtimeVisitors=realtimeRows.map(row=>({city:dimensionValue(row,0)||"Unknown",country:dimensionValue(row,1)||"Unknown",device:dimensionValue(row,2)||"Unknown",activeUsers:metricValue(row,0)})).filter(i=>i.activeUsers>0);
  const realtimeActiveUsers=realtimeVisitors.reduce((s,i)=>s+i.activeUsers,0);
+ const realtimeFiveMinuteVisitors=realtimeFiveMinuteRows.map(row=>({city:dimensionValue(row,0)||"Unknown",country:dimensionValue(row,1)||"Unknown",device:dimensionValue(row,2)||"Unknown",activeUsers:metricValue(row,0)})).filter(i=>i.activeUsers>0);
+ const realtimeFiveMinuteActiveUsers=realtimeFiveMinuteVisitors.reduce((s,i)=>s+i.activeUsers,0);
 
- const analytics={updatedAt:new Date().toISOString(),period:"last30days",pageViews,totalVisitors,activeVisitors,sessions,averageEngagementTime,averageSessionDuration:Number(averageSessionDuration.toFixed(1)),sessionsPerActiveUser,countriesReached:countryRows.length,countries,cities,devices,deviceSummary,visitorTypes,visitorTrends,topPages,trafficSources,activityLog,realtimeActiveUsers,realtimeVisitors};
+ const analytics={updatedAt:new Date().toISOString(),period:"last30days",pageViews,totalVisitors,activeVisitors,sessions,averageEngagementTime,averageSessionDuration:Number(averageSessionDuration.toFixed(1)),sessionsPerActiveUser,countriesReached:countryRows.length,countries,cities,devices,deviceSummary,visitorTypes,visitorTrends,topPages,trafficSources,activityLog,realtimeActiveUsers,realtimeVisitors,realtimeFiveMinuteActiveUsers,realtimeFiveMinuteVisitors};
  const outputDirectory=path.join(process.cwd(),"data"),outputPath=path.join(outputDirectory,"analytics.json"); await mkdir(outputDirectory,{recursive:true}); await writeFile(outputPath,JSON.stringify(analytics,null,2),"utf8"); console.log(`Analytics written to ${outputPath}`); console.log(analytics);
 }
 main().catch(error=>{console.error(error);process.exit(1)});
