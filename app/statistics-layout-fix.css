@@ -1,0 +1,28 @@
+.statistics-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.statistics-page > .statistics-hero {
+  order: 0;
+}
+
+.statistics-page > .statistics-grid {
+  order: 1;
+}
+
+.statistics-page > .dashboard-section {
+  order: 2;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+}
+
+.statistics-page > .analytics-grid {
+  order: 3;
+  margin-top: 2.5rem;
+}
+
+/* Guest-management content, when available to the owner, stays after analytics. */
+.statistics-page > section:not(.statistics-grid):not(.dashboard-section) {
+  order: 4;
+}
