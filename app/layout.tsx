@@ -5,7 +5,7 @@ import "./globals.css";
 import "./portal-auth.css";
 import "./statistics-layout-fix.css";
 
-const GA_MEASUREMENT_ID = "G-BH5VVGY72M";
+const GA_MEASUREMENT_ID = "G-76RBFH4SD1";
 
 export async function generateMetadata(): Promise<Metadata> {
   const incomingHeaders = await headers();
