@@ -76,7 +76,7 @@ export default function BlogPage() {
         .workflow-step strong{padding-top:.18rem;color:var(--ink);font-size:.88rem}
         .workflow-step small{margin-top:.18rem;color:var(--ink-soft);font-size:.72rem;line-height:1.35}
         .blog-article-copy{max-width:720px}
-        .blog-article-copy h2{max-width:none;margin-bottom:2rem;font-size:1.25rem;line-height:1.25}
+        .blog-article-copy h2{max-width:none;margin-bottom:2rem;font-size:1.875rem;line-height:1.25}
         .blog-article-copy>p:not(.blog-meta){max-width:66ch;margin:0;font-size:1.03rem;line-height:1.82}
         .blog-article-copy>p+p{margin-top:1.5rem!important}
         @media(max-width:780px){.blog-feature{grid-template-columns:1fr}.workflow-panel{position:static}.workflow-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.workflow-step{min-height:auto}.workflow-line{display:none}}
