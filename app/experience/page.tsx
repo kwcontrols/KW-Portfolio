@@ -184,7 +184,7 @@ export default function ProjectsPage() {
       <SiteFooter />
       <style>{`
         .project-entry .project-details h2 {
-          font-size: 1.25rem;
+          font-size: 1.875rem;
           line-height: 1.25;
         }
       `}</style>
