@@ -74,6 +74,14 @@ export default function ContactPage() {
         </section>
       </main>
       <SiteFooter />
+      <style>{`
+        @media (max-width: 680px) {
+          .contact-column h1 {
+            font-size: 1.25rem;
+            line-height: 1.25;
+          }
+        }
+      `}</style>
     </div>
   );
 }
