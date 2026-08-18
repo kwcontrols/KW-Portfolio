@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-08-18T00:15:13.868Z",
+  "updatedAt": "2026-08-18T00:37:33.240Z",
   "period": "last30days",
-  "pageViews": 306,
+  "pageViews": 308,
   "totalVisitors": 5,
   "activeVisitors": 5,
   "sessions": 37,
-  "averageEngagementTime": 2006.6,
-  "averageSessionDuration": 3254.5,
+  "averageEngagementTime": 2007,
+  "averageSessionDuration": 3254.7,
   "sessionsPerActiveUser": 7.4,
   "countriesReached": 1,
   "countries": [
@@ -159,7 +159,7 @@
     {
       "date": "2026-08-17",
       "users": 1,
-      "pageViews": 86,
+      "pageViews": 88,
       "sessions": 5
     },
     {
@@ -173,7 +173,7 @@
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/statistics",
-      "views": 106
+      "views": 107
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -193,7 +193,7 @@
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/contact",
-      "views": 33
+      "views": 34
     },
     {
       "title": "Blogs | Kui Wu",
@@ -240,6 +240,20 @@
     },
     {
       "date": "2026-08-17",
+      "time": "16:26",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/contact",
+      "sessions": 1,
+      "pageViews": 2,
+      "averageSessionDuration": 6.1,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
       "time": "15:20",
       "city": "Vancouver",
       "country": "Canada",
@@ -264,6 +278,20 @@
       "sessions": 1,
       "pageViews": 1,
       "averageSessionDuration": 5713.9,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "15:17",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 0,
       "activeUsers": 1
     },
     {
@@ -2885,15 +2913,8 @@
       "activeUsers": 1
     }
   ],
-  "realtimeActiveUsers": 1,
-  "realtimeVisitors": [
-    {
-      "city": "Vancouver",
-      "country": "Canada",
-      "device": "desktop",
-      "activeUsers": 1
-    }
-  ],
+  "realtimeActiveUsers": 0,
+  "realtimeVisitors": [],
   "realtimeFiveMinuteActiveUsers": 0,
   "realtimeFiveMinuteVisitors": []
 }
