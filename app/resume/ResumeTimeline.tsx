@@ -138,7 +138,7 @@ function TimelineSection({
 
   return (
     <section className="resume-section" aria-labelledby={sectionId}>
-      <h1 id={sectionId}>{title}</h1>
+      <h1 className="resume-section-heading" id={sectionId}>{title}</h1>
       <div className="resume-timeline">
         {entries.map((entry, index) => (
           <article
@@ -198,6 +198,23 @@ function TimelineSection({
           </article>
         ))}
       </div>
+      <style jsx>{`
+        .resume-section-heading {
+          margin-left: calc(clamp(var(--space-sm), 2vw, var(--space-md)) + 14px);
+          color: var(--blue);
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 0.72rem;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+          line-height: 1.4;
+          text-transform: uppercase;
+        }
+        @media (max-width: 680px) {
+          .resume-section-heading {
+            margin-left: calc(0.35rem + 12px);
+          }
+        }
+      `}</style>
     </section>
   );
 }
