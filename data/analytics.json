@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-08-18T03:38:25.615Z",
+  "updatedAt": "2026-08-18T03:45:55.885Z",
   "period": "last30days",
-  "pageViews": 332,
+  "pageViews": 339,
   "totalVisitors": 5,
   "activeVisitors": 5,
   "sessions": 39,
-  "averageEngagementTime": 2057.2,
-  "averageSessionDuration": 3201.8,
+  "averageEngagementTime": 2082.8,
+  "averageSessionDuration": 3233.8,
   "sessionsPerActiveUser": 7.8,
   "countriesReached": 1,
   "countries": [
@@ -171,7 +171,7 @@
     {
       "date": "2026-08-17",
       "users": 2,
-      "pageViews": 112,
+      "pageViews": 119,
       "sessions": 7
     },
     {
@@ -190,17 +190,17 @@
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/resume",
-      "views": 55
+      "views": 58
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/",
-      "views": 54
+      "views": 55
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/experience",
-      "views": 44
+      "views": 45
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -210,7 +210,7 @@
     {
       "title": "Blogs | Kui Wu",
       "path": "/blog",
-      "views": 28
+      "views": 30
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -260,8 +260,8 @@
       "operatingSystem": "iOS",
       "landingPage": "/experience",
       "sessions": 1,
-      "pageViews": 0,
-      "averageSessionDuration": 26.2,
+      "pageViews": 1,
+      "averageSessionDuration": 127.1,
       "activeUsers": 1
     },
     {
@@ -274,8 +274,8 @@
       "operatingSystem": "iOS",
       "landingPage": "/experience",
       "sessions": 1,
-      "pageViews": 2,
-      "averageSessionDuration": 779.2,
+      "pageViews": 3,
+      "averageSessionDuration": 887.3,
       "activeUsers": 1
     },
     {
@@ -288,8 +288,8 @@
       "operatingSystem": "iOS",
       "landingPage": "/experience",
       "sessions": 1,
-      "pageViews": 1,
-      "averageSessionDuration": 417.9,
+      "pageViews": 3,
+      "averageSessionDuration": 961.7,
       "activeUsers": 1
     },
     {
@@ -302,8 +302,8 @@
       "operatingSystem": "iOS",
       "landingPage": "/experience",
       "sessions": 1,
-      "pageViews": 1,
-      "averageSessionDuration": 816.8,
+      "pageViews": 4,
+      "averageSessionDuration": 1310.4,
       "activeUsers": 1
     },
     {
@@ -3107,7 +3107,7 @@
       "activeUsers": 1
     }
   ],
-  "realtimeActiveUsers": 5,
+  "realtimeActiveUsers": 7,
   "realtimeVisitors": [
     {
       "city": "Campbell River",
@@ -3117,6 +3117,18 @@
     },
     {
       "city": "Chilliwack",
+      "country": "Canada",
+      "device": "mobile",
+      "activeUsers": 1
+    },
+    {
+      "city": "Merritt",
+      "country": "Canada",
+      "device": "mobile",
+      "activeUsers": 1
+    },
+    {
+      "city": "Quesnel",
       "country": "Canada",
       "device": "mobile",
       "activeUsers": 1
@@ -3140,18 +3152,24 @@
       "activeUsers": 1
     }
   ],
-  "realtimeFiveMinuteActiveUsers": 2,
+  "realtimeFiveMinuteActiveUsers": 3,
   "realtimeFiveMinuteVisitors": [
     {
-      "city": "Vancouver",
+      "city": "Merritt",
       "country": "Canada",
-      "device": "desktop",
+      "device": "mobile",
+      "activeUsers": 1
+    },
+    {
+      "city": "Quesnel",
+      "country": "Canada",
+      "device": "mobile",
       "activeUsers": 1
     },
     {
       "city": "Vancouver",
       "country": "Canada",
-      "device": "mobile",
+      "device": "desktop",
       "activeUsers": 1
     }
   ]
