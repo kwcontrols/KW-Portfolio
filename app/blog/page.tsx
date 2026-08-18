@@ -80,6 +80,7 @@ export default function BlogPage() {
         .blog-article-copy>p:not(.blog-meta){max-width:66ch;margin:0;font-size:1.03rem;line-height:1.82}
         .blog-article-copy>p+p{margin-top:1.5rem!important}
         @media(max-width:780px){.blog-feature{grid-template-columns:1fr}.workflow-panel{position:static}.workflow-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.workflow-step{min-height:auto}.workflow-line{display:none}}
+        @media(max-width:680px){.blog-article-copy h2{font-size:1.25rem;line-height:1.25}}
         @media(max-width:520px){.workflow-list{grid-template-columns:1fr}}
       `}</style>
     </div>
