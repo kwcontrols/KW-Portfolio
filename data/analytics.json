@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-08-18T03:45:55.885Z",
+  "updatedAt": "2026-08-18T03:51:48.926Z",
   "period": "last30days",
-  "pageViews": 339,
+  "pageViews": 341,
   "totalVisitors": 5,
   "activeVisitors": 5,
   "sessions": 39,
-  "averageEngagementTime": 2082.8,
-  "averageSessionDuration": 3233.8,
+  "averageEngagementTime": 2083,
+  "averageSessionDuration": 3239.7,
   "sessionsPerActiveUser": 7.8,
   "countriesReached": 1,
   "countries": [
@@ -171,7 +171,7 @@
     {
       "date": "2026-08-17",
       "users": 2,
-      "pageViews": 119,
+      "pageViews": 121,
       "sessions": 7
     },
     {
@@ -185,7 +185,7 @@
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/statistics",
-      "views": 112
+      "views": 113
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -210,7 +210,7 @@
     {
       "title": "Blogs | Kui Wu",
       "path": "/blog",
-      "views": 30
+      "views": 31
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -3107,14 +3107,8 @@
       "activeUsers": 1
     }
   ],
-  "realtimeActiveUsers": 7,
+  "realtimeActiveUsers": 6,
   "realtimeVisitors": [
-    {
-      "city": "Campbell River",
-      "country": "Canada",
-      "device": "mobile",
-      "activeUsers": 1
-    },
     {
       "city": "Chilliwack",
       "country": "Canada",
@@ -3152,14 +3146,8 @@
       "activeUsers": 1
     }
   ],
-  "realtimeFiveMinuteActiveUsers": 3,
+  "realtimeFiveMinuteActiveUsers": 2,
   "realtimeFiveMinuteVisitors": [
-    {
-      "city": "Merritt",
-      "country": "Canada",
-      "device": "mobile",
-      "activeUsers": 1
-    },
     {
       "city": "Quesnel",
       "country": "Canada",
