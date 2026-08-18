@@ -183,7 +183,7 @@ export default function ProjectsPage() {
       </main>
       <SiteFooter />
       <style>{`
-        .project-entry .project-details h2 {
+        .project-entry:nth-child(-n + 4) .project-details h2 {
           font-size: 1.875rem;
           line-height: 1.25;
         }
