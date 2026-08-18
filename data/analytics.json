@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-08-18T03:30:06.892Z",
+  "updatedAt": "2026-08-18T03:37:38.441Z",
   "period": "last30days",
-  "pageViews": 326,
+  "pageViews": 332,
   "totalVisitors": 5,
   "activeVisitors": 5,
   "sessions": 39,
-  "averageEngagementTime": 2047.2,
-  "averageSessionDuration": 3175.6,
+  "averageEngagementTime": 2057.2,
+  "averageSessionDuration": 3201.8,
   "sessionsPerActiveUser": 7.8,
   "countriesReached": 1,
   "countries": [
@@ -171,7 +171,7 @@
     {
       "date": "2026-08-17",
       "users": 2,
-      "pageViews": 106,
+      "pageViews": 112,
       "sessions": 7
     },
     {
@@ -185,7 +185,12 @@
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/statistics",
-      "views": 111
+      "views": 112
+    },
+    {
+      "title": "KW Portfolio | Automation, Integration & AI",
+      "path": "/resume",
+      "views": 55
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -194,23 +199,18 @@
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
-      "path": "/resume",
-      "views": 54
-    },
-    {
-      "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/experience",
-      "views": 42
+      "views": 44
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/contact",
-      "views": 34
+      "views": 35
     },
     {
       "title": "Blogs | Kui Wu",
       "path": "/blog",
-      "views": 27
+      "views": 28
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -246,8 +246,8 @@
       "operatingSystem": "iOS",
       "landingPage": "/experience",
       "sessions": 1,
-      "pageViews": 1,
-      "averageSessionDuration": 715.3,
+      "pageViews": 3,
+      "averageSessionDuration": 1374.2,
       "activeUsers": 1
     },
     {
@@ -302,8 +302,8 @@
       "operatingSystem": "iOS",
       "landingPage": "/experience",
       "sessions": 1,
-      "pageViews": 0,
-      "averageSessionDuration": 451.2,
+      "pageViews": 1,
+      "averageSessionDuration": 816.8,
       "activeUsers": 1
     },
     {
@@ -344,7 +344,7 @@
       "operatingSystem": "iOS",
       "landingPage": "/experience",
       "sessions": 1,
-      "pageViews": 0,
+      "pageViews": 1,
       "averageSessionDuration": 0,
       "activeUsers": 1
     },
@@ -358,7 +358,7 @@
       "operatingSystem": "iOS",
       "landingPage": "/experience",
       "sessions": 1,
-      "pageViews": 5,
+      "pageViews": 7,
       "averageSessionDuration": 420.1,
       "activeUsers": 1
     },
@@ -3143,15 +3143,15 @@
   "realtimeFiveMinuteActiveUsers": 2,
   "realtimeFiveMinuteVisitors": [
     {
-      "city": "Chilliwack",
+      "city": "Vancouver",
       "country": "Canada",
-      "device": "mobile",
+      "device": "desktop",
       "activeUsers": 1
     },
     {
       "city": "Vancouver",
       "country": "Canada",
-      "device": "desktop",
+      "device": "mobile",
       "activeUsers": 1
     }
   ]
