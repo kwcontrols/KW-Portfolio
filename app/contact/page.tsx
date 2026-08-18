@@ -75,11 +75,13 @@ export default function ContactPage() {
       </main>
       <SiteFooter />
       <style>{`
-        @media (max-width: 680px) {
-          .contact-column h1 {
-            font-size: 1.25rem;
-            line-height: 1.25;
-          }
+        .contact-column h1 {
+          font-size: 1.25rem;
+          line-height: 1.25;
+        }
+        .contact-details dt {
+          font-size: 1rem;
+          font-weight: 700;
         }
       `}</style>
     </div>
