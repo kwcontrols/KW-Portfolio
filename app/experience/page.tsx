@@ -182,6 +182,14 @@ export default function ProjectsPage() {
         </section>
       </main>
       <SiteFooter />
+      <style>{`
+        @media (max-width: 680px) {
+          .project-entry .project-details h2 {
+            font-size: 1.25rem;
+            line-height: 1.25;
+          }
+        }
+      `}</style>
     </div>
   );
 }
