@@ -76,7 +76,7 @@ export default function ContactPage() {
       <SiteFooter />
       <style>{`
         .contact-column h1 {
-          font-size: 1.25rem;
+          font-size: 1.875rem;
           line-height: 1.25;
         }
         .contact-details dt {
