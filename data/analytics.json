@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-08-18T03:51:48.926Z",
+  "updatedAt": "2026-08-18T04:11:41.124Z",
   "period": "last30days",
-  "pageViews": 341,
+  "pageViews": 380,
   "totalVisitors": 5,
   "activeVisitors": 5,
-  "sessions": 39,
-  "averageEngagementTime": 2083,
-  "averageSessionDuration": 3239.7,
-  "sessionsPerActiveUser": 7.8,
+  "sessions": 40,
+  "averageEngagementTime": 2160.4,
+  "averageSessionDuration": 3451.4,
+  "sessionsPerActiveUser": 8,
   "countriesReached": 1,
   "countries": [
     {
@@ -21,7 +21,7 @@
       "city": "Vancouver",
       "country": "Canada",
       "users": 3,
-      "sessions": 36
+      "sessions": 37
     },
     {
       "city": "Abbotsford",
@@ -33,13 +33,13 @@
       "city": "Campbell River",
       "country": "Canada",
       "users": 1,
-      "sessions": 1
+      "sessions": 2
     },
     {
       "city": "Chilliwack",
       "country": "Canada",
       "users": 1,
-      "sessions": 1
+      "sessions": 2
     },
     {
       "city": "Grand Forks",
@@ -96,7 +96,7 @@
       "browser": "Chrome",
       "operatingSystem": "Windows",
       "users": 2,
-      "sessions": 30
+      "sessions": 31
     },
     {
       "category": "mobile",
@@ -117,7 +117,7 @@
     {
       "category": "desktop",
       "users": 3,
-      "sessions": 31
+      "sessions": 32
     },
     {
       "category": "mobile",
@@ -171,8 +171,8 @@
     {
       "date": "2026-08-17",
       "users": 2,
-      "pageViews": 121,
-      "sessions": 7
+      "pageViews": 160,
+      "sessions": 8
     },
     {
       "date": "2026-08-18",
@@ -185,32 +185,32 @@
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/statistics",
-      "views": 113
+      "views": 118
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/resume",
-      "views": 58
-    },
-    {
-      "title": "KW Portfolio | Automation, Integration & AI",
-      "path": "/",
-      "views": 55
+      "views": 63
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/experience",
-      "views": 45
+      "views": 57
+    },
+    {
+      "title": "KW Portfolio | Automation, Integration & AI",
+      "path": "/",
+      "views": 56
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/contact",
-      "views": 35
+      "views": 42
     },
     {
       "title": "Blogs | Kui Wu",
       "path": "/blog",
-      "views": 31
+      "views": 40
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -238,6 +238,314 @@
   "activityLog": [
     {
       "date": "2026-08-17",
+      "time": "20:35",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 332.8,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:33",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 589.8,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:32",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 2,
+      "averageSessionDuration": 36.7,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:31",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 81.8,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:30",
+      "city": "Chilliwack",
+      "country": "Canada",
+      "device": "mobile",
+      "browser": "Safari",
+      "operatingSystem": "iOS",
+      "landingPage": "/experience",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 685.4,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:30",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 784.2,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:29",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 2,
+      "averageSessionDuration": 389.2,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:28",
+      "city": "Chilliwack",
+      "country": "Canada",
+      "device": "mobile",
+      "browser": "Safari",
+      "operatingSystem": "iOS",
+      "landingPage": "/experience",
+      "sessions": 1,
+      "pageViews": 3,
+      "averageSessionDuration": 980.4,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:28",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 3,
+      "averageSessionDuration": 1576.9,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:27",
+      "city": "Chilliwack",
+      "country": "Canada",
+      "device": "mobile",
+      "browser": "Safari",
+      "operatingSystem": "iOS",
+      "landingPage": "/experience",
+      "sessions": 1,
+      "pageViews": 5,
+      "averageSessionDuration": 419.1,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:26",
+      "city": "Chilliwack",
+      "country": "Canada",
+      "device": "mobile",
+      "browser": "Safari",
+      "operatingSystem": "iOS",
+      "landingPage": "/experience",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 0,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:26",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 3,
+      "averageSessionDuration": 198.3,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:23",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 3,
+      "averageSessionDuration": 711.5,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:21",
+      "city": "Campbell River",
+      "country": "Canada",
+      "device": "mobile",
+      "browser": "Safari",
+      "operatingSystem": "iOS",
+      "landingPage": "/experience",
+      "sessions": 1,
+      "pageViews": 2,
+      "averageSessionDuration": 118.8,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:20",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 0,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:20",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 119.9,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:19",
+      "city": "Campbell River",
+      "country": "Canada",
+      "device": "mobile",
+      "browser": "Safari",
+      "operatingSystem": "iOS",
+      "landingPage": "/experience",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 2193.3,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:19",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 2,
+      "averageSessionDuration": 105,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:18",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 71.1,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:17",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics",
+      "sessions": 1,
+      "pageViews": 4,
+      "averageSessionDuration": 22.3,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:05",
+      "city": "Chilliwack",
+      "country": "Canada",
+      "device": "mobile",
+      "browser": "Safari",
+      "operatingSystem": "iOS",
+      "landingPage": "/experience",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 32.7,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "20:04",
+      "city": "Chilliwack",
+      "country": "Canada",
+      "device": "mobile",
+      "browser": "Safari",
+      "operatingSystem": "iOS",
+      "landingPage": "/experience",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 2043.6,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
       "time": "19:50",
       "city": "Vancouver",
       "country": "Canada",
@@ -261,7 +569,7 @@
       "landingPage": "/experience",
       "sessions": 1,
       "pageViews": 1,
-      "averageSessionDuration": 127.1,
+      "averageSessionDuration": 271.3,
       "activeUsers": 1
     },
     {
@@ -288,8 +596,8 @@
       "operatingSystem": "iOS",
       "landingPage": "/experience",
       "sessions": 1,
-      "pageViews": 3,
-      "averageSessionDuration": 961.7,
+      "pageViews": 5,
+      "averageSessionDuration": 1164.3,
       "activeUsers": 1
     },
     {
@@ -316,8 +624,22 @@
       "operatingSystem": "iOS",
       "landingPage": "/experience",
       "sessions": 1,
+      "pageViews": 3,
+      "averageSessionDuration": 361.8,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-17",
+      "time": "19:44",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "mobile",
+      "browser": "Safari",
+      "operatingSystem": "iOS",
+      "landingPage": "/experience",
+      "sessions": 1,
       "pageViews": 2,
-      "averageSessionDuration": 264.7,
+      "averageSessionDuration": 0,
       "activeUsers": 1
     },
     {
@@ -330,7 +652,7 @@
       "operatingSystem": "iOS",
       "landingPage": "/experience",
       "sessions": 1,
-      "pageViews": 0,
+      "pageViews": 1,
       "averageSessionDuration": 0,
       "activeUsers": 1
     },
@@ -3107,16 +3429,16 @@
       "activeUsers": 1
     }
   ],
-  "realtimeActiveUsers": 6,
+  "realtimeActiveUsers": 4,
   "realtimeVisitors": [
     {
-      "city": "Chilliwack",
+      "city": "Merritt",
       "country": "Canada",
       "device": "mobile",
       "activeUsers": 1
     },
     {
-      "city": "Merritt",
+      "city": "Osoyoos",
       "country": "Canada",
       "device": "mobile",
       "activeUsers": 1
@@ -3132,28 +3454,10 @@
       "country": "Canada",
       "device": "desktop",
       "activeUsers": 1
-    },
-    {
-      "city": "Vancouver",
-      "country": "Canada",
-      "device": "mobile",
-      "activeUsers": 1
-    },
-    {
-      "city": "White Rock",
-      "country": "Canada",
-      "device": "mobile",
-      "activeUsers": 1
     }
   ],
-  "realtimeFiveMinuteActiveUsers": 2,
+  "realtimeFiveMinuteActiveUsers": 1,
   "realtimeFiveMinuteVisitors": [
-    {
-      "city": "Quesnel",
-      "country": "Canada",
-      "device": "mobile",
-      "activeUsers": 1
-    },
     {
       "city": "Vancouver",
       "country": "Canada",
