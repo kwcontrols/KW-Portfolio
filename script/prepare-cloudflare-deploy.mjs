@@ -3,7 +3,7 @@ import { readFile, writeFile } from "node:fs/promises";
 const configPath = new URL("../dist/server/wrangler.json", import.meta.url);
 const config = JSON.parse(await readFile(configPath, "utf8"));
 
-config.name = "kuiwu";
+config.name = "kw-portfolio-worker";
 config.kv_namespaces = [
   {
     binding: "KW_STATISTICS_GUESTS",
@@ -12,4 +12,6 @@ config.kv_namespaces = [
 ];
 
 await writeFile(configPath, `${JSON.stringify(config)}\n`, "utf8");
-console.log("Prepared Cloudflare config for Worker 'kuiwu' with KW_STATISTICS_GUESTS binding.");
+console.log(
+  "Prepared Cloudflare config for Worker 'kw-portfolio-worker' with KW_STATISTICS_GUESTS binding.",
+);
