@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-08-19T19:18:24.212Z",
+  "updatedAt": "2026-08-19T20:40:08.313Z",
   "period": "last30days",
-  "pageViews": 720,
+  "pageViews": 740,
   "totalVisitors": 5,
   "activeVisitors": 5,
-  "sessions": 50,
-  "averageEngagementTime": 3035.6,
-  "averageSessionDuration": 1387,
-  "sessionsPerActiveUser": 10,
+  "sessions": 53,
+  "averageEngagementTime": 3081.6,
+  "averageSessionDuration": 1283.8,
+  "sessionsPerActiveUser": 10.6,
   "countriesReached": 1,
   "countries": [
     {
@@ -21,7 +21,7 @@
       "city": "Vancouver",
       "country": "Canada",
       "users": 3,
-      "sessions": 46
+      "sessions": 49
     },
     {
       "city": "Abbotsford",
@@ -132,14 +132,14 @@
       "browser": "Chrome",
       "operatingSystem": "Windows",
       "users": 2,
-      "sessions": 36
+      "sessions": 38
     },
     {
       "category": "mobile",
       "browser": "Safari",
       "operatingSystem": "iOS",
       "users": 2,
-      "sessions": 13
+      "sessions": 14
     },
     {
       "category": "desktop",
@@ -153,12 +153,12 @@
     {
       "category": "desktop",
       "users": 3,
-      "sessions": 37
+      "sessions": 39
     },
     {
       "category": "mobile",
       "users": 2,
-      "sessions": 13
+      "sessions": 14
     }
   ],
   "visitorTypes": [
@@ -207,26 +207,26 @@
     {
       "date": "2026-08-18",
       "users": 2,
-      "pageViews": 23,
-      "sessions": 7
+      "pageViews": 34,
+      "sessions": 9
     },
     {
       "date": "2026-08-19",
       "users": 2,
-      "pageViews": 7,
-      "sessions": 3
+      "pageViews": 16,
+      "sessions": 4
     }
   ],
   "topPages": [
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/statistics",
-      "views": 163
+      "views": 165
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/experience",
-      "views": 135
+      "views": 138
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -236,17 +236,17 @@
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/contact",
-      "views": 106
+      "views": 111
     },
     {
       "title": "Blogs | Kui Wu",
       "path": "/blog",
-      "views": 105
+      "views": 109
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/",
-      "views": 78
+      "views": 83
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -256,22 +256,106 @@
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/statistics-login",
-      "views": 2
+      "views": 3
     }
   ],
   "trafficSources": [
     {
       "source": "Direct",
       "users": 5,
-      "percentage": 71.4
+      "percentage": 83.3
     },
     {
       "source": "Unassigned",
-      "users": 2,
-      "percentage": 28.6
+      "users": 1,
+      "percentage": 16.7
     }
   ],
   "activityLog": [
+    {
+      "date": "2026-08-19",
+      "time": "12:32",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 3,
+      "averageSessionDuration": 176.8,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-19",
+      "time": "12:31",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 301.6,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-19",
+      "time": "12:30",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 0,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-19",
+      "time": "12:30",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 30.3,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-19",
+      "time": "12:29",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 3,
+      "averageSessionDuration": 0,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-19",
+      "time": "11:29",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 1584.3,
+      "activeUsers": 1
+    },
     {
       "date": "2026-08-19",
       "time": "11:03",
@@ -3687,94 +3771,17 @@
       "pageViews": 1,
       "averageSessionDuration": 30.6,
       "activeUsers": 1
-    },
+    }
+  ],
+  "realtimeActiveUsers": 1,
+  "realtimeVisitors": [
     {
-      "date": "2026-08-08",
-      "time": "20:09",
       "city": "Vancouver",
       "country": "Canada",
       "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/resume",
-      "sessions": 1,
-      "pageViews": 1,
-      "averageSessionDuration": 0,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-08",
-      "time": "15:59",
-      "city": "Vancouver",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/resume",
-      "sessions": 1,
-      "pageViews": 1,
-      "averageSessionDuration": 5.3,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-08",
-      "time": "14:18",
-      "city": "Vancouver",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/resume",
-      "sessions": 1,
-      "pageViews": 1,
-      "averageSessionDuration": 5.3,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-08",
-      "time": "13:01",
-      "city": "Vancouver",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/experience",
-      "sessions": 1,
-      "pageViews": 1,
-      "averageSessionDuration": 8,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-07",
-      "time": "20:57",
-      "city": "Vancouver",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 9,
-      "averageSessionDuration": 27.8,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-07",
-      "time": "20:56",
-      "city": "Vancouver",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 0,
-      "averageSessionDuration": 516.5,
       "activeUsers": 1
     }
   ],
-  "realtimeActiveUsers": 0,
-  "realtimeVisitors": [],
   "realtimeFiveMinuteActiveUsers": 0,
   "realtimeFiveMinuteVisitors": []
 }
