@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-08-19T08:55:13.467Z",
+  "updatedAt": "2026-08-19T19:18:24.212Z",
   "period": "last30days",
-  "pageViews": 713,
+  "pageViews": 720,
   "totalVisitors": 5,
   "activeVisitors": 5,
-  "sessions": 47,
-  "averageEngagementTime": 3034,
-  "averageSessionDuration": 1450.4,
-  "sessionsPerActiveUser": 9.4,
+  "sessions": 50,
+  "averageEngagementTime": 3035.6,
+  "averageSessionDuration": 1387,
+  "sessionsPerActiveUser": 10,
   "countriesReached": 1,
   "countries": [
     {
@@ -21,7 +21,7 @@
       "city": "Vancouver",
       "country": "Canada",
       "users": 3,
-      "sessions": 43
+      "sessions": 46
     },
     {
       "city": "Abbotsford",
@@ -132,14 +132,14 @@
       "browser": "Chrome",
       "operatingSystem": "Windows",
       "users": 2,
-      "sessions": 34
+      "sessions": 36
     },
     {
       "category": "mobile",
       "browser": "Safari",
       "operatingSystem": "iOS",
       "users": 2,
-      "sessions": 12
+      "sessions": 13
     },
     {
       "category": "desktop",
@@ -153,12 +153,12 @@
     {
       "category": "desktop",
       "users": 3,
-      "sessions": 35
+      "sessions": 37
     },
     {
       "category": "mobile",
       "users": 2,
-      "sessions": 12
+      "sessions": 13
     }
   ],
   "visitorTypes": [
@@ -212,9 +212,9 @@
     },
     {
       "date": "2026-08-19",
-      "users": 0,
-      "pageViews": 0,
-      "sessions": 0
+      "users": 2,
+      "pageViews": 7,
+      "sessions": 3
     }
   ],
   "topPages": [
@@ -226,7 +226,7 @@
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/experience",
-      "views": 134
+      "views": 135
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -236,17 +236,17 @@
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/contact",
-      "views": 105
+      "views": 106
     },
     {
       "title": "Blogs | Kui Wu",
       "path": "/blog",
-      "views": 104
+      "views": 105
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/",
-      "views": 74
+      "views": 78
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -273,6 +273,76 @@
   ],
   "activityLog": [
     {
+      "date": "2026-08-19",
+      "time": "11:03",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 1148.6,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-19",
+      "time": "10:44",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 0,
+      "activeUsers": 0
+    },
+    {
+      "date": "2026-08-19",
+      "time": "09:47",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 4,
+      "averageSessionDuration": 33.3,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-19",
+      "time": "09:46",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 0,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-19",
+      "time": "07:53",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "mobile",
+      "browser": "Safari",
+      "operatingSystem": "iOS",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 0,
+      "activeUsers": 0
+    },
+    {
       "date": "2026-08-18",
       "time": "19:46",
       "city": "Vancouver",
@@ -280,10 +350,24 @@
       "device": "mobile",
       "browser": "Safari",
       "operatingSystem": "iOS",
-      "landingPage": "/contact",
+      "landingPage": "/blog",
       "sessions": 1,
       "pageViews": 6,
-      "averageSessionDuration": 558.5,
+      "averageSessionDuration": 203.8,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-18",
+      "time": "19:43",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "mobile",
+      "browser": "Safari",
+      "operatingSystem": "iOS",
+      "landingPage": "/blog",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 62.6,
       "activeUsers": 1
     },
     {
@@ -294,10 +378,24 @@
       "device": "mobile",
       "browser": "Safari",
       "operatingSystem": "iOS",
-      "landingPage": "/contact",
+      "landingPage": "/blog",
       "sessions": 1,
       "pageViews": 1,
-      "averageSessionDuration": 5.7,
+      "averageSessionDuration": 8.8,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-18",
+      "time": "18:58",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "mobile",
+      "browser": "Safari",
+      "operatingSystem": "iOS",
+      "landingPage": "/experience",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 0,
       "activeUsers": 1
     },
     {
@@ -308,11 +406,25 @@
       "device": "desktop",
       "browser": "Chrome",
       "operatingSystem": "Windows",
-      "landingPage": "/",
+      "landingPage": "(not set)",
       "sessions": 1,
       "pageViews": 0,
       "averageSessionDuration": 0,
-      "activeUsers": 0
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-18",
+      "time": "14:54",
+      "city": "Vancouver",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/blog",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 5.1,
+      "activeUsers": 1
     },
     {
       "date": "2026-08-18",
@@ -322,21 +434,7 @@
       "device": "mobile",
       "browser": "Safari",
       "operatingSystem": "iOS",
-      "landingPage": "/",
-      "sessions": 1,
-      "pageViews": 0,
-      "averageSessionDuration": 0,
-      "activeUsers": 0
-    },
-    {
-      "date": "2026-08-18",
-      "time": "11:56",
-      "city": "Gibsons",
-      "country": "Canada",
-      "device": "mobile",
-      "browser": "Safari",
-      "operatingSystem": "iOS",
-      "landingPage": "/",
+      "landingPage": "(not set)",
       "sessions": 1,
       "pageViews": 0,
       "averageSessionDuration": 0,
@@ -352,8 +450,8 @@
       "operatingSystem": "iOS",
       "landingPage": "/experience",
       "sessions": 1,
-      "pageViews": 2,
-      "averageSessionDuration": 58.8,
+      "pageViews": 4,
+      "averageSessionDuration": 55.2,
       "activeUsers": 1
     },
     {
@@ -367,22 +465,8 @@
       "landingPage": "/experience",
       "sessions": 1,
       "pageViews": 1,
-      "averageSessionDuration": 0,
+      "averageSessionDuration": 5.1,
       "activeUsers": 1
-    },
-    {
-      "date": "2026-08-18",
-      "time": "11:55",
-      "city": "Vancouver",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/",
-      "sessions": 1,
-      "pageViews": 0,
-      "averageSessionDuration": 0,
-      "activeUsers": 0
     },
     {
       "date": "2026-08-18",
@@ -406,10 +490,10 @@
       "device": "mobile",
       "browser": "Safari",
       "operatingSystem": "iOS",
-      "landingPage": "/experience",
+      "landingPage": "/",
       "sessions": 1,
-      "pageViews": 1,
-      "averageSessionDuration": 240.5,
+      "pageViews": 4,
+      "averageSessionDuration": 238.5,
       "activeUsers": 1
     },
     {
@@ -420,10 +504,10 @@
       "device": "mobile",
       "browser": "Safari",
       "operatingSystem": "iOS",
-      "landingPage": "/experience",
+      "landingPage": "/",
       "sessions": 1,
-      "pageViews": 2,
-      "averageSessionDuration": 948.8,
+      "pageViews": 3,
+      "averageSessionDuration": 942.6,
       "activeUsers": 1
     },
     {
@@ -436,8 +520,8 @@
       "operatingSystem": "Windows",
       "landingPage": "/statistics-login",
       "sessions": 1,
-      "pageViews": 2,
-      "averageSessionDuration": 2105.6,
+      "pageViews": 3,
+      "averageSessionDuration": 40.7,
       "activeUsers": 1
     },
     {
@@ -450,8 +534,8 @@
       "operatingSystem": "Windows",
       "landingPage": "/statistics-login",
       "sessions": 1,
-      "pageViews": 2,
-      "averageSessionDuration": 1985.5,
+      "pageViews": 3,
+      "averageSessionDuration": 932.6,
       "activeUsers": 1
     },
     {
@@ -462,10 +546,10 @@
       "device": "mobile",
       "browser": "Safari",
       "operatingSystem": "iOS",
-      "landingPage": "/experience",
+      "landingPage": "/",
       "sessions": 1,
       "pageViews": 2,
-      "averageSessionDuration": 0,
+      "averageSessionDuration": 6.2,
       "activeUsers": 1
     },
     {
@@ -479,7 +563,7 @@
       "landingPage": "/statistics-login",
       "sessions": 1,
       "pageViews": 1,
-      "averageSessionDuration": 130.8,
+      "averageSessionDuration": 79.5,
       "activeUsers": 1
     },
     {
@@ -493,21 +577,7 @@
       "landingPage": "/statistics-login",
       "sessions": 1,
       "pageViews": 1,
-      "averageSessionDuration": 5.2,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-18",
-      "time": "10:21",
-      "city": "Vancouver",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/",
-      "sessions": 1,
-      "pageViews": 0,
-      "averageSessionDuration": 0,
+      "averageSessionDuration": 7.9,
       "activeUsers": 1
     },
     {
@@ -520,8 +590,8 @@
       "operatingSystem": "Windows",
       "landingPage": "/statistics-login",
       "sessions": 1,
-      "pageViews": 1,
-      "averageSessionDuration": 0,
+      "pageViews": 2,
+      "averageSessionDuration": 48.5,
       "activeUsers": 1
     },
     {
@@ -3700,76 +3770,6 @@
       "sessions": 1,
       "pageViews": 0,
       "averageSessionDuration": 516.5,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-07",
-      "time": "20:48",
-      "city": "Vancouver",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 1,
-      "averageSessionDuration": 262.1,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-07",
-      "time": "20:44",
-      "city": "Vancouver",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 1,
-      "averageSessionDuration": 5.3,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-07",
-      "time": "20:43",
-      "city": "Vancouver",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 3,
-      "averageSessionDuration": 93.6,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-07",
-      "time": "20:42",
-      "city": "Vancouver",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 3,
-      "averageSessionDuration": 837.2,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-07",
-      "time": "20:28",
-      "city": "Vancouver",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 0,
-      "averageSessionDuration": 71.9,
       "activeUsers": 1
     }
   ],
