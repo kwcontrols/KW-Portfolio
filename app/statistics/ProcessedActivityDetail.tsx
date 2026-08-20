@@ -7,6 +7,28 @@ function formatDuration(value: number) {
   return seconds >= 60 ? `${Math.floor(seconds / 60)}m ${seconds % 60}s` : `${seconds}s`;
 }
 
+const CANADA_REGION_CODES: Record<string, string> = {
+  Alberta: "AB",
+  "British Columbia": "BC",
+  Manitoba: "MB",
+  "New Brunswick": "NB",
+  "Newfoundland and Labrador": "NL",
+  "Northwest Territories": "NT",
+  "Nova Scotia": "NS",
+  Nunavut: "NU",
+  Ontario: "ON",
+  "Prince Edward Island": "PE",
+  Quebec: "QC",
+  Saskatchewan: "SK",
+  Yukon: "YT",
+};
+
+function locationArea(region = "", country = "") {
+  if (country === "Canada") return CANADA_REGION_CODES[region] || region || "Canada";
+  if (country === "United States" || country === "United States of America") return "USA";
+  return country || region || "Unknown";
+}
+
 function csvValue(value: unknown) {
   return `"${String(value ?? "").replace(/"/g, '""')}"`;
 }
@@ -17,7 +39,7 @@ export function ProcessedActivityDetail({ activityLog }: { activityLog: Analytic
       "Date",
       "Time",
       "City",
-      "Country",
+      "Province or Country",
       "Device",
       "OS",
       "Browser",
@@ -32,7 +54,7 @@ export function ProcessedActivityDetail({ activityLog }: { activityLog: Analytic
         item.date,
         item.time,
         item.city,
-        item.country,
+        locationArea(item.region, item.country),
         item.device,
         item.operatingSystem,
         item.browser,
@@ -74,11 +96,11 @@ export function ProcessedActivityDetail({ activityLog }: { activityLog: Analytic
       {activityLog.length ? (
         <div className="processed-table-wrap">
           <table className="processed-table">
-            <thead><tr>{["Date","Time","City / Country","Device","OS","Browser","Landing page","Users","Sessions","Views","Avg. session"].map((heading)=><th key={heading}>{heading}</th>)}</tr></thead>
+            <thead><tr>{["Date","Time","City / Province or Country","Device","OS","Browser","Landing page","Users","Sessions","Views","Avg. session"].map((heading)=><th key={heading}>{heading}</th>)}</tr></thead>
             <tbody>
               {activityLog.map((item,index)=>(
                 <tr key={`${item.date}-${item.time}-${item.city}-${item.device}-${index}`}>
-                  <td>{item.date}</td><td>{item.time || "—"}</td><td>{item.city}, {item.country}</td><td>{item.device}</td><td>{item.operatingSystem}</td><td>{item.browser}</td><td>{item.landingPage}</td><td>{item.activeUsers}</td><td>{item.sessions}</td><td>{item.pageViews}</td><td>{formatDuration(item.averageSessionDuration)}</td>
+                  <td>{item.date}</td><td>{item.time || "—"}</td><td>{item.city}, {locationArea(item.region, item.country)}</td><td>{item.device}</td><td>{item.operatingSystem}</td><td>{item.browser}</td><td>{item.landingPage}</td><td>{item.activeUsers}</td><td>{item.sessions}</td><td>{item.pageViews}</td><td>{formatDuration(item.averageSessionDuration)}</td>
                 </tr>
               ))}
             </tbody>
