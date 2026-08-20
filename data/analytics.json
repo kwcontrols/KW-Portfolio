@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-20T19:36:02.725Z",
+  "updatedAt": "2026-08-20T20:02:33.775Z",
   "period": "last30days",
   "pageViews": 839,
   "totalVisitors": 5,
@@ -4048,8 +4048,24 @@
       "activeUsers": 1
     }
   ],
-  "realtimeActiveUsers": 0,
-  "realtimeVisitors": [],
-  "realtimeFiveMinuteActiveUsers": 0,
-  "realtimeFiveMinuteVisitors": []
+  "realtimeActiveUsers": 1,
+  "realtimeVisitors": [
+    {
+      "city": "Vancouver",
+      "region": "British Columbia",
+      "country": "Canada",
+      "device": "desktop",
+      "activeUsers": 1
+    }
+  ],
+  "realtimeFiveMinuteActiveUsers": 1,
+  "realtimeFiveMinuteVisitors": [
+    {
+      "city": "Vancouver",
+      "region": "British Columbia",
+      "country": "Canada",
+      "device": "desktop",
+      "activeUsers": 1
+    }
+  ]
 }
