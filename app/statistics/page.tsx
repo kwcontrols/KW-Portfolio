@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { SiteFooter } from "../SiteFooter";
 import { SiteHeader } from "../SiteHeader";
 import { GuestAccessManager } from "./GuestAccessManager";
+import { PrivateReferenceCard } from "./PrivateReferenceCard";
 import { FiveMinuteRealtime } from "./FiveMinuteRealtime";
 import StatisticsDashboard, { type AnalyticsData } from "./StatisticsDashboard";
 
@@ -130,6 +131,7 @@ export default function StatisticsPage() {
         </p>
 
         <GuestAccessManager />
+        <PrivateReferenceCard />
         <style>{`
           .statistics-page > .dashboard-section{display:none}
           .statistic-card-link{cursor:pointer}
