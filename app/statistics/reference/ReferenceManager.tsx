@@ -87,7 +87,16 @@ export function ReferenceManager() {
       setError("Private reference storage could not be loaded.");
       return;
     }
-    setData((await response.json()) as Payload);
+
+    const payload = (await response.json()) as Payload;
+    setData(payload);
+
+    if (new URLSearchParams(window.location.search).get("edit") === "1") {
+      setTitle(payload.document.title);
+      setBody(payload.document.body);
+      setEditing(true);
+      setTimeout(() => document.getElementById("reference-editor")?.scrollIntoView({ behavior: "smooth" }), 0);
+    }
   }
 
   useEffect(() => {
@@ -108,6 +117,7 @@ export function ReferenceManager() {
     setEditing(false);
     setTitle("");
     setBody("");
+    if (window.location.search) window.history.replaceState({}, "", "/statistics/reference");
   }
 
   async function save(event: FormEvent<HTMLFormElement>) {
@@ -225,7 +235,7 @@ export function ReferenceManager() {
               </div>
             </div>
             <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
-              <button type="button" onClick={() => document.getElementById("reference-content")?.scrollIntoView({ behavior: "smooth" })} style={secondary}>↗ Review</button>
+              <a href="/statistics/reference/review" style={secondary}>↗ Review</a>
               <button type="button" onClick={beginEdit} style={secondary}>✎ Edit</button>
               <a href="/api/private-reference/pdf" style={secondary}>Download PDF</a>
             </div>
@@ -247,15 +257,10 @@ export function ReferenceManager() {
             </section>
           ) : null}
 
-          <section id="reference-content" style={panel}>
-            <h2 style={{ margin: "0 0 12px", color: "#0c2742" }}>Current operations reference</h2>
-            <div style={{ whiteSpace: "pre-wrap", color: "#20364e", fontSize: "0.9rem", lineHeight: 1.6 }}>{data.document.body}</div>
-          </section>
-
           <section id="reference-editor" style={panel}>
             <h2 style={{ margin: "0 0 6px", color: "#0c2742" }}>Edit private reference</h2>
             <p style={{ color: "#64748b", fontSize: "0.8rem", margin: "0 0 16px" }}>
-              Click Edit above to load the current revision. Saving creates the next revision and records Pacific Time.
+              Fields stay clear until you click Edit. Saving creates the next revision and records Pacific Time.
             </p>
             <form onSubmit={save}>
               <label style={{ display: "block", color: "#0c2742", fontSize: "0.78rem", fontWeight: 800 }}>
@@ -265,7 +270,7 @@ export function ReferenceManager() {
                   onChange={(event) => setTitle(event.target.value)}
                   disabled={!editing || busy}
                   placeholder={data.document.title}
-                  style={{ width: "100%", marginTop: "6px", padding: "10px 12px", border: "1px solid #bccadd", font: "inherit" }}
+                  style={{ width: "100%", marginTop: "6px", padding: "10px 12px", border: "1px solid #bccadd", font: "inherit", background: "#fff" }}
                 />
               </label>
               <label style={{ display: "block", marginTop: "14px", color: "#0c2742", fontSize: "0.78rem", fontWeight: 800 }}>
@@ -274,13 +279,14 @@ export function ReferenceManager() {
                   value={body}
                   onChange={(event) => setBody(event.target.value)}
                   disabled={!editing || busy}
-                  placeholder="Click Edit above to load the current reference."
-                  style={{ width: "100%", minHeight: "360px", marginTop: "6px", padding: "10px 12px", border: "1px solid #bccadd", font: "inherit", resize: "vertical" }}
+                  placeholder="Click Edit above to load the current reference, or enter new content for the next revision."
+                  style={{ width: "100%", minHeight: "360px", marginTop: "6px", padding: "10px 12px", border: "1px solid #bccadd", font: "inherit", resize: "vertical", background: "#fff" }}
                 />
               </label>
               <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginTop: "12px" }}>
                 <button type="submit" disabled={!editing || busy} style={{ ...button, opacity: !editing || busy ? 0.55 : 1 }}>Save next revision</button>
                 <button type="button" disabled={!editing || busy} onClick={cancelEdit} style={{ ...secondary, opacity: !editing || busy ? 0.55 : 1 }}>Cancel</button>
+                <span style={{ color: "#64748b", fontSize: "0.78rem", alignSelf: "center" }}>Current: R{data.document.revision}</span>
               </div>
             </form>
           </section>
