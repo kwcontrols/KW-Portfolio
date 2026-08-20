@@ -7,11 +7,31 @@ import { GuestAccessManager } from "./GuestAccessManager";
 import { FiveMinuteRealtime } from "./FiveMinuteRealtime";
 import StatisticsDashboard, { type AnalyticsData } from "./StatisticsDashboard";
 
-type RealtimeVisitor = { city: string; country: string; device: string; activeUsers: number };
+type RealtimeVisitor = { city: string; country: string; device: string; activeUsers: number; region?: string };
 type ExtendedAnalyticsData = AnalyticsData & {
   realtimeFiveMinuteActiveUsers?: number;
   realtimeFiveMinuteVisitors?: RealtimeVisitor[];
 };
+
+const CANADA_REGION_CODES: Record<string, string> = {
+  Alberta: "AB", "British Columbia": "BC", Manitoba: "MB", "New Brunswick": "NB",
+  "Newfoundland and Labrador": "NL", "Northwest Territories": "NT", "Nova Scotia": "NS",
+  Nunavut: "NU", Ontario: "ON", "Prince Edward Island": "PE", Quebec: "QC",
+  Saskatchewan: "SK", Yukon: "YT",
+};
+
+function locationArea(item: { country?: string; region?: string }) {
+  const country = String(item.country || "");
+  const region = String(item.region || "");
+  if (country === "Canada") return CANADA_REGION_CODES[region] || region || "Canada";
+  if (country === "United States" || country === "United States of America") return "USA";
+  return country || region || "Unknown";
+}
+
+function withDisplayCountry<T extends { country: string }>(item: T): T {
+  const region = String((item as T & { region?: string }).region || "");
+  return { ...item, country: locationArea({ country: item.country, region }) };
+}
 
 function isAnalyticsData(value: unknown): value is AnalyticsData {
   if (!value || typeof value !== "object") return false;
@@ -48,7 +68,13 @@ export default function StatisticsPage() {
         const deviceSummary = desktopUsers !== null && desktopSessions !== null && mobileUsers !== null && mobileSessions !== null
           ? [{ category: "desktop", users: desktopUsers, sessions: desktopSessions }, { category: "mobile", users: mobileUsers, sessions: mobileSessions }]
           : payload.deviceSummary;
-        setAnalytics({ ...payload, deviceSummary });
+        setAnalytics({
+          ...payload,
+          deviceSummary,
+          cities: payload.cities.map((item) => withDisplayCountry(item as typeof item & { region?: string })),
+          realtimeVisitors: payload.realtimeVisitors.map((item) => withDisplayCountry(item as typeof item & { region?: string })),
+          realtimeFiveMinuteVisitors: (raw.realtimeFiveMinuteVisitors ?? []).map((item) => withDisplayCountry(item)),
+        });
       } catch (error) {
         if (!(error instanceof DOMException && error.name === "AbortError")) setAnalytics(null);
       }
@@ -67,6 +93,14 @@ export default function StatisticsPage() {
     card.setAttribute("tabindex", "0");
     card.setAttribute("aria-label", "Open active users and processed visitor activity details");
     card.classList.add("statistic-card-link");
+
+    let detailsLink = card.querySelector<HTMLElement>(".statistic-card-details-link");
+    if (!detailsLink) {
+      detailsLink = document.createElement("span");
+      detailsLink.className = "statistic-card-details-link";
+      detailsLink.textContent = "View all details →";
+      card.appendChild(detailsLink);
+    }
 
     const openDetails = () => window.location.assign("/statistics/details");
     const onKeyDown = (event: KeyboardEvent) => {
@@ -92,7 +126,7 @@ export default function StatisticsPage() {
         <FiveMinuteRealtime activeUsers={analytics?.realtimeFiveMinuteActiveUsers ?? 0} visitors={analytics?.realtimeFiveMinuteVisitors ?? []} />
 
         <p style={{ margin: "18px 0 0", color: "#526b89", fontSize: ".8rem", lineHeight: 1.55 }}>
-          Location note: city and country throughout this dashboard are GA4-estimated from network/IP information. They should be treated as approximate, not as precise physical location.
+          Location note: city, province/region and country throughout this dashboard are GA4-estimated from network/IP information. They should be treated as approximate, not as precise physical location.
         </p>
 
         <GuestAccessManager />
@@ -100,6 +134,7 @@ export default function StatisticsPage() {
           .statistics-page > .dashboard-section{display:none}
           .statistic-card-link{cursor:pointer}
           .statistic-card-link:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+          .statistic-card-details-link{display:block;margin-top:.65rem;color:#175dcc;font-size:.72rem;font-weight:800}
         `}</style>
       </main>
       <SiteFooter />
