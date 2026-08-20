@@ -29,6 +29,10 @@ function locationArea(region = "", country = "") {
   return country || region || "Unknown";
 }
 
+function itemRegion(item: AnalyticsData["activityLog"][number]) {
+  return String((item as AnalyticsData["activityLog"][number] & { region?: string }).region || "");
+}
+
 function csvValue(value: unknown) {
   return `"${String(value ?? "").replace(/"/g, '""')}"`;
 }
@@ -54,7 +58,7 @@ export function ProcessedActivityDetail({ activityLog }: { activityLog: Analytic
         item.date,
         item.time,
         item.city,
-        locationArea(item.region, item.country),
+        locationArea(itemRegion(item), item.country),
         item.device,
         item.operatingSystem,
         item.browser,
@@ -100,7 +104,7 @@ export function ProcessedActivityDetail({ activityLog }: { activityLog: Analytic
             <tbody>
               {activityLog.map((item,index)=>(
                 <tr key={`${item.date}-${item.time}-${item.city}-${item.device}-${index}`}>
-                  <td>{item.date}</td><td>{item.time || "—"}</td><td>{item.city}, {locationArea(item.region, item.country)}</td><td>{item.device}</td><td>{item.operatingSystem}</td><td>{item.browser}</td><td>{item.landingPage}</td><td>{item.activeUsers}</td><td>{item.sessions}</td><td>{item.pageViews}</td><td>{formatDuration(item.averageSessionDuration)}</td>
+                  <td>{item.date}</td><td>{item.time || "—"}</td><td>{item.city}, {locationArea(itemRegion(item), item.country)}</td><td>{item.device}</td><td>{item.operatingSystem}</td><td>{item.browser}</td><td>{item.landingPage}</td><td>{item.activeUsers}</td><td>{item.sessions}</td><td>{item.pageViews}</td><td>{formatDuration(item.averageSessionDuration)}</td>
                 </tr>
               ))}
             </tbody>
