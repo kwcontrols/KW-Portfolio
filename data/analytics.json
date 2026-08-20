@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-08-20T05:43:52.471Z",
+  "updatedAt": "2026-08-20T08:57:02.109Z",
   "period": "last30days",
-  "pageViews": 802,
+  "pageViews": 818,
   "totalVisitors": 5,
   "activeVisitors": 5,
-  "sessions": 61,
-  "averageEngagementTime": 3192.4,
-  "averageSessionDuration": 1559.3,
-  "sessionsPerActiveUser": 12.2,
+  "sessions": 62,
+  "averageEngagementTime": 3266.2,
+  "averageSessionDuration": 1577.3,
+  "sessionsPerActiveUser": 12.4,
   "countriesReached": 1,
   "countries": [
     {
@@ -22,7 +22,7 @@
       "region": "British Columbia",
       "country": "Canada",
       "users": 3,
-      "sessions": 56
+      "sessions": 57
     },
     {
       "city": "Abbotsford",
@@ -157,7 +157,7 @@
       "browser": "Chrome",
       "operatingSystem": "Windows",
       "users": 2,
-      "sessions": 42
+      "sessions": 43
     },
     {
       "category": "mobile",
@@ -178,7 +178,7 @@
     {
       "category": "desktop",
       "users": 3,
-      "sessions": 43
+      "sessions": 44
     },
     {
       "category": "mobile",
@@ -232,8 +232,8 @@
     {
       "date": "2026-08-19",
       "users": 2,
-      "pageViews": 78,
-      "sessions": 12
+      "pageViews": 94,
+      "sessions": 13
     },
     {
       "date": "2026-08-20",
@@ -246,7 +246,7 @@
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/statistics",
-      "views": 177
+      "views": 183
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -256,12 +256,12 @@
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/resume",
-      "views": 132
+      "views": 133
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/contact",
-      "views": 114
+      "views": 115
     },
     {
       "title": "Blogs | Kui Wu",
@@ -271,16 +271,16 @@
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/",
-      "views": 100
-    },
-    {
-      "title": "KW Portfolio | Automation, Integration & AI",
-      "path": "/statistics-login",
-      "views": 12
+      "views": 103
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/statistics/details",
+      "views": 17
+    },
+    {
+      "title": "KW Portfolio | Automation, Integration & AI",
+      "path": "/statistics-login",
       "views": 12
     }
   ],
@@ -299,7 +299,67 @@
   "activityLog": [
     {
       "date": "2026-08-19",
-      "time": "22:07",
+      "time": "22:51",
+      "city": "Vancouver",
+      "region": "British Columbia",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics/details",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 86.7,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-19",
+      "time": "22:50",
+      "city": "Vancouver",
+      "region": "British Columbia",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 0,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-19",
+      "time": "22:50",
+      "city": "Vancouver",
+      "region": "British Columbia",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics/details",
+      "sessions": 1,
+      "pageViews": 2,
+      "averageSessionDuration": 453.3,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-19",
+      "time": "22:49",
+      "city": "Vancouver",
+      "region": "British Columbia",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics/details",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 84.3,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-19",
+      "time": "22:48",
       "city": "Vancouver",
       "region": "British Columbia",
       "country": "Canada",
@@ -309,7 +369,97 @@
       "landingPage": "/statistics/details",
       "sessions": 1,
       "pageViews": 1,
-      "averageSessionDuration": 507,
+      "averageSessionDuration": 57.3,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-19",
+      "time": "22:47",
+      "city": "Vancouver",
+      "region": "British Columbia",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics/details",
+      "sessions": 1,
+      "pageViews": 2,
+      "averageSessionDuration": 0,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-19",
+      "time": "22:12",
+      "city": "Vancouver",
+      "region": "British Columbia",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics/details",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 413.7,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-19",
+      "time": "22:11",
+      "city": "Vancouver",
+      "region": "British Columbia",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics/details",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 263.3,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-19",
+      "time": "22:09",
+      "city": "Vancouver",
+      "region": "British Columbia",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics/details",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 145.3,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-19",
+      "time": "22:07",
+      "city": "Vancouver",
+      "region": "British Columbia",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics/details",
+      "sessions": 1,
+      "pageViews": 4,
+      "averageSessionDuration": 1165.1,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-19",
+      "time": "22:06",
+      "city": "Vancouver",
+      "region": "British Columbia",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/statistics/details",
+      "sessions": 1,
+      "pageViews": 3,
+      "averageSessionDuration": 484.3,
       "activeUsers": 1
     },
     {
@@ -323,8 +473,8 @@
       "operatingSystem": "Windows",
       "landingPage": "/statistics/details",
       "sessions": 1,
-      "pageViews": 2,
-      "averageSessionDuration": 739.1,
+      "pageViews": 4,
+      "averageSessionDuration": 760.3,
       "activeUsers": 1
     },
     {
@@ -413,8 +563,8 @@
       "operatingSystem": "Windows",
       "landingPage": "/statistics/details",
       "sessions": 1,
-      "pageViews": 0,
-      "averageSessionDuration": 576,
+      "pageViews": 1,
+      "averageSessionDuration": 581,
       "activeUsers": 1
     },
     {
@@ -3895,156 +4045,6 @@
       "sessions": 1,
       "pageViews": 0,
       "averageSessionDuration": 241.6,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-16",
-      "time": "15:45",
-      "city": "Quesnel",
-      "region": "British Columbia",
-      "country": "Canada",
-      "device": "mobile",
-      "browser": "Safari",
-      "operatingSystem": "iOS",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 1,
-      "averageSessionDuration": 1491,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-16",
-      "time": "15:42",
-      "city": "Vancouver",
-      "region": "British Columbia",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 1,
-      "averageSessionDuration": 250.1,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-16",
-      "time": "15:38",
-      "city": "Vancouver",
-      "region": "British Columbia",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 0,
-      "averageSessionDuration": 418.2,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-16",
-      "time": "15:31",
-      "city": "Vancouver",
-      "region": "British Columbia",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 2,
-      "averageSessionDuration": 453.3,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-16",
-      "time": "15:24",
-      "city": "Vancouver",
-      "region": "British Columbia",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 1,
-      "averageSessionDuration": 1193,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-16",
-      "time": "15:20",
-      "city": "Vancouver",
-      "region": "British Columbia",
-      "country": "Canada",
-      "device": "mobile",
-      "browser": "Safari",
-      "operatingSystem": "iOS",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 2,
-      "averageSessionDuration": 800.9,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-16",
-      "time": "15:07",
-      "city": "Smithers",
-      "region": "British Columbia",
-      "country": "Canada",
-      "device": "mobile",
-      "browser": "Safari",
-      "operatingSystem": "iOS",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 1,
-      "averageSessionDuration": 742.6,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-16",
-      "time": "15:04",
-      "city": "Vancouver",
-      "region": "British Columbia",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 1,
-      "averageSessionDuration": 5.5,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-16",
-      "time": "14:55",
-      "city": "Ucluelet",
-      "region": "British Columbia",
-      "country": "Canada",
-      "device": "mobile",
-      "browser": "Safari",
-      "operatingSystem": "iOS",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 1,
-      "averageSessionDuration": 5.2,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-16",
-      "time": "14:19",
-      "city": "Vancouver",
-      "region": "British Columbia",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 0,
-      "averageSessionDuration": 38.5,
       "activeUsers": 1
     }
   ],
