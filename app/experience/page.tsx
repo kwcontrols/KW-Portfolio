@@ -41,6 +41,14 @@ const ELECTRICAL_ENGINEERING_PROJECT_IMAGES: SlideshowImage[] = [
   },
 ];
 
+const TANK_FARM_UPGRADE_IMAGES: SlideshowImage[] = [
+  {
+    src: "/projects/project-placeholder-04.svg",
+    alt: "Brownfield tank farm controls upgrade",
+    displayMode: "contain",
+  },
+];
+
 const PROJECTS: Project[] = [
   {
     number: "01",
@@ -123,6 +131,49 @@ const PROJECTS: Project[] = [
     images: ELECTRICAL_ENGINEERING_PROJECT_IMAGES,
     overview:
       "Provided electrical and instrumentation design for industrial projects, including single line diagrams, electrical overhead and underground drawings, and 3D models of E&I equipment and cable tray systems. Prepared technical specifications, bill of materials, MCC, distribution and control panel layouts, hazardous area classification drawings and details, electrical equipment lists, and instrument lists.",
+  },
+  {
+    number: "04",
+    title: "Brownfield Tank Farm Controls Upgrade",
+    category: "Rockwell ControlLogix / FactoryTalk SE / Brownfield Upgrade / Commissioning",
+    images: TANK_FARM_UPGRADE_IMAGES,
+    overview: (
+      <div className="project-overview">
+        <p>
+          Delivered a brownfield controls upgrade for a tank farm at a live
+          operating facility. The existing automation system primarily monitored
+          pump status, while the upgrade introduced pump and VFD control together
+          with oil-transfer preset control.
+        </p>
+        <p>
+          A key challenge was implementing significant PLC and SCADA changes
+          within a limited commissioning window while avoiding a full PLC download
+          that could interrupt facility operations.
+        </p>
+        <p>
+          Reviewed existing PLC logic and project documentation, identified design
+          gaps, raised RFIs, and coordinated technical requirements with the
+          engineering consultant. Developed and tested PLC and FactoryTalk SE
+          changes using Rockwell simulation tools before deployment. Prepared
+          routines for controlled import, HMI changes, and detailed commissioning
+          procedures to minimize on-site work and operational risk.
+        </p>
+        <p>
+          During commissioning, worked with the site team to resolve wiring,
+          instrumentation, and device-configuration issues. The upgraded controls
+          were successfully commissioned within the facility's operating
+          constraints.
+        </p>
+        <p><strong>Key Engineering Work</strong></p>
+        <ul>
+          <li>ControlLogix and FactoryTalk SE development</li>
+          <li>New control strategy implementation and testing</li>
+          <li>Offline simulation and deployment planning</li>
+          <li>RFI and engineering coordination</li>
+          <li>Commissioning and field troubleshooting</li>
+        </ul>
+      </div>
+    ),
   },
 ];
 
