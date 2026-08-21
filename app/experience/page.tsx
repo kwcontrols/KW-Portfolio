@@ -43,9 +43,8 @@ const ELECTRICAL_ENGINEERING_PROJECT_IMAGES: SlideshowImage[] = [
 
 const TANK_FARM_UPGRADE_IMAGES: SlideshowImage[] = [
   {
-    src: "/projects/tank-farm-controls-upgrade.svg",
-    alt: "Brownfield tank farm controls upgrade concept showing tanks, pumps, VFDs, PLC and SCADA",
-    displayMode: "contain",
+    src: "/projects/tank-farm-reference.jpg",
+    alt: "Representative tank farm facility with storage tanks and transfer infrastructure",
   },
 ];
 
@@ -154,7 +153,7 @@ const PROJECTS: Project[] = [
           Reviewed existing PLC logic and project documentation, identified design
           gaps, raised RFIs, and coordinated technical requirements with the
           engineering consultant. Developed and tested PLC and FactoryTalk SE
-          changes using FactoryTalk® Logix Echo before deployment. Prepared
+          changes using FactoryTalk Logix Echo before deployment. Prepared
           routines for controlled import, HMI changes, and detailed commissioning
           procedures to minimize on-site work and operational risk.
         </p>
