@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-08-21T01:56:16.538Z",
+  "updatedAt": "2026-08-21T02:06:06.934Z",
   "period": "last30days",
-  "pageViews": 873,
+  "pageViews": 874,
   "totalVisitors": 6,
   "activeVisitors": 6,
   "sessions": 68,
-  "averageEngagementTime": 2876.7,
-  "averageSessionDuration": 1423.4,
+  "averageEngagementTime": 2878.5,
+  "averageSessionDuration": 1445.9,
   "sessionsPerActiveUser": 11.33,
   "countriesReached": 1,
   "countries": [
@@ -244,7 +244,7 @@
     {
       "date": "2026-08-20",
       "users": 3,
-      "pageViews": 38,
+      "pageViews": 39,
       "sessions": 6
     },
     {
@@ -263,7 +263,7 @@
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/experience",
-      "views": 153
+      "views": 154
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -311,6 +311,21 @@
   "activityLog": [
     {
       "date": "2026-08-20",
+      "time": "18:20",
+      "city": "Vancouver",
+      "region": "British Columbia",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/blog",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 1534.5,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-20",
       "time": "17:56",
       "city": "Vancouver",
       "region": "British Columbia",
@@ -335,7 +350,7 @@
       "operatingSystem": "Windows",
       "landingPage": "/blog",
       "sessions": 1,
-      "pageViews": 0,
+      "pageViews": 1,
       "averageSessionDuration": 1968,
       "activeUsers": 1
     },
@@ -4043,25 +4058,18 @@
       "pageViews": 1,
       "averageSessionDuration": 18.8,
       "activeUsers": 1
-    },
+    }
+  ],
+  "realtimeActiveUsers": 1,
+  "realtimeVisitors": [
     {
-      "date": "2026-08-16",
-      "time": "20:29",
-      "city": "Toronto",
-      "region": "Ontario",
+      "city": "Vancouver",
+      "region": "British Columbia",
       "country": "Canada",
       "device": "desktop",
-      "browser": "Safari",
-      "operatingSystem": "Macintosh",
-      "landingPage": "/",
-      "sessions": 1,
-      "pageViews": 2,
-      "averageSessionDuration": 69.9,
       "activeUsers": 1
     }
   ],
-  "realtimeActiveUsers": 0,
-  "realtimeVisitors": [],
   "realtimeFiveMinuteActiveUsers": 0,
   "realtimeFiveMinuteVisitors": []
 }
