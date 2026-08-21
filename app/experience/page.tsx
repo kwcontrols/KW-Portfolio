@@ -43,8 +43,8 @@ const ELECTRICAL_ENGINEERING_PROJECT_IMAGES: SlideshowImage[] = [
 
 const TANK_FARM_UPGRADE_IMAGES: SlideshowImage[] = [
   {
-    src: "/projects/tank-farm-reference.jpg",
-    alt: "Representative tank farm facility with storage tanks and transfer infrastructure",
+    src: "https://images.pexels.com/photos/11958381/pexels-photo-11958381.jpeg?auto=compress&dpr=1&h=750&w=1260",
+    alt: "Representative tank farm facility with storage tanks and transfer infrastructure — photo by Tom Fisk via Pexels",
   },
 ];
 
@@ -57,38 +57,14 @@ const PROJECTS: Project[] = [
     overview: (
       <div className="project-overview">
         <ul>
-          <li>
-            <strong>PlantPAx</strong> - process and pilot-plant automation,
-            pharmaceutical systems, and system modernization
-          </li>
-          <li>
-            <strong>FactoryTalk View SE</strong> - Network Station and Network
-            Distributed architectures
-          </li>
-          <li>
-            <strong>FactoryTalk View ME</strong> - PanelView Plus and PanelView
-            5000/5510 applications
-          </li>
-          <li>
-            <strong>PLC/PAC Platforms</strong> - PLC-5, SLC 500, MicroLogix,
-            CompactLogix, and ControlLogix; RSLogix 5/500/5000 and Studio 5000
-          </li>
-          <li>
-            <strong>Drives & Motion</strong> - PowerFlex variable frequency
-            drives and encoders
-          </li>
-          <li>
-            <strong>Industrial Networks</strong> - Stratix managed switches,
-            EtherNet/IP, Modbus TCP/RTU
-          </li>
-          <li>
-            <strong>Data & Reporting</strong> - FactoryTalk Historian, SQL
-            databases, and XLReporter
-          </li>
-          <li>
-            <strong>Virtualization & Thin Clients</strong> - virtualized
-            automation infrastructure and ThinManager
-          </li>
+          <li><strong>PlantPAx</strong> - process and pilot-plant automation, pharmaceutical systems, and system modernization</li>
+          <li><strong>FactoryTalk View SE</strong> - Network Station and Network Distributed architectures</li>
+          <li><strong>FactoryTalk View ME</strong> - PanelView Plus and PanelView 5000/5510 applications</li>
+          <li><strong>PLC/PAC Platforms</strong> - PLC-5, SLC 500, MicroLogix, CompactLogix, and ControlLogix; RSLogix 5/500/5000 and Studio 5000</li>
+          <li><strong>Drives & Motion</strong> - PowerFlex variable frequency drives and encoders</li>
+          <li><strong>Industrial Networks</strong> - Stratix managed switches, EtherNet/IP, Modbus TCP/RTU</li>
+          <li><strong>Data & Reporting</strong> - FactoryTalk Historian, SQL databases, and XLReporter</li>
+          <li><strong>Virtualization & Thin Clients</strong> - virtualized automation infrastructure and ThinManager</li>
         </ul>
       </div>
     ),
@@ -101,24 +77,11 @@ const PROJECTS: Project[] = [
     overview: (
       <div className="project-overview">
         <ul>
-          <li>
-            <strong>TIA Portal</strong> - engineering, programming,
-            commissioning, and diagnostics
-          </li>
-          <li>
-            <strong>PLC Platforms</strong> - SIMATIC S7-1200 and S7-1500
-          </li>
-          <li>
-            <strong>HMI Platforms</strong> - SIMATIC TP700 and TP1200 Comfort
-            Panels
-          </li>
-          <li>
-            <strong>Drives</strong> - SINAMICS G120 drives
-          </li>
-          <li>
-            <strong>Industrial Networks</strong> - PROFINET, PROFIBUS, Modbus
-            TCP/RTU
-          </li>
+          <li><strong>TIA Portal</strong> - engineering, programming, commissioning, and diagnostics</li>
+          <li><strong>PLC Platforms</strong> - SIMATIC S7-1200 and S7-1500</li>
+          <li><strong>HMI Platforms</strong> - SIMATIC TP700 and TP1200 Comfort Panels</li>
+          <li><strong>Drives</strong> - SINAMICS G120 drives</li>
+          <li><strong>Industrial Networks</strong> - PROFINET, PROFIBUS, Modbus TCP/RTU</li>
         </ul>
       </div>
     ),
@@ -128,8 +91,7 @@ const PROJECTS: Project[] = [
     title: "Electrical & Control System Design",
     category: "E&I Design / AutoCAD Electrical / EPLAN / 2D & 3D CADD",
     images: ELECTRICAL_ENGINEERING_PROJECT_IMAGES,
-    overview:
-      "Provided electrical and instrumentation design for industrial projects, including single line diagrams, electrical overhead and underground drawings, and 3D models of E&I equipment and cable tray systems. Prepared technical specifications, bill of materials, MCC, distribution and control panel layouts, hazardous area classification drawings and details, electrical equipment lists, and instrument lists.",
+    overview: "Provided electrical and instrumentation design for industrial projects, including single line diagrams, electrical overhead and underground drawings, and 3D models of E&I equipment and cable tray systems. Prepared technical specifications, bill of materials, MCC, distribution and control panel layouts, hazardous area classification drawings and details, electrical equipment lists, and instrument lists.",
   },
   {
     number: "04",
@@ -138,32 +100,10 @@ const PROJECTS: Project[] = [
     images: TANK_FARM_UPGRADE_IMAGES,
     overview: (
       <div className="project-overview">
-        <p>
-          Delivered a brownfield controls upgrade for a tank farm at a live
-          operating facility. The existing automation system primarily monitored
-          pump status, while the upgrade introduced pump and VFD control together
-          with oil-transfer preset control.
-        </p>
-        <p>
-          A key challenge was implementing significant PLC and SCADA changes
-          within a limited commissioning window while avoiding a full PLC download
-          that could interrupt facility operations.
-        </p>
-        <p>
-          Reviewed existing PLC logic and project documentation, identified design
-          gaps, raised RFIs, and coordinated technical requirements with the
-          engineering consultant. Developed and tested PLC and FactoryTalk SE
-          changes using FactoryTalk Logix Echo before deployment. Prepared
-          routines for controlled import, HMI changes, and detailed commissioning
-          procedures to minimize on-site work and operational risk.
-        </p>
-        <p>
-          During commissioning, worked with the site team to resolve wiring,
-          instrumentation, and device-configuration issues, while completing daily
-          on-site reports to communicate progress, issues, and next steps to project
-          stakeholders. The upgraded controls were successfully commissioned within
-          the facility's operating constraints.
-        </p>
+        <p>Delivered a brownfield controls upgrade for a tank farm at a live operating facility. The existing automation system primarily monitored pump status, while the upgrade introduced pump and VFD control together with oil-transfer preset control.</p>
+        <p>A key challenge was implementing significant PLC and SCADA changes within a limited commissioning window while avoiding a full PLC download that could interrupt facility operations.</p>
+        <p>Reviewed existing PLC logic and project documentation, identified design gaps, raised RFIs, and coordinated technical requirements with the engineering consultant. Developed and tested PLC and FactoryTalk SE changes using FactoryTalk Logix Echo before deployment. Prepared routines for controlled import, HMI changes, and detailed commissioning procedures to minimize on-site work and operational risk.</p>
+        <p>During commissioning, worked with the site team to resolve wiring, instrumentation, and device-configuration issues, while completing daily on-site reports to communicate progress, issues, and next steps to project stakeholders. The upgraded controls were successfully commissioned within the facility's operating constraints.</p>
         <p><strong>Key Engineering Work</strong></p>
         <ul>
           <li>ControlLogix and FactoryTalk SE development</li>
@@ -182,63 +122,26 @@ export default function ProjectsPage() {
     <div className="site-shell" id="page-start">
       <SiteHeader />
       <main className="projects-page" id="projects">
-        <section
-          className="projects-intro"
-          aria-label="Projects introduction"
-          style={{ maxWidth: "840px" }}
-        >
-          <p style={{ maxWidth: "none" }}>
-            My project experience spans process and industrial automation,
-            system integration, electrical and instrumentation design,
-            PLC/HMI/SCADA development, industrial networks, system migration,
-            troubleshooting, and commissioning. Along the way, I have also
-            contributed to project planning, technical documentation, design
-            reviews, and the development of reusable engineering standards and
-            tools.
-          </p>
-          <p style={{ maxWidth: "none", marginTop: "20px" }}>
-            Each project has brought different technical and practical
-            challenges, and each has added to my experience. The selected work
-            below highlights some of the systems, technologies, and engineering
-            work I have been involved with.
-          </p>
+        <section className="projects-intro" aria-label="Projects introduction" style={{ maxWidth: "840px" }}>
+          <p style={{ maxWidth: "none" }}>My project experience spans process and industrial automation, system integration, electrical and instrumentation design, PLC/HMI/SCADA development, industrial networks, system migration, troubleshooting, and commissioning. Along the way, I have also contributed to project planning, technical documentation, design reviews, and the development of reusable engineering standards and tools.</p>
+          <p style={{ maxWidth: "none", marginTop: "20px" }}>Each project has brought different technical and practical challenges, and each has added to my experience. The selected work below highlights some of the systems, technologies, and engineering work I have been involved with.</p>
         </section>
-
-        <section
-          className="projects-list"
-          aria-label="Selected automation projects"
-        >
+        <section className="projects-list" aria-label="Selected automation projects">
           {PROJECTS.map((project) => (
             <article className="project-entry" key={project.number}>
-              <div className="project-media">
-                {project.images && (
-                  <ImageSlideshow
-                    images={project.images}
-                    label={`${project.title} project photos`}
-                  />
-                )}
-              </div>
+              <div className="project-media">{project.images && (<ImageSlideshow images={project.images} label={`${project.title} project photos`} />)}</div>
               <div className="project-details">
                 <p className="project-number">{project.number}</p>
                 <h2>{project.title}</h2>
                 <p className="project-category">{project.category}</p>
-                {typeof project.overview === "string" ? (
-                  <p className="project-overview">{project.overview}</p>
-                ) : (
-                  project.overview
-                )}
+                {typeof project.overview === "string" ? (<p className="project-overview">{project.overview}</p>) : (project.overview)}
               </div>
             </article>
           ))}
         </section>
       </main>
       <SiteFooter />
-      <style>{`
-        .project-entry:nth-child(-n + 4) .project-details h2 {
-          font-size: 1.875rem;
-          line-height: 1.25;
-        }
-      `}</style>
+      <style>{`.project-entry:nth-child(-n + 4) .project-details h2 { font-size: 1.875rem; line-height: 1.25; }`}</style>
     </div>
   );
 }
