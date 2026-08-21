@@ -43,8 +43,8 @@ const ELECTRICAL_ENGINEERING_PROJECT_IMAGES: SlideshowImage[] = [
 
 const TANK_FARM_UPGRADE_IMAGES: SlideshowImage[] = [
   {
-    src: "/projects/project-placeholder-04.svg",
-    alt: "Brownfield tank farm controls upgrade",
+    src: "/projects/tank-farm-controls-upgrade.svg",
+    alt: "Brownfield tank farm controls upgrade concept showing tanks, pumps, VFDs, PLC and SCADA",
     displayMode: "contain",
   },
 ];
@@ -154,23 +154,24 @@ const PROJECTS: Project[] = [
           Reviewed existing PLC logic and project documentation, identified design
           gaps, raised RFIs, and coordinated technical requirements with the
           engineering consultant. Developed and tested PLC and FactoryTalk SE
-          changes using Rockwell simulation tools before deployment. Prepared
+          changes using FactoryTalk® Logix Echo before deployment. Prepared
           routines for controlled import, HMI changes, and detailed commissioning
           procedures to minimize on-site work and operational risk.
         </p>
         <p>
           During commissioning, worked with the site team to resolve wiring,
-          instrumentation, and device-configuration issues. The upgraded controls
-          were successfully commissioned within the facility's operating
-          constraints.
+          instrumentation, and device-configuration issues, while completing daily
+          on-site reports to communicate progress, issues, and next steps to project
+          stakeholders. The upgraded controls were successfully commissioned within
+          the facility's operating constraints.
         </p>
         <p><strong>Key Engineering Work</strong></p>
         <ul>
           <li>ControlLogix and FactoryTalk SE development</li>
           <li>New control strategy implementation and testing</li>
-          <li>Offline simulation and deployment planning</li>
+          <li>FactoryTalk Logix Echo simulation and deployment planning</li>
           <li>RFI and engineering coordination</li>
-          <li>Commissioning and field troubleshooting</li>
+          <li>Commissioning, reporting, and field troubleshooting</li>
         </ul>
       </div>
     ),
