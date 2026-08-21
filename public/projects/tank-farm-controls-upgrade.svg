@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Brownfield tank farm controls upgrade</title>
+  <desc id="desc">An anonymized engineering illustration of storage tanks, pumps, variable frequency drives, a ControlLogix PLC, and a SCADA workstation.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#071426"/><stop offset="1" stop-color="#123457"/></linearGradient>
+    <linearGradient id="tank" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b9c9d8"/><stop offset="0.5" stop-color="#f3f7fa"/><stop offset="1" stop-color="#8da5ba"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-opacity=".28"/></filter>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <g opacity=".13" stroke="#8ec5ff" stroke-width="1"><path d="M0 100H1200M0 200H1200M0 300H1200M0 400H1200M0 500H1200M0 600H1200"/><path d="M100 0V720M200 0V720M300 0V720M400 0V720M500 0V720M600 0V720M700 0V720M800 0V720M900 0V720M1000 0V720M1100 0V720"/></g>
+  <text x="70" y="75" fill="#fff" font-family="Arial,sans-serif" font-size="34" font-weight="700">BROWNFIELD TANK FARM CONTROLS UPGRADE</text>
+  <text x="72" y="112" fill="#8ec5ff" font-family="Arial,sans-serif" font-size="18" letter-spacing="3">LIVE FACILITY • PLC / SCADA • SIMULATION • COMMISSIONING</text>
+  <g filter="url(#shadow)">
+    <g transform="translate(80 210)"><ellipse cx="135" cy="30" rx="105" ry="30" fill="#dfe9f0"/><rect x="30" y="30" width="210" height="250" fill="url(#tank)"/><ellipse cx="135" cy="280" rx="105" ry="30" fill="#91a9bd"/><path d="M65 55H205M65 105H205M65 155H205M65 205H205" stroke="#6e879b" opacity=".45"/><text x="135" y="330" text-anchor="middle" fill="#d9eaff" font-family="Arial" font-size="18">STORAGE TANK</text></g>
+    <g transform="translate(330 260)"><ellipse cx="115" cy="25" rx="88" ry="25" fill="#dfe9f0"/><rect x="27" y="25" width="176" height="210" fill="url(#tank)"/><ellipse cx="115" cy="235" rx="88" ry="25" fill="#91a9bd"/><text x="115" y="282" text-anchor="middle" fill="#d9eaff" font-family="Arial" font-size="18">STORAGE TANK</text></g>
+  </g>
+  <g stroke="#48a9ff" stroke-width="9" fill="none"><path d="M215 500V565H455"/><path d="M445 495V565H600"/><path d="M600 565H750V430"/></g>
+  <g transform="translate(505 525)" filter="url(#shadow)"><circle cx="48" cy="40" r="38" fill="#0f2740" stroke="#7bc2ff" stroke-width="5"/><path d="M38 20L70 40 38 60Z" fill="#7bc2ff"/><text x="48" y="102" text-anchor="middle" fill="#fff" font-family="Arial" font-size="17">PUMP</text></g>
+  <g transform="translate(635 500)" filter="url(#shadow)"><rect width="105" height="100" rx="8" fill="#e6edf3"/><rect x="12" y="14" width="81" height="24" rx="3" fill="#183653"/><circle cx="25" cy="58" r="7" fill="#55d88a"/><circle cx="48" cy="58" r="7" fill="#f2c14e"/><path d="M18 78H87" stroke="#7891a5" stroke-width="5"/><text x="52" y="124" text-anchor="middle" fill="#fff" font-family="Arial" font-size="17">VFD</text></g>
+  <g transform="translate(800 175)" filter="url(#shadow)"><rect width="280" height="175" rx="12" fill="#e7edf2"/><rect x="18" y="18" width="244" height="100" rx="6" fill="#102b45"/><path d="M35 88L70 65 105 80 145 43 185 58 235 34" stroke="#5fd0ff" stroke-width="4" fill="none"/><circle cx="70" cy="65" r="5" fill="#5fd0ff"/><circle cx="145" cy="43" r="5" fill="#5fd0ff"/><rect x="112" y="132" width="56" height="12" rx="4" fill="#91a4b4"/><text x="140" y="205" text-anchor="middle" fill="#fff" font-family="Arial" font-size="19">FACTORYTALK SE</text></g>
+  <g transform="translate(825 435)" filter="url(#shadow)"><rect width="235" height="120" rx="8" fill="#dbe4eb"/><g transform="translate(18 18)"><rect width="38" height="84" fill="#263d51"/><rect x="45" width="38" height="84" fill="#425f77"/><rect x="90" width="38" height="84" fill="#425f77"/><rect x="135" width="38" height="84" fill="#425f77"/><rect x="180" width="20" height="84" fill="#263d51"/><g fill="#59e58d"><circle cx="19" cy="18" r="4"/><circle cx="64" cy="18" r="4"/><circle cx="109" cy="18" r="4"/><circle cx="154" cy="18" r="4"/></g></g><text x="117" y="150" text-anchor="middle" fill="#fff" font-family="Arial" font-size="19">CONTROLLOGIX</text></g>
+  <g stroke="#67d4ff" stroke-width="3" stroke-dasharray="9 8" fill="none"><path d="M940 350V435"/><path d="M825 495H750"/></g>
+  <g transform="translate(790 610)"><rect width="310" height="54" rx="27" fill="#0d2237" stroke="#4eaaf5" stroke-width="2"/><text x="155" y="34" text-anchor="middle" fill="#cfeaff" font-family="Arial" font-size="17">SIMULATE → DEPLOY → COMMISSION</text></g>
+</svg>
