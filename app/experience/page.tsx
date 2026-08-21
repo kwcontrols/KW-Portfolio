@@ -96,7 +96,7 @@ const PROJECTS: Project[] = [
   {
     number: "04",
     title: "Brownfield Tank Farm Controls Upgrade",
-    category: "Rockwell ControlLogix / FactoryTalk SE / Brownfield Upgrade / Commissioning",
+    category: "Rockwell ControlLogix / FactoryTalk SE / Live-System Commissioning",
     images: TANK_FARM_UPGRADE_IMAGES,
     overview: (
       <div className="project-overview">
