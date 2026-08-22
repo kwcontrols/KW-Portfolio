@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-22T01:04:55.114Z",
+  "updatedAt": "2026-08-22T01:10:01.733Z",
   "period": "last30days",
   "pageViews": 921,
   "totalVisitors": 6,
@@ -4055,8 +4055,15 @@
       "activeUsers": 1
     }
   ],
-  "realtimeActiveUsers": 2,
+  "realtimeActiveUsers": 3,
   "realtimeVisitors": [
+    {
+      "city": "Chilliwack",
+      "region": "British Columbia",
+      "country": "Canada",
+      "device": "mobile",
+      "activeUsers": 1
+    },
     {
       "city": "Vancouver",
       "region": "British Columbia",
@@ -4072,8 +4079,15 @@
       "activeUsers": 1
     }
   ],
-  "realtimeFiveMinuteActiveUsers": 1,
+  "realtimeFiveMinuteActiveUsers": 2,
   "realtimeFiveMinuteVisitors": [
+    {
+      "city": "Chilliwack",
+      "region": "British Columbia",
+      "country": "Canada",
+      "device": "mobile",
+      "activeUsers": 1
+    },
     {
       "city": "Vancouver",
       "region": "British Columbia",
