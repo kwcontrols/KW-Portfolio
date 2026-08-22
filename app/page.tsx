@@ -14,7 +14,10 @@ export default function Home() {
               <img
                 src="/kui-wu-headshot-3.png"
                 alt="Portrait of Kui Wu"
-                style={{ transform: "scale(1.55)", transformOrigin: "center 43%" }}
+                style={{
+                  transform: "translateX(-6px) scale(1.38)",
+                  transformOrigin: "center 20%",
+                }}
               />
             </div>
             <div className="about-copy">
