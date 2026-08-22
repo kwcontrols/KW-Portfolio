@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-08-22T01:10:01.733Z",
+  "updatedAt": "2026-08-22T01:19:49.010Z",
   "period": "last30days",
-  "pageViews": 921,
+  "pageViews": 923,
   "totalVisitors": 6,
   "activeVisitors": 6,
-  "sessions": 77,
-  "averageEngagementTime": 3069.7,
-  "averageSessionDuration": 1287.6,
-  "sessionsPerActiveUser": 12.83,
+  "sessions": 78,
+  "averageEngagementTime": 3073.2,
+  "averageSessionDuration": 1276.3,
+  "sessionsPerActiveUser": 13,
   "countriesReached": 1,
   "countries": [
     {
@@ -22,7 +22,7 @@
       "region": "British Columbia",
       "country": "Canada",
       "users": 4,
-      "sessions": 71
+      "sessions": 72
     },
     {
       "city": "Abbotsford",
@@ -157,7 +157,7 @@
       "browser": "Chrome",
       "operatingSystem": "Windows",
       "users": 2,
-      "sessions": 52
+      "sessions": 53
     },
     {
       "category": "mobile",
@@ -185,7 +185,7 @@
     {
       "category": "desktop",
       "users": 4,
-      "sessions": 55
+      "sessions": 56
     },
     {
       "category": "mobile",
@@ -239,8 +239,8 @@
     {
       "date": "2026-08-21",
       "users": 3,
-      "pageViews": 8,
-      "sessions": 6
+      "pageViews": 10,
+      "sessions": 7
     },
     {
       "date": "2026-08-22",
@@ -278,12 +278,12 @@
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/",
-      "views": 116
+      "views": 117
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/statistics/details",
-      "views": 20
+      "views": 21
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -304,6 +304,36 @@
     }
   ],
   "activityLog": [
+    {
+      "date": "2026-08-21",
+      "time": "17:27",
+      "city": "Vancouver",
+      "region": "British Columbia",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 404.5,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-21",
+      "time": "17:21",
+      "city": "Vancouver",
+      "region": "British Columbia",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 0,
+      "activeUsers": 1
+    },
     {
       "date": "2026-08-21",
       "time": "15:30",
@@ -4023,36 +4053,6 @@
       "pageViews": 0,
       "averageSessionDuration": 90.2,
       "activeUsers": 1
-    },
-    {
-      "date": "2026-08-17",
-      "time": "14:06",
-      "city": "Vancouver",
-      "region": "British Columbia",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 1,
-      "averageSessionDuration": 43.5,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-17",
-      "time": "14:05",
-      "city": "Vancouver",
-      "region": "British Columbia",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 1,
-      "averageSessionDuration": 117.1,
-      "activeUsers": 1
     }
   ],
   "realtimeActiveUsers": 3,
@@ -4079,15 +4079,8 @@
       "activeUsers": 1
     }
   ],
-  "realtimeFiveMinuteActiveUsers": 2,
+  "realtimeFiveMinuteActiveUsers": 1,
   "realtimeFiveMinuteVisitors": [
-    {
-      "city": "Chilliwack",
-      "region": "British Columbia",
-      "country": "Canada",
-      "device": "mobile",
-      "activeUsers": 1
-    },
     {
       "city": "Vancouver",
       "region": "British Columbia",
