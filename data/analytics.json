@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-08-21T22:56:59.571Z",
+  "updatedAt": "2026-08-22T00:26:52.018Z",
   "period": "last30days",
-  "pageViews": 920,
+  "pageViews": 921,
   "totalVisitors": 6,
   "activeVisitors": 6,
-  "sessions": 76,
-  "averageEngagementTime": 3065,
-  "averageSessionDuration": 1304.5,
-  "sessionsPerActiveUser": 12.67,
+  "sessions": 77,
+  "averageEngagementTime": 3069.7,
+  "averageSessionDuration": 1287.6,
+  "sessionsPerActiveUser": 12.83,
   "countriesReached": 1,
   "countries": [
     {
@@ -22,7 +22,7 @@
       "region": "British Columbia",
       "country": "Canada",
       "users": 4,
-      "sessions": 70
+      "sessions": 71
     },
     {
       "city": "Abbotsford",
@@ -157,7 +157,7 @@
       "browser": "Chrome",
       "operatingSystem": "Windows",
       "users": 2,
-      "sessions": 51
+      "sessions": 52
     },
     {
       "category": "mobile",
@@ -185,7 +185,7 @@
     {
       "category": "desktop",
       "users": 4,
-      "sessions": 54
+      "sessions": 55
     },
     {
       "category": "mobile",
@@ -206,12 +206,6 @@
     }
   ],
   "visitorTrends": [
-    {
-      "date": "2026-08-15",
-      "users": 2,
-      "pageViews": 20,
-      "sessions": 3
-    },
     {
       "date": "2026-08-16",
       "users": 4,
@@ -245,8 +239,14 @@
     {
       "date": "2026-08-21",
       "users": 3,
-      "pageViews": 7,
-      "sessions": 5
+      "pageViews": 8,
+      "sessions": 6
+    },
+    {
+      "date": "2026-08-22",
+      "users": 0,
+      "pageViews": 0,
+      "sessions": 0
     }
   ],
   "topPages": [
@@ -278,7 +278,7 @@
     {
       "title": "KW Portfolio | Automation, Integration & AI",
       "path": "/",
-      "views": 115
+      "views": 116
     },
     {
       "title": "KW Portfolio | Automation, Integration & AI",
@@ -306,6 +306,21 @@
   "activityLog": [
     {
       "date": "2026-08-21",
+      "time": "15:30",
+      "city": "Vancouver",
+      "region": "British Columbia",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 0,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-21",
       "time": "14:54",
       "city": "Vancouver",
       "region": "British Columbia",
@@ -318,6 +333,21 @@
       "pageViews": 0,
       "averageSessionDuration": 0,
       "activeUsers": 1
+    },
+    {
+      "date": "2026-08-21",
+      "time": "14:54",
+      "city": "Vancouver",
+      "region": "British Columbia",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 1,
+      "averageSessionDuration": 0,
+      "activeUsers": 0
     },
     {
       "date": "2026-08-21",
@@ -347,6 +377,21 @@
       "sessions": 1,
       "pageViews": 1,
       "averageSessionDuration": 3312.9,
+      "activeUsers": 1
+    },
+    {
+      "date": "2026-08-21",
+      "time": "11:20",
+      "city": "Vancouver",
+      "region": "British Columbia",
+      "country": "Canada",
+      "device": "desktop",
+      "browser": "Chrome",
+      "operatingSystem": "Windows",
+      "landingPage": "/",
+      "sessions": 1,
+      "pageViews": 0,
+      "averageSessionDuration": 0,
       "activeUsers": 1
     },
     {
@@ -4007,51 +4052,6 @@
       "sessions": 1,
       "pageViews": 1,
       "averageSessionDuration": 117.1,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-17",
-      "time": "14:03",
-      "city": "Vancouver",
-      "region": "British Columbia",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 6,
-      "averageSessionDuration": 158.6,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-17",
-      "time": "14:01",
-      "city": "Vancouver",
-      "region": "British Columbia",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 2,
-      "averageSessionDuration": 8.5,
-      "activeUsers": 1
-    },
-    {
-      "date": "2026-08-17",
-      "time": "14:00",
-      "city": "Vancouver",
-      "region": "British Columbia",
-      "country": "Canada",
-      "device": "desktop",
-      "browser": "Chrome",
-      "operatingSystem": "Windows",
-      "landingPage": "/statistics",
-      "sessions": 1,
-      "pageViews": 2,
-      "averageSessionDuration": 631.5,
       "activeUsers": 1
     }
   ],
