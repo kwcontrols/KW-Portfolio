@@ -11,7 +11,11 @@ export default function Home() {
         <section className="section" id="about">
           <div className="about-feature">
             <div className="about-portrait">
-              <img src="/kui-wu-headshot-3.png" alt="Portrait of Kui Wu" />
+              <img
+                src="/kui-wu-headshot-3.png"
+                alt="Portrait of Kui Wu"
+                style={{ transform: "scale(1.55)", transformOrigin: "center 43%" }}
+              />
             </div>
             <div className="about-copy">
               <p>
